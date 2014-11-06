@@ -1,0 +1,16 @@
+{
+    "name": "TinyMCE Rich Text Editor",
+    "lowCaseName": "tinymcerte",
+    "description": "TinyMCE 4",
+    "author": "John Peca",
+    "version": "0.0.1",
+    "package":{
+        "elements": {
+            "plugins": [{
+                "name": "TinyMCERTE",
+                "events": ["OnRichTextBrowserInit", "OnRichTextEditorRegister", "OnRichTextEditorInit"]
+            }]
+        },
+        "systemSettings": []
+    }
+}

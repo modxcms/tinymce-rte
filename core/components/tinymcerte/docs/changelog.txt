@@ -1,0 +1,5 @@
+Changelog for TinyMCE Rich Text Editor.
+
+TinyMCE Rich Text Editor 0.0.1
+==============
+- Initial release.
