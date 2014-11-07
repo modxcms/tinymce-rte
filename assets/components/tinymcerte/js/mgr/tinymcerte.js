@@ -11,15 +11,7 @@ Ext.extend(TinyMCERTE.Tiny,Ext.Component,{
         selector: '#ta'
         ,document_base_url: MODx.config.base_url
         ,file_browser_callback_types: 'file image media'
-        ,plugins: [
-            "advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table contextmenu paste"
-        ]
-        ,toolbar1: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
     }
-
-    ,editorConfig: {}
 
     ,initComponent: function() {
         TinyMCERTE.Tiny.superclass.initComponent.call(this);
@@ -27,9 +19,15 @@ Ext.extend(TinyMCERTE.Tiny,Ext.Component,{
         Ext.onReady(this.render, this);
     }
 
+    ,editor: null
+
     ,render: function() {
-        Ext.apply(this.cfg, this.editorConfig, {});
+        var that = this;
+        Ext.apply(this.cfg, TinyMCERTE.editorConfig, {});
         this.cfg.file_browser_callback = this.loadBrowser;
+        this.cfg.init_instance_callback = function(editor) {
+            that.editor = editor;
+        };
 
         tinymce.init(this.cfg);
     }
@@ -49,6 +47,12 @@ Ext.extend(TinyMCERTE.Tiny,Ext.Component,{
         return false;
     }
 });
+
+TinyMCERTE.loadForTVs = function() {
+    new TinyMCERTE.Tiny({
+        selector: '.modx-richtext'
+    });
+};
 
 MODx.loadRTE = function(id) {
     new TinyMCERTE.Tiny({

@@ -22,10 +22,22 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         $this->modx->regClientStartupScript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.js');
 
         return '<script type="text/javascript">
+            TinyMCERTE.editorConfig = ' . $this->modx->toJSON($this->getTinyConfig()) . ';
 
-            TinyMCERTE.editorConfig = {
-            };
-
+            Ext.onReady(function(){
+                TinyMCERTE.loadForTVs();
+            });
         </script>';
     }
+
+    private function getTinyConfig() {
+        return array(
+            'plugins' => $this->tinymcerte->getOption('plugins', array(), ''),
+            'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), ''),
+            'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
+            'toolbar3' => $this->tinymcerte->getOption('toolbar3', array(), ''),
+        );
+    }
+
+
 }
