@@ -23,6 +23,13 @@
         },{
             "key": "toolbar3",
             "value": ""
+        },{
+            "key": "menubar",
+            "value": "file edit insert view format table tools"
+        },{
+            "key": "statusbar",
+            "value": true,
+            "type": "combo-boolean"
         }]
     }
 }

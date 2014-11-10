@@ -31,11 +31,18 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
     }
 
     private function getTinyConfig() {
+        $language = $this->modx->getOption('manager_language');
+        $language = $this->tinymcerte->getLanguageCode($language);
+
         return array(
-            'plugins' => $this->tinymcerte->getOption('plugins', array(), ''),
-            'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), ''),
+            'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste'),
+            'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
             'toolbar3' => $this->tinymcerte->getOption('toolbar3', array(), ''),
+            'language' => $language,
+            'directionality' => $this->modx->getOption('manager_direction', array(), 'ltr'),
+            'menubar' => $this->tinymcerte->getOption('menubar', array(), 'file edit insert view format table tools'),
+            'statusbar' => $this->tinymcerte->getOption('statusbar', array(), 1) == 1,
         );
     }
 

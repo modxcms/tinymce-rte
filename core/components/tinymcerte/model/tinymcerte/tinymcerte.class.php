@@ -60,4 +60,22 @@ class TinyMCERTE {
         }
         return $option;
     }
+
+    public function getLanguageCode($language) {
+        $codes = array(
+            'bg' => 'bg_BG',
+            'fr' => 'fr_FR',
+            'he' => 'he_IL',
+            'pt-br' => 'pt_BR',
+            'sv' => 'sv_SE',
+            'th' => 'th_TH',
+            'zh' => 'zh_CN',
+        );
+
+        if (isset($codes[$language])) {
+            return $codes[$language];
+        }
+
+        return $language;
+    }
 }
