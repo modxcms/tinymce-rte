@@ -2,4 +2,5 @@ Changelog for TinyMCE Rich Text Editor.
 
 TinyMCE Rich Text Editor 0.0.1
 ==============
+- Added d&d from tree
 - Initial release.
