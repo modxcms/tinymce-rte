@@ -43,6 +43,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'directionality' => $this->modx->getOption('manager_direction', array(), 'ltr'),
             'menubar' => $this->tinymcerte->getOption('menubar', array(), 'file edit insert view format table tools'),
             'statusbar' => $this->tinymcerte->getOption('statusbar', array(), 1) == 1,
+            'image_advtab' => $this->modx->getOption('image_advtab', array(), true),
         );
     }
 
