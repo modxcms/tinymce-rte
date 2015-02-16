@@ -3,7 +3,7 @@
     "lowCaseName": "tinymcerte",
     "description": "TinyMCE 4",
     "author": "John Peca",
-    "version": "0.0.1",
+    "version": "1.0.0-beta",
     "package":{
         "elements": {
             "plugins": [{
@@ -70,5 +70,10 @@
             "value": false,
             "type": "combo-boolean"
         }]
+    }
+    ,"build": {
+        "resolver": {
+            "after": "resolve.whicheditor.php"
+        }
     }
 }
