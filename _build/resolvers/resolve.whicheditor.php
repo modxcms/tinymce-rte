@@ -4,7 +4,6 @@
  * @package tinymcerte
  * @subpackage build
  */
-$success= true;
 
 switch ($options[xPDOTransport::PACKAGE_ACTION]) {
     case xPDOTransport::ACTION_INSTALL:
@@ -27,8 +26,19 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
 
         break;
     case xPDOTransport::ACTION_UNINSTALL:
-        $success= true;
+        $setting = $object->xpdo->getObject('modSystemSetting',array('key' => 'which_editor'));
+        if ($setting) {
+            $setting->set('value','');
+            $setting->save();
+        }
+
+        $setting = $object->xpdo->getObject('modSystemSetting',array('key' => 'use_editor'));
+        if ($setting) {
+            $setting->set('value',0);
+            $setting->save();
+        }
+
         break;
 }
 
-return $success;
+return true;
