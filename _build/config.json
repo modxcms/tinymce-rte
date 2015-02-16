@@ -30,6 +30,10 @@
             "key": "statusbar",
             "value": true,
             "type": "combo-boolean"
+        },{
+            "key": "image_advtab",
+            "value": true,
+            "type": "combo-boolean"
         }]
     }
 }
