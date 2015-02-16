@@ -57,6 +57,10 @@
             "key": "alignment_format",
             "value": "[{\"title\": \"Left\", \"icon\": \"alignleft\", \"format\": \"alignleft\"},{\"title\": \"Center\", \"icon\": \"aligncenter\", \"format\": \"aligncenter\"},{\"title\": \"Right\", \"icon\": \"alignright\", \"format\": \"alignright\"},{\"title\": \"Justify\", \"icon\": \"alignjustify\", \"format\": \"alignjustify\"}]",
             "type": "textarea"
+        },{
+            "key": "paste_as_text",
+            "value": false,
+            "type": "combo-boolean"
         }]
     }
 }
