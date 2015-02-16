@@ -34,6 +34,9 @@
             "key": "image_advtab",
             "value": true,
             "type": "combo-boolean"
+        },{
+            "key": "object_resizing",
+            "value": 1
         }]
     }
 }

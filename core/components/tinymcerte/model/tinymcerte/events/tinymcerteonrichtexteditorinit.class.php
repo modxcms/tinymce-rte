@@ -34,6 +34,16 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         $language = $this->modx->getOption('manager_language');
         $language = $this->tinymcerte->getLanguageCode($language);
 
+        $objectResizing = $this->tinymcerte->getOption('object_resizing', array(), '1');
+
+        if ($objectResizing === '1' || $objectResizing === 'true') {
+            $objectResizing = true;
+        }
+
+        if ($objectResizing === '0' || $objectResizing === 'false') {
+            $objectResizing = false;
+        }
+
         return array(
             'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
@@ -44,6 +54,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'menubar' => $this->tinymcerte->getOption('menubar', array(), 'file edit insert view format table tools'),
             'statusbar' => $this->tinymcerte->getOption('statusbar', array(), 1) == 1,
             'image_advtab' => $this->tinymcerte->getOption('image_advtab', array(), true),
+            'object_resizing' => $objectResizing,
         );
     }
 
