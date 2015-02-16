@@ -29,6 +29,25 @@ Ext.extend(TinyMCERTE.Tiny,Ext.Component,{
         this.cfg.file_browser_callback = this.loadBrowser;
         this.cfg.init_instance_callback = function(editor) {
             that.editor = editor;
+            var saveKey = MODx.config.keymap_save || 's';
+            editor.addShortcut('ctrl+' + saveKey, '', function () {
+                var btn = Ext.getCmp('modx-abtn-save');
+                if (!btn) return;
+                if (btn.disabled) return;
+                if(!btn.keys) return;
+
+                var found = false;
+                Ext.each(btn.keys, function(key) {
+                    if (key.ctrl == true && key.key == saveKey) {
+                        found = true;
+                        return false;
+                    }
+                });
+
+                if (!found) return;
+
+                btn.el.dom.click();
+            });
 
             if (that.allowDrop) {
                 that.registerDrop();
