@@ -44,7 +44,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             $objectResizing = false;
         }
 
-        return array(
+        $config = array(
             'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
@@ -56,6 +56,30 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'image_advtab' => $this->tinymcerte->getOption('image_advtab', array(), true),
             'object_resizing' => $objectResizing,
         );
+
+        $styleFormats = $this->tinymcerte->getOption('style_formats', array(), '[]');
+        $styleFormats = $this->modx->fromJSON($styleFormats);
+
+        $finalFormats = array();
+
+        foreach ($styleFormats as $format) {
+            if (!isset($format['items'])) continue;
+
+            $items = $this->tinymcerte->getOption($format['items'], array(), '[]');
+            $items = $this->modx->fromJSON($items);
+
+            if (empty($items)) continue;
+
+            $format['items'] = $items;
+
+            $finalFormats[] = $format;
+        }
+
+        if (!empty($finalFormats)) {
+            $config['style_formats'] = $finalFormats;
+        }
+
+        return $config;
     }
 
 

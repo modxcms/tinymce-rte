@@ -37,6 +37,26 @@
         },{
             "key": "object_resizing",
             "value": 1
+        },{
+            "key": "style_formats",
+            "value": "[{\"title\": \"Headers\", \"items\": \"headers_format\"},{\"title\": \"Inline\", \"items\": \"inline_format\"},{\"title\": \"Blocks\", \"items\": \"blocks_format\"},{\"title\": \"Alignment\", \"items\": \"alignment_format\"}]",
+            "type": "textarea"
+        },{
+            "key": "headers_format",
+            "value": "[{\"title\": \"Header 1\", \"format\": \"h1\"},{\"title\": \"Header 2\", \"format\": \"h2\"},{\"title\": \"Header 3\", \"format\": \"h3\"},{\"title\": \"Header 4\", \"format\": \"h4\"},{\"title\": \"Header 5\", \"format\": \"h5\"},{\"title\": \"Header 6\", \"format\": \"h6\"}]",
+            "type": "textarea"
+        },{
+            "key": "inline_format",
+            "value": "[{\"title\": \"Bold\", \"icon\": \"bold\", \"format\": \"bold\"},{\"title\": \"Italic\", \"icon\": \"italic\", \"format\": \"italic\"},{\"title\": \"Underline\", \"icon\": \"underline\", \"format\": \"underline\"},{\"title\": \"Strikethrough\", \"icon\": \"strikethrough\", \"format\": \"strikethrough\"},{\"title\": \"Superscript\", \"icon\": \"superscript\", \"format\": \"superscript\"},{\"title\": \"Subscript\", \"icon\": \"subscript\", \"format\": \"subscript\"},{\"title\": \"Code\", \"icon\": \"code\", \"format\": \"code\"}]",
+            "type": "textarea"
+        },{
+            "key": "blocks_format",
+            "value": "[{\"title\": \"Paragraph\", \"format\": \"p\"},{\"title\": \"Blockquote\", \"format\": \"blockquote\"},{\"title\": \"Div\", \"format\": \"div\"},{\"title\": \"Pre\", \"format\": \"pre\"}]",
+            "type": "textarea"
+        },{
+            "key": "alignment_format",
+            "value": "[{\"title\": \"Left\", \"icon\": \"alignleft\", \"format\": \"alignleft\"},{\"title\": \"Center\", \"icon\": \"aligncenter\", \"format\": \"aligncenter\"},{\"title\": \"Right\", \"icon\": \"alignright\", \"format\": \"alignright\"},{\"title\": \"Justify\", \"icon\": \"alignjustify\", \"format\": \"alignjustify\"}]",
+            "type": "textarea"
         }]
     }
 }
