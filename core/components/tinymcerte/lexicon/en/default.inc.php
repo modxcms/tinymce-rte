@@ -8,8 +8,8 @@
 
 $_lang['tinymcerte'] = 'TinyMCE Rich Text Editor';
 
-$_lang['area_tinymce.style_formats'] = 'Style formats';
-$_lang['area_tinymce.toolbar'] = 'Toolbar';
+$_lang['area_tinymcerte.style_formats'] = 'Style formats';
+$_lang['area_tinymcerte.toolbar'] = 'Toolbar';
 
 $_lang['setting_tinymcerte.plugins'] = 'Plugins';
 $_lang['setting_tinymcerte.plugins_desc'] = 'Set what plugins should be included, by default, NO plugins are loaded. <a href="http://www.tinymce.com/wiki.php/Configuration:plugins">http://www.tinymce.com/wiki.php/Configuration:plugins</a>';
