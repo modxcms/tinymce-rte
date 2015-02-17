@@ -33,17 +33,30 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
     private function getTinyConfig() {
         $language = $this->modx->getOption('manager_language');
         $language = $this->tinymcerte->getLanguageCode($language);
-
+        $classes = $this->tinymcerte->getOption('css_selectors', array(),null);
+        if(!empty($classes)){
+            $class = explode(',',$classes);
+            $classes = array();
+            foreach($class as $cla){
+                $cl = explode('==',$cla);
+                $classes[] = array("title"=>$cl[0],"classes"=>$cl[1]);
+            }
+        }
         return array(
             'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
             'toolbar3' => $this->tinymcerte->getOption('toolbar3', array(), ''),
             'language' => $language,
+            'image_advtab' => $this->modx->getOption('image_advtab', array(), true),
             'directionality' => $this->modx->getOption('manager_direction', array(), 'ltr'),
             'menubar' => $this->tinymcerte->getOption('menubar', array(), 'file edit insert view format table tools'),
             'statusbar' => $this->tinymcerte->getOption('statusbar', array(), 1) == 1,
             'image_advtab' => $this->tinymcerte->getOption('image_advtab', array(), true),
+            'style_formats_merge' => $this->tinymcerte->getOption('image_advtab', array(), true),
+            'object_resizing' => $this->tinymcerte->getOption('image_advtab', array(), true),
+            'style_formats' => $classes,
+            
         );
     }
 
