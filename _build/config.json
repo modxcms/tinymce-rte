@@ -78,7 +78,7 @@
     }
     ,"build": {
         "resolver": {
-            "after": "resolve.whicheditor.php"
+            "after": ["resolve.whicheditor.php"]
         }
     }
 }
