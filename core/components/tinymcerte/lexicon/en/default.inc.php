@@ -39,3 +39,5 @@ $_lang['setting_tinymcerte.alignment_format'] = 'Alignment format';
 $_lang['setting_tinymcerte.alignment_format_desc'] = 'This option enables you to add more advanced style formats for text and other elements to the editor. <a href="http://www.tinymce.com/wiki.php/Configuration:style_formats">http://www.tinymce.com/wiki.php/Configuration:style_formats</a>';
 $_lang['setting_tinymcerte.paste_as_text'] = 'Paste as text';
 $_lang['setting_tinymcerte.paste_as_text_desc'] = 'This option enables you to set the default state of the "paste as text" edit menu option. <a href="http://www.tinymce.com/wiki.php/Configuration:paste_as_text">http://www.tinymce.com/wiki.php/Configuration:paste_as_text</a>';
+$_lang['setting_tinymcerte.style_formats_merge'] = 'Style formats merge';
+$_lang['setting_tinymcerte.style_formats_merge_desc'] = 'If you want to merge your styles to the default styles_format. <a href="http://www.tinymce.com/wiki.php/Configuration:style_formats">http://www.tinymce.com/wiki.php/Configuration:style_formats</a>';

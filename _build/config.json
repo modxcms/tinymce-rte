@@ -69,6 +69,11 @@
             "key": "paste_as_text",
             "value": false,
             "type": "combo-boolean"
+        },{
+            "key": "style_formats_merge",
+            "value": false,
+            "type": "combo-boolean",
+            "area": "tinymce.style_formats"
         }]
     }
     ,"build": {
