@@ -73,7 +73,12 @@ class TinyMCERTE {
         );
 
         if (isset($codes[$language])) {
-            return $codes[$language];
+            $language = $codes[$language];
+        }
+
+        $langFile = $this->getOption('assetsPath') . 'js/vendor/tinymce/langs/' . $language . '.js';
+        if (!file_exists(($langFile))) {
+            return 'en';
         }
 
         return $language;
