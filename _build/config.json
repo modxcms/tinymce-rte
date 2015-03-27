@@ -74,6 +74,9 @@
             "value": false,
             "type": "combo-boolean",
             "area": "tinymcerte.style_formats"
+        },{
+            "key": "link_class_list",
+            "value": ""
         }]
     }
     ,"build": {

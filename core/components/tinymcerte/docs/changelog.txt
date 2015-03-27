@@ -1,5 +1,7 @@
 Changelog for TinyMCE Rich Text Editor.
 
+- Support for link classes
+
 TinyMCE Rich Text Editor 1.0.0
 ==============
 - Initial release.

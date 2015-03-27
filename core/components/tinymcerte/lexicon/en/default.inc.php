@@ -41,3 +41,5 @@ $_lang['setting_tinymcerte.paste_as_text'] = 'Paste as text';
 $_lang['setting_tinymcerte.paste_as_text_desc'] = 'This option enables you to set the default state of the "paste as text" edit menu option. <a href="http://www.tinymce.com/wiki.php/Configuration:paste_as_text">http://www.tinymce.com/wiki.php/Configuration:paste_as_text</a>';
 $_lang['setting_tinymcerte.style_formats_merge'] = 'Style formats merge';
 $_lang['setting_tinymcerte.style_formats_merge_desc'] = 'If you want to merge your styles to the default styles_format. <a href="http://www.tinymce.com/wiki.php/Configuration:style_formats">http://www.tinymce.com/wiki.php/Configuration:style_formats</a>';
+$_lang['setting_tinymcerte.link_class_list'] = 'Link class list';
+$_lang['setting_tinymcerte.link_class_list_desc'] = 'Class list for links. <a href="http://www.tinymce.com/wiki.php/Configuration:link_class_list">http://www.tinymce.com/wiki.php/Configuration:link_class_list</a>';
