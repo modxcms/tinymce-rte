@@ -77,6 +77,10 @@
         },{
             "key": "link_class_list",
             "value": ""
+        },{
+            "key": "browser_spellcheck",
+            "type": "combo-boolean",
+            "value": false
         }]
     }
     ,"build": {

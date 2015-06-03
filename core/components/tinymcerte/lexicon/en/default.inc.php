@@ -43,3 +43,5 @@ $_lang['setting_tinymcerte.style_formats_merge'] = 'Style formats merge';
 $_lang['setting_tinymcerte.style_formats_merge_desc'] = 'If you want to merge your styles to the default styles_format. <a href="http://www.tinymce.com/wiki.php/Configuration:style_formats">http://www.tinymce.com/wiki.php/Configuration:style_formats</a>';
 $_lang['setting_tinymcerte.link_class_list'] = 'Link class list';
 $_lang['setting_tinymcerte.link_class_list_desc'] = 'Class list for links. <a href="http://www.tinymce.com/wiki.php/Configuration:link_class_list">http://www.tinymce.com/wiki.php/Configuration:link_class_list</a>';
+$_lang['setting_browser_spellcheck'] = 'Spellcheck';
+$_lang['setting_browser_spellcheck_desc'] = 'Enable or disable browser spellscher. <a href="http://www.tinymce.com/wiki.php/Configuration:browser_spellcheck">http://www.tinymce.com/wiki.php/Configuration:browser_spellcheck</a>';

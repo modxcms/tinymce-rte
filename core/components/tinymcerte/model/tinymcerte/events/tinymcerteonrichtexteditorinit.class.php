@@ -58,6 +58,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'style_formats_merge' => $this->tinymcerte->getOption('style_formats_merge', array(), false) == 1,
             'object_resizing' => $objectResizing,
             'link_class_list' => $this->modx->fromJSON($this->tinymcerte->getOption('link_class_list', array(), '[]')),
+            'browser_spellcheck' => $this->tinymcerte->getOption('browser_spellcheck', array(), false) == 1,
         );
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', array(), '[]');
