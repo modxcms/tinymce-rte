@@ -81,6 +81,9 @@
             "key": "browser_spellcheck",
             "type": "combo-boolean",
             "value": false
+        },{
+            "key": "content_css",
+            "value": ""
         }]
     }
     ,"build": {

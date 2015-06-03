@@ -45,3 +45,5 @@ $_lang['setting_tinymcerte.link_class_list'] = 'Link class list';
 $_lang['setting_tinymcerte.link_class_list_desc'] = 'Class list for links. <a href="http://www.tinymce.com/wiki.php/Configuration:link_class_list">http://www.tinymce.com/wiki.php/Configuration:link_class_list</a>';
 $_lang['setting_browser_spellcheck'] = 'Spellcheck';
 $_lang['setting_browser_spellcheck_desc'] = 'Enable or disable browser spellscher. <a href="http://www.tinymce.com/wiki.php/Configuration:browser_spellcheck">http://www.tinymce.com/wiki.php/Configuration:browser_spellcheck</a>';
+$_lang['setting_content_css'] = 'Content CSS';
+$_lang['setting_content_css_desc'] = 'Load additional CSS files with Tiny MCE. Use "," (comma) delimiter for multiple files. <a href="http://www.tinymce.com/wiki.php/Configuration:content_css">http://www.tinymce.com/wiki.php/Configuration:content_css</a>';
