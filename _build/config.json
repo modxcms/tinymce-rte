@@ -84,6 +84,9 @@
         },{
             "key": "content_css",
             "value": ""
+        },{
+            "key": "image_class_list",
+            "value": ""
         }]
     }
     ,"build": {
