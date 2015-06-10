@@ -73,9 +73,22 @@ class TinyMCERTE {
         );
 
         if (isset($codes[$language])) {
-            return $codes[$language];
+            $language = $codes[$language];
+        }
+
+        $langFile = $this->getOption('assetsPath') . 'js/vendor/tinymce/langs/' . $language . '.js';
+        if (!file_exists(($langFile))) {
+            return 'en';
         }
 
         return $language;
+    }
+    
+    public function explodeAndClean($array, $delimiter = ',') {
+        $array = explode($delimiter, $array);     // Explode fields to array
+        $array = array_map('trim', $array);       // Trim array's values
+        $array = array_keys(array_flip($array));  // Remove duplicate fields
+        $array = array_filter($array);            // Remove empty values from array
+        return $array;
     }
 }
