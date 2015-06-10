@@ -87,6 +87,36 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
 
         return $config;
     }
+    public function getContextList(){
+        $list = array();
+        $ugroups = $this->modx->user->getUserGroupNames();
+        $ug = $this->modx->newQuery('modUserGroup');
+        $ug->where(array('name:IN'=>$ugroups));
+        $groupsin = $this->modx->getCollection('modUserGroup',$ug);
+        if(!empty($groupsin)){
+            foreach($groupsin as $gi){
 
+                $webContextAccess = $this->modx->newQuery('modAccessContext');
+                $webContextAccess->where(array(
+                    'principal' =>$gi->get('id'),
+                    'AND:target:!=' => 'mgr',
+                ));
+                $gi_cntx = $this->modx->getCollection('modAccessContext', $webContextAccess);
+
+                if(!empty($gi_cntx)){
+                    foreach($gi_cntx AS $acl){
+                        if(!in_array($acl->get('target'), $list))
+                            $list[] =$acl->get('target');
+                    }
+                }
+            }
+        }
+        return $list;
+    }
+
+    public function getResourceList(){
+        $contexts = $this->getContextList();
+
+    }
 
 }
