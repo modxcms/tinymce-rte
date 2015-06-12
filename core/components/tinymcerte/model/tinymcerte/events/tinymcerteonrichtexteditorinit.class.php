@@ -120,8 +120,12 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         $contexts = $this->getContextList();
         $list = array();
         if(!empty($contexts)){
-            foreach($contexts as $con){
-                $list[] = array("title"=>$con,"value"=>"/", "menu"=>$this->contentItems(0,$con));
+            if(count($contexts) == 1){
+                $list = $this->contentItems(0,$contexts[0]);
+            }else{
+                foreach($contexts as $con){
+                    $list[] = array("title"=>$con,"value"=>"/", "menu"=>$this->contentItems(0,$con));
+                }
             }
         }
         return $list;
