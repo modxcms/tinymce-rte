@@ -61,6 +61,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'browser_spellcheck' => $this->tinymcerte->getOption('browser_spellcheck', array(), false) == 1,
             'content_css' => $this->tinymcerte->explodeAndClean($this->tinymcerte->getOption('content_css', array(), '')),
             'image_class_list' => $this->modx->fromJSON($this->tinymcerte->getOption('image_class_list', array(), '[]')),
+            'link_list' => $this->getResourceList(),
         );
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', array(), '[]');
@@ -116,6 +117,34 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
 
     public function getResourceList(){
         $contexts = $this->getContextList();
+        $list = array();
+        if(!empty($contexts)){
+            foreach($contexts as $con){
+                $list[] = array("title"=>$con,"value"=>"/");
+                $list[] = $this->contentItems(0,$con);
+            }
+        }
+        return $list;
+    }
+
+    public function contentItems($parent = 0, $context = 'web', $level = 0){
+        $c = $this->modx->newQuery('modResource');
+        $c->where(array('deleted'=>0, 'context_key'=>$context, 'parent'=>$parent));
+        $c->sortby('menuindex','ASC');
+        $c->limit(999);
+        $pages = $this->modx->getCollection('modResource', $c);
+        $items = array();
+        foreach($pages as $p){
+            $id = $p->get('id');
+            $title = $p->get('pagetitle');
+            if($p->get('isfolder') == 0){
+                $items[]= array("title"=>$title, "value"=>"[[~".$id."]]");
+            }else{
+                $items[]= array("title"=>$title, "value"=>"[[~".$id."]]", "menu" => $this->contentItems($id,$context, ($level + 1)));
+            }
+
+        }
+        return $items;
 
     }
 
