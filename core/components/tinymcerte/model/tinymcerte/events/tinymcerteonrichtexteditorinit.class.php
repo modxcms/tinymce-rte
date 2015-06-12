@@ -57,10 +57,11 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'paste_as_text' => $this->tinymcerte->getOption('paste_as_text', array(), false) == 1,
             'style_formats_merge' => $this->tinymcerte->getOption('style_formats_merge', array(), false) == 1,
             'object_resizing' => $objectResizing,
-            'link_class_list' => $this->modx->fromJSON($this->tinymcerte->getOption('link_class_list', array(), '[]')),
+            'link_class_list' => $this->modx->fromJSON($this->tinymcerte->getOption('link_class_list', array(), null)),
             'browser_spellcheck' => $this->tinymcerte->getOption('browser_spellcheck', array(), false) == 1,
             'content_css' => $this->tinymcerte->explodeAndClean($this->tinymcerte->getOption('content_css', array(), '')),
             'image_class_list' => $this->modx->fromJSON($this->tinymcerte->getOption('image_class_list', array(), '[]')),
+            'convert_urls' => false,
             'link_list' => $this->getResourceList(),
         );
 
@@ -120,8 +121,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         $list = array();
         if(!empty($contexts)){
             foreach($contexts as $con){
-                $list[] = array("title"=>$con,"value"=>"/");
-                $list[] = $this->contentItems(0,$con);
+                $list[] = array("title"=>$con,"value"=>"/", "menu"=>$this->contentItems(0,$con));
             }
         }
         return $list;
