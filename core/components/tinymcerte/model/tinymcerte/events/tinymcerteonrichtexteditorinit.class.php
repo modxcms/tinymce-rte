@@ -135,7 +135,6 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         $c = $this->modx->newQuery('modResource');
         $c->where(array('deleted'=>0, 'context_key'=>$context, 'parent'=>$parent));
         $c->sortby('menuindex','ASC');
-        $c->limit(999);
         $pages = $this->modx->getCollection('modResource', $c);
         $items = array();
         foreach($pages as $p){
