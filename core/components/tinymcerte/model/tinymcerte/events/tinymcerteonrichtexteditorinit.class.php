@@ -85,6 +85,17 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             $config['style_formats'] = $finalFormats;
         }
 
+        $externalConfig = $this->tinymcerte->getOption('external_config');
+        if (!empty($externalConfig)) {
+            if (file_exists($externalConfig) && is_readable($externalConfig)) {
+                $externalConfig = file_get_contents($externalConfig);
+                $externalConfig = $this->modx->fromJSON($externalConfig);
+                if (is_array($externalConfig)) {
+                    $config = array_merge($config, $externalConfig);
+                }
+            }
+        }
+
         return $config;
     }
 

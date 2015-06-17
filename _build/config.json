@@ -87,6 +87,9 @@
         },{
             "key": "image_class_list",
             "value": ""
+        },{
+            "key": "external_config",
+            "value": ""
         }]
     }
     ,"build": {

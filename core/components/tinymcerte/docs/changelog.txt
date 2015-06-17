@@ -1,5 +1,6 @@
 Changelog for TinyMCE Rich Text Editor.
 
+- Add external config
 - Support for link classes
 
 TinyMCE Rich Text Editor 1.0.0
