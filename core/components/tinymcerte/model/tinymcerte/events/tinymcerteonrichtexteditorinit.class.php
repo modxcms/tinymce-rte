@@ -19,6 +19,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
 
     private function initTinyMCE() {
         $this->modx->regClientStartupScript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js');
+        $this->modx->regClientStartupScript($this->tinymcerte->getOption('jsUrl') . 'vendor/autocomplete.js');
         $this->modx->regClientStartupScript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.js');
 
         return '<script type="text/javascript">
@@ -45,10 +46,11 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         }
 
         $config = array(
-            'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste'),
+            'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
             'toolbar3' => $this->tinymcerte->getOption('toolbar3', array(), ''),
+            'modxlinkSearch' => $this->tinymcerte->getOption('jsUrl').'vendor/tinymce/plugins/modxlink/search.php',
             'language' => $language,
             'directionality' => $this->modx->getOption('manager_direction', array(), 'ltr'),
             'menubar' => $this->tinymcerte->getOption('menubar', array(), 'file edit insert view format table tools'),

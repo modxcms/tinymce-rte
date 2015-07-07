@@ -13,7 +13,7 @@
         },
         "systemSettings": [{
             "key": "plugins",
-            "value": "advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste"
+            "value": "advlist autolink lists image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink"
         },{
             "key": "toolbar1",
             "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
