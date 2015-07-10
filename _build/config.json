@@ -3,7 +3,7 @@
     "lowCaseName": "tinymcerte",
     "description": "TinyMCE 4",
     "author": "John Peca",
-    "version": "1.0.0-beta",
+    "version": "1.1.0-pl",
     "package":{
         "elements": {
             "plugins": [{
@@ -13,7 +13,7 @@
         },
         "systemSettings": [{
             "key": "plugins",
-            "value": "advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste"
+            "value": "advlist autolink lists image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink"
         },{
             "key": "toolbar1",
             "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
@@ -94,7 +94,7 @@
     }
     ,"build": {
         "resolver": {
-            "after": ["resolve.whicheditor.php"]
+            "after": ["resolve.update.php", "resolve.whicheditor.php"]
         }
     }
 }
