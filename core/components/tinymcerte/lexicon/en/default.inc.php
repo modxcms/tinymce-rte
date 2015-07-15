@@ -51,4 +51,6 @@ $_lang['setting_tinymcerte.image_class_list'] = 'Image class list';
 $_lang['setting_tinymcerte.image_class_list_desc'] = 'Class list for images. <a href="http://www.tinymce.com/wiki.php/Configuration:image_class_list">http://www.tinymce.com/wiki.php/Configuration:image_class_list</a>';
 $_lang['setting_tinymcerte.external_config'] = 'External config';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Path to the external config file, that will be merged with with defaults from system setting. Config file has to contain valid JSON object.';
+$_lang['setting_tinymcerte.skin'] = 'Skin';
+$_lang['setting_tinymcerte.skin_desc'] = 'Select what skin to use, this should match the foldername of the skin. <a href="http://www.tinymce.com/wiki.php/Configuration:skin">http://www.tinymce.com/wiki.php/Configuration:skin</a>';
 

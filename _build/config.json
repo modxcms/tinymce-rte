@@ -90,6 +90,9 @@
         },{
             "key": "external_config",
             "value": ""
+        },{
+            "key": "skin",
+            "value": "modx"
         }]
     }
     ,"build": {

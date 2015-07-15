@@ -1,5 +1,8 @@
 Changelog for TinyMCE Rich Text Editor.
 
+- Add modx skin (Credits goes to fourroses666)
+- Add skin system setting
+
 TinyMCE Rich Text Editor 1.1.0
 ==============
 - Add autocomplete search for links
