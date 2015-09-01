@@ -46,7 +46,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         }
 
         $config = array(
-            'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link image charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink'),
+            'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
             'toolbar3' => $this->tinymcerte->getOption('toolbar3', array(), ''),
