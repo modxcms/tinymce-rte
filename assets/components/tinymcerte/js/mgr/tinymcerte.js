@@ -29,6 +29,9 @@ Ext.extend(TinyMCERTE.Tiny,Ext.Component,{
         this.cfg.file_browser_callback = this.loadBrowser;
         this.cfg.init_instance_callback = function(editor) {
             that.editor = editor;
+            editor.on('change', function () {   // Keep synced textarea and iframe on each change
+                tinymce.triggerSave();
+            });
             var saveKey = MODx.config.keymap_save || 's';
             editor.addShortcut('ctrl+' + saveKey, '', function () {
                 var btn = Ext.getCmp('modx-abtn-save');
