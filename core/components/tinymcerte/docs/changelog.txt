@@ -1,5 +1,6 @@
 Changelog for TinyMCE Rich Text Editor.
 
+- Add modximage - left/right image positioning
 - Sync tinymce and textarea
 - Add modx skin (Credits goes to fourroses666)
 - Add skin system setting

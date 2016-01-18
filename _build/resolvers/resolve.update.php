@@ -48,6 +48,17 @@ if ($object->xpdo) {
                     $plugins->save();
                 }
             }
+        
+            if ($oldPackage && $oldPackage->compareVersion('1.1.1-pl', '>')) {
+                $plugins = $modx->getObject('modSystemSetting', array('key' => 'tinymcerte.plugins'));
+                if ($plugins) {
+                    $pluginsValue = $plugins->get('value');
+                    $pluginsValue = str_replace(' image ', ' modximage ', $pluginsValue);
+
+                    $plugins->set('value', $pluginsValue);
+                    $plugins->save();
+                }
+            }
             
             break;
     }
