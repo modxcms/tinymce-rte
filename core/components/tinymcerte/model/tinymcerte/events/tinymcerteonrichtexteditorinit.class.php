@@ -90,6 +90,10 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
 
         $externalConfig = $this->tinymcerte->getOption('external_config');
         if (!empty($externalConfig)) {
+            $externalConfig = str_replace('{base_path}', $this->modx->getOption('base_path'), $externalConfig);
+            $externalConfig = str_replace('{core_path}', $this->modx->getOption('core_path'), $externalConfig);
+            $externalConfig = str_replace('{assets_path}', $this->modx->getOption('assets_path'), $externalConfig);
+            
             if (file_exists($externalConfig) && is_readable($externalConfig)) {
                 $externalConfig = file_get_contents($externalConfig);
                 $externalConfig = $this->modx->fromJSON($externalConfig);

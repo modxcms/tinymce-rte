@@ -1,5 +1,6 @@
 Changelog for TinyMCE Rich Text Editor.
 
+- Allow base path parsing in the external_config system setting
 - Add tel: prefix
 - Add modximage - left/right image positioning
 - Sync tinymce and textarea
