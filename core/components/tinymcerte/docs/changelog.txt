@@ -1,5 +1,6 @@
 Changelog for TinyMCE Rich Text Editor.
 
+- Sync tinymce and textarea
 - Add modx skin (Credits goes to fourroses666)
 - Add skin system setting
 
