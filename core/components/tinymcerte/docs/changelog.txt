@@ -1,5 +1,6 @@
 Changelog for TinyMCE Rich Text Editor.
 
+- Add tel: prefix
 - Add modximage - left/right image positioning
 - Sync tinymce and textarea
 - Add modx skin (Credits goes to fourroses666)
