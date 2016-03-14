@@ -23,6 +23,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         $this->modx->regClientStartupScript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.js');
 
         return '<script type="text/javascript">
+            Ext.ns("TinyMCERTE");
             TinyMCERTE.editorConfig = ' . $this->modx->toJSON($this->getTinyConfig()) . ';
 
             Ext.onReady(function(){
