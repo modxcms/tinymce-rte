@@ -1,5 +1,10 @@
 Changelog for TinyMCE Rich Text Editor.
 
+TinyMCE Rich Text Editor 1.1.X
+==============
+- Added FontAwesome plugin (Credis goes to https://github.com/josh18/TinyMCE-FontAwesome-Plugin )
+
+
 TinyMCE Rich Text Editor 1.1.1
 ==============
 - Allow base path parsing in the external_config system setting

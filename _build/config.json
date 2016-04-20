@@ -9,14 +9,17 @@
             "plugins": [{
                 "name": "TinyMCERTE",
                 "events": ["OnRichTextBrowserInit", "OnRichTextEditorRegister", "OnRichTextEditorInit"]
-            }]
+            },{
+                    "name": "TinyMCERTE-FontAwesome",
+                    "events": ["OnManagerPageBeforeRender"]
+                }]
         },
         "systemSettings": [{
             "key": "plugins",
             "value": "advlist autolink lists modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink"
         },{
             "key": "toolbar1",
-            "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+            "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image fontawesome",
             "area": "tinymcerte.toolbar"
         },{
             "key": "toolbar2",
@@ -93,6 +96,12 @@
         },{
             "key": "skin",
             "value": "modx"
+        },{
+            "key": "tinymcerte.extendend_valid_elements",
+            "value": "span[class] i[class]"
+        },{
+            "key": "tinymcerte.content_css",
+            "value": "//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
         }]
     }
     ,"build": {
