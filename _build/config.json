@@ -98,7 +98,7 @@
             "value": "modx"
         },{
             "key": "tinymcerte.extendend_valid_elements",
-            "value": "span[class] i[class]"
+            "value": "\"span[class] i[class]\""
         },{
             "key": "tinymcerte.content_css",
             "value": "//netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
