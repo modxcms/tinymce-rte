@@ -1,0 +1,7 @@
+{
+    "name": "tinymce-rte-for-modx-revolution",
+    "dependencies": {
+        "tinymce": "~4.*"
+    },
+    "private": true
+}
