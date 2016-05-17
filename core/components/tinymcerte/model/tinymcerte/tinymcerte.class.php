@@ -34,7 +34,6 @@ class TinyMCERTE {
             'connectorUrl' => $assetsUrl . 'connector.php'
         ), $options);
 
-        $this->modx->addPackage('tinymcerte', $this->getOption('modelPath'));
         $this->modx->lexicon->load('tinymcerte:default');
     }
 
