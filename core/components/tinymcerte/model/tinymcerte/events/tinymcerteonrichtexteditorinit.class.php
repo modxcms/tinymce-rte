@@ -46,7 +46,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             $objectResizing = false;
         }
 
-        $config = array(
+        $config = array_merge(array(
             'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
@@ -67,7 +67,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'skin' => $this->tinymcerte->getOption('skin', array(), 'modx'),
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', array(), true) == 1,
             'remove_script_host'=> $this->tinymcerte->getOption('remove_script_host', array(), true) == 1,
-        );
+        ), $this->getProperties());
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', array(), '[]');
         $styleFormats = $this->modx->fromJSON($styleFormats);
@@ -109,5 +109,16 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         return $config;
     }
 
+    /**
+     * Get properties passed to OnRichTextEditorInit event, minus the ones set by the resource controllers
+     *
+     * @return array
+     */
+    private function getProperties() {
+        $props = $this->scriptProperties;
+        // unset the regular properties sent by resource controllers
+        unset($props['editor'], $props['elements'], $props['id'], $props['resource'], $props['mode']);
 
+        return $props;
+    }
 }
