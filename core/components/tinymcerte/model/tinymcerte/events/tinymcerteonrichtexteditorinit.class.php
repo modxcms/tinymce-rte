@@ -47,10 +47,14 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
 
         $config = array(
             'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink'),
+            'external_plugins' => array(
+                'modxlink' => "{$this->tinymcerte->getOption('jsUrl')}mgr/plugins/modxlink/plugin.js",
+                'modximage' => "{$this->tinymcerte->getOption('jsUrl')}mgr/plugins/modximage/plugin.js",
+            ),
+            'modxlinkSearch' => $this->tinymcerte->getOption('jsUrl').'mgr/plugins/modxlink/search.php',
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
             'toolbar3' => $this->tinymcerte->getOption('toolbar3', array(), ''),
-            'modxlinkSearch' => $this->tinymcerte->getOption('jsUrl').'vendor/tinymce/plugins/modxlink/search.php',
             'language' => $language,
             'directionality' => $this->modx->getOption('manager_direction', array(), 'ltr'),
             'menubar' => $this->tinymcerte->getOption('menubar', array(), 'file edit insert view format table tools'),
@@ -64,6 +68,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'content_css' => $this->tinymcerte->explodeAndClean($this->tinymcerte->getOption('content_css', array(), '')),
             'image_class_list' => $this->modx->fromJSON($this->tinymcerte->getOption('image_class_list', array(), '[]')),
             'skin' => $this->tinymcerte->getOption('skin', array(), 'modx'),
+            'skin_url' => $this->tinymcerte->getOption('skin_url', array(), "{$this->tinymcerte->getOption('jsUrl')}mgr/skins/modx/"),
         );
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', array(), '[]');
