@@ -63,7 +63,7 @@ Ext.extend(TinyMCERTE.Tiny,Ext.Component,{
     ,loadBrowser: function(field_name, url, type, win) {
         tinyMCE.activeEditor.windowManager.open({
             title: "MODX Resource Browser",
-            url: MODx.config['manager_url'] + 'index.php?a=' + MODx.action['browser'] + '&source=' + MODx.config['default_media_source'],
+            url: MODx.config['manager_url'] + 'index.php?a=' + MODx.action['browser'] + '&source=' + MODx.config['default_media_source'] + (MODx.ctx ? ('&ctx=' + MODx.ctx) : ''),
             width: 1000,
             height: 500
         }, {
