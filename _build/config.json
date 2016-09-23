@@ -93,6 +93,14 @@
         },{
             "key": "skin",
             "value": "modx"
+        },{
+            "key": "relative_urls",
+            "value": true,
+            "type": "combo-boolean"
+        },{
+            "key": "remove_script_host",
+            "value": true,
+            "type": "combo-boolean"
         }]
     }
     ,"build": {
