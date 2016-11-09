@@ -101,6 +101,9 @@
             "key": "remove_script_host",
             "value": true,
             "type": "combo-boolean"
+        },{
+            "key": "valid_elements",
+            "value": ""
         }]
     }
     ,"build": {

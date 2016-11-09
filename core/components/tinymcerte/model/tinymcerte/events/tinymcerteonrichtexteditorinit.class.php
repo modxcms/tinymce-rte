@@ -91,6 +91,11 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             $config['style_formats'] = $finalFormats;
         }
 
+        $validElements = $this->tinymcerte->getOption('valid_elements');
+        if(!empty($validElements)){
+            $config['valid_elements'] = $validElements;
+        }
+
         $externalConfig = $this->tinymcerte->getOption('external_config');
         if (!empty($externalConfig)) {
             $externalConfig = str_replace('{base_path}', $this->modx->getOption('base_path'), $externalConfig);
