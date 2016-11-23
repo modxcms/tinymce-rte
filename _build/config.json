@@ -101,6 +101,10 @@
             "key": "remove_script_host",
             "value": true,
             "type": "combo-boolean"
+        },{
+            "key": "links_across_contexts",
+            "value": false,
+            "type": "combo-boolean"
         }]
     }
     ,"build": {
