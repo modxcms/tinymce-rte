@@ -103,7 +103,7 @@
             "type": "combo-boolean"
         },{
             "key": "links_across_contexts",
-            "value": false,
+            "value": true,
             "type": "combo-boolean"
         }]
     }
