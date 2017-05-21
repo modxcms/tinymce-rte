@@ -1,5 +1,9 @@
 Changelog for TinyMCE Rich Text Editor.
 
+Unreleased
+==============
+- Added system setting to define 'valid_elements'
+
 TinyMCE Rich Text Editor 1.1.1
 ==============
 - Allow base path parsing in the external_config system setting
