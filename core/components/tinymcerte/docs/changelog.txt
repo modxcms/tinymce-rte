@@ -6,6 +6,7 @@ Unreleased
 - Plugin now makes use of `modManagerController::addJavascript` instead of `modX::regClientStartupScript`
 - Added system setting to define 'valid_elements'
 - Added 'links_across_contexts' setting to limit links to the current context resources
+- Added support for configured default Media Source in context settings
 
 TinyMCE Rich Text Editor 1.1.1
 ==============
