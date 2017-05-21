@@ -1,6 +1,6 @@
 Changelog for TinyMCE Rich Text Editor.
 
-Unreleased
+TinyMCE Rich Text Editor 1.2.0
 ==============
 - Added `relative_urls` & `remove_script_host` settings
 - Plugin now makes use of `modManagerController::addJavascript` instead of `modX::regClientStartupScript`
