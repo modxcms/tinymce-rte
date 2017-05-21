@@ -2,6 +2,8 @@ Changelog for TinyMCE Rich Text Editor.
 
 Unreleased
 ==============
+- Added `relative_urls` & `remove_script_host` settings
+- Plugin now makes use of `modManagerController::addJavascript` instead of `modX::regClientStartupScript`
 - Added system setting to define 'valid_elements'
 - Added 'links_across_contexts' setting to limit links to the current context resources
 
