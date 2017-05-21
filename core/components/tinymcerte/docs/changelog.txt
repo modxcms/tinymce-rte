@@ -8,6 +8,7 @@ Unreleased
 - Added 'links_across_contexts' setting to limit links to the current context resources
 - Added support for configured default Media Source in context settings
 - CMPs can now pass any TinyMCE configuration property using the `OnRichTextEditorInit` system event
+- Upgraded to TinyMCE 4.5.7
 
 TinyMCE Rich Text Editor 1.1.1
 ==============
