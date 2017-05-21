@@ -104,6 +104,10 @@
         },{
             "key": "valid_elements",
             "value": ""
+        },{
+            "key": "links_across_contexts",
+            "value": true,
+            "type": "combo-boolean"
         }]
     }
     ,"build": {

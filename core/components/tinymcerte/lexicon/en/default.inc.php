@@ -53,4 +53,6 @@ $_lang['setting_tinymcerte.external_config'] = 'External config';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Path to the external config file, that will be merged with with defaults from system setting. Config file has to contain valid JSON object.';
 $_lang['setting_tinymcerte.skin'] = 'Skin';
 $_lang['setting_tinymcerte.skin_desc'] = 'Select what skin to use, this should match the foldername of the skin. <a href="http://www.tinymce.com/wiki.php/Configuration:skin">http://www.tinymce.com/wiki.php/Configuration:skin</a>';
+$_lang['setting_tinymcerte.links_across_contexts'] = 'Links across contexts';
+$_lang['setting_tinymcerte.links_across_contexts_desc'] = 'If turned on, the editor will list Resources from other contexts when creating internal links. If turned off, only Resources from the same context appear.';
 

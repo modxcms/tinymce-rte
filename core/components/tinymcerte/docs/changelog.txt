@@ -3,6 +3,7 @@ Changelog for TinyMCE Rich Text Editor.
 Unreleased
 ==============
 - Added system setting to define 'valid_elements'
+- Added 'links_across_contexts' setting to limit links to the current context resources
 
 TinyMCE Rich Text Editor 1.1.1
 ==============
