@@ -45,7 +45,7 @@ $a = array();
 foreach ($resources as $resource) {
 	$a[] = array(
 		'id' => $resource->get('id')
-		,'pagetitle' => $resource->get('pagetitle') . " (".$resource->get('id').")"
+		,'pagetitle' => htmlspecialchars($resource->get('pagetitle')) . " (".$resource->get('id').")"
 		,'title' => $resource->get('pagetitle')
 		,'alias' => $resource->get('alias')
 	);
