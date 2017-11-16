@@ -10,6 +10,7 @@ $_lang['tinymcerte'] = 'TinyMCE Rich Text Editor';
 
 $_lang['area_tinymcerte.style_formats'] = 'Style formats';
 $_lang['area_tinymcerte.toolbar'] = 'Toolbar';
+$_lang['area_default'] = 'Default';
 
 $_lang['setting_tinymcerte.plugins'] = 'Plugins';
 $_lang['setting_tinymcerte.plugins_desc'] = 'Set what plugins should be included, by default, NO plugins are loaded. <a href="http://www.tinymce.com/wiki.php/Configuration:plugins">http://www.tinymce.com/wiki.php/Configuration:plugins</a>';
@@ -55,4 +56,10 @@ $_lang['setting_tinymcerte.skin'] = 'Skin';
 $_lang['setting_tinymcerte.skin_desc'] = 'Select what skin to use, this should match the foldername of the skin. <a href="http://www.tinymce.com/wiki.php/Configuration:skin">http://www.tinymce.com/wiki.php/Configuration:skin</a>';
 $_lang['setting_tinymcerte.links_across_contexts'] = 'Links across contexts';
 $_lang['setting_tinymcerte.links_across_contexts_desc'] = 'If turned on, the editor will list Resources from other contexts when creating internal links. If turned off, only Resources from the same context appear.';
+$_lang['setting_tinymcerte.relative_urls'] = 'Relative urls';
+$_lang['setting_tinymcerte.relative_urls_desc'] = 'If this option is set to true, all URLs returned from the MCFileManager will be relative from the specified document_base_url. If it\'s set to false all URLs will be converted to absolute URLs.';
+$_lang['setting_tinymcerte.remove_script_host'] = 'Remove script host';
+$_lang['setting_tinymcerte.remove_script_host_desc'] = 'If this option is enabled the protocol and host part of the URLs returned from the MCFileManager will be removed. This option is only used if the relative_urls option is set to false.';
+$_lang['setting_tinymcerte.valid_elements'] = 'Valid elements';
+$_lang['setting_tinymcerte.valid_elements_desc'] = 'Defines which elements will remain in the edited text when the editor saves. You can use this setting to limit the returned HTML to a subset as described on: <a href="https://www.tinymce.com/docs/configure/content-filtering/#valid_elements">https://www.tinymce.com/docs/configure/content-filtering/#valid_elements</a>.';
 
