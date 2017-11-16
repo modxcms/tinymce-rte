@@ -3,6 +3,7 @@ Changelog for TinyMCE Rich Text Editor.
 TinyMCE Rich Text Editor 1.2.1
 ==============
 - Escaped special HTML chars in the modxlink plugin
+- Fixing 'Media browser does not close when clicking on close'
 TinyMCE Rich Text Editor 1.2.0
 ==============
 - Added `relative_urls` & `remove_script_host` settings
