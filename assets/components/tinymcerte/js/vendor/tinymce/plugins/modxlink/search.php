@@ -4,6 +4,7 @@
  *
  * @package tinymce
  */
+
 require_once dirname(dirname(dirname(dirname(dirname(dirname(dirname(dirname(dirname(__FILE__))))))))).'/config.core.php';
 require_once MODX_CORE_PATH.'config/'.MODX_CONFIG_KEY.'.inc.php';
 require_once MODX_CONNECTORS_PATH.'index.php';
@@ -25,16 +26,14 @@ $where_clause = array(array(
 ));
 
 if (!$across_contexts) {
-  if (isset($_GET['ctx']) and strlen($_GET['ctx'])) {
+  if (isset($_GET['context']) and strlen($_GET['context']) and $_GET['context'] == 'undefined') {
 	$where_clause[] = array(
-      'context_key' => $_GET['ctx']
+      'context_key' => $_GET['context']
 	);
   }
 }
 
 $c->where($where_clause);
-
-$count = $modx->getCount('modResource',$c);
 
 $c->select(array('id','pagetitle','alias'));
 $c->limit(10);
