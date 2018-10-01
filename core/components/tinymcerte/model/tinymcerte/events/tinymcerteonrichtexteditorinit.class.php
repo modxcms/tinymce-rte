@@ -18,9 +18,9 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
     }
 
     private function initTinyMCE() {
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js');
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/autocomplete.js');
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.js');
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/autocomplete.js?v=' . $this->tinymcerte->version);
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.js?v=' . $this->tinymcerte->version);
 
         return '<script type="text/javascript">
             Ext.ns("TinyMCERTE");
@@ -67,6 +67,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'skin' => $this->tinymcerte->getOption('skin', array(), 'modx'),
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', array(), true) == 1,
             'remove_script_host'=> $this->tinymcerte->getOption('remove_script_host', array(), true) == 1,
+            'branding'=>$this->tinymcerte->getOption('branding', array(), false) == 1,
         ), $this->getProperties());
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', array(), '[]');
@@ -101,7 +102,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             $externalConfig = str_replace('{base_path}', $this->modx->getOption('base_path'), $externalConfig);
             $externalConfig = str_replace('{core_path}', $this->modx->getOption('core_path'), $externalConfig);
             $externalConfig = str_replace('{assets_path}', $this->modx->getOption('assets_path'), $externalConfig);
-            
+
             if (file_exists($externalConfig) && is_readable($externalConfig)) {
                 $externalConfig = file_get_contents($externalConfig);
                 $externalConfig = $this->modx->fromJSON($externalConfig);
