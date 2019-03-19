@@ -6,6 +6,7 @@ TinyMCE Rich Text Editor 1.2.1
 - Add Gruntfile.js that copies the current release of TinyMCE to the corresponding folders
 - Add version info to the registered assets
 - Upgrade TinyMCE to  4.8.3
+- Adding Russian translation
 
 TinyMCE Rich Text Editor 1.2.1
 ==============
