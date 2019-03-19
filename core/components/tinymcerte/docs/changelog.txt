@@ -2,6 +2,13 @@ Changelog for TinyMCE Rich Text Editor.
 
 TinyMCE Rich Text Editor 1.2.1
 ==============
+- Manage TinyMCE release download by npm
+- Add Gruntfile.js that copies the current release of TinyMCE to the corresponding folders
+- Add version info to the registered assets
+- Upgrade TinyMCE to  4.8.3
+
+TinyMCE Rich Text Editor 1.2.1
+==============
 - Escaped special HTML chars in the modxlink plugin
 - Fixing 'Media browser does not close when clicking on close'
 - Added language strings for the system settings added in 1.2.0

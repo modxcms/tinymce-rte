@@ -12,7 +12,7 @@ class TinyMCERTEOnRichTextBrowserInit extends TinyMCERTEPlugin {
     }
 
     public function process() {
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/extras/browser.js');
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/extras/browser.js?v=' . $this->tinymcerte->version);
         $this->modx->event->output('TinyMCERTE.browserCallback');
     }
 
