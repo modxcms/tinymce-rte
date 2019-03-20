@@ -24,7 +24,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
 
         return '<script type="text/javascript">
             Ext.ns("TinyMCERTE");
-            TinyMCERTE.editorConfig = ' . $this->modx->toJSON($this->getTinyConfig()) . ';
+            TinyMCERTE.editorConfig = ' . json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT) . ';
 
             Ext.onReady(function(){
                 TinyMCERTE.loadForTVs();
@@ -68,7 +68,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', array(), true) == 1,
             'remove_script_host'=> $this->tinymcerte->getOption('remove_script_host', array(), true) == 1,
             'branding'=>$this->tinymcerte->getOption('branding', array(), false) == 1,
-        ), $this->getProperties());
+        ), $this->getSettings(), $this->getProperties());
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', array(), '[]');
         $styleFormats = $this->modx->fromJSON($styleFormats);
@@ -126,5 +126,17 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         unset($props['editor'], $props['elements'], $props['id'], $props['resource'], $props['mode']);
 
         return $props;
+    }
+
+    /**
+     * Get settings from a JSON encoded array in tinymcerte.settings system setting
+     *
+     * @return array
+     */
+    private function getSettings() {
+        $settings = $this->modx->fromJSON($this->tinymcerte->getOption('settings'));
+        $settings = $settings ? $settings : array();
+
+        return $settings;
     }
 }
