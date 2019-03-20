@@ -1,6 +1,6 @@
 Changelog for TinyMCE Rich Text Editor.
 
-TinyMCE Rich Text Editor 1.2.1
+TinyMCE Rich Text Editor 1.3.0
 ==============
 - Manage TinyMCE release download by npm
 - Add Gruntfile.js that copies the current release of TinyMCE to the corresponding folders
