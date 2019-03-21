@@ -1,5 +1,10 @@
 Changelog for TinyMCE Rich Text Editor.
 
+TinyMCE Rich Text Editor 1.3.1
+==============
+- Get settings from a JSON encoded array in tinymcerte.settings system setting
+- Make the entity_encoding configurable [#79]
+
 TinyMCE Rich Text Editor 1.3.0
 ==============
 - Manage TinyMCE release download by npm
