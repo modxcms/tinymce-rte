@@ -67,6 +67,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
             'skin' => $this->tinymcerte->getOption('skin', array(), 'modx'),
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', array(), true) == 1,
             'remove_script_host'=> $this->tinymcerte->getOption('remove_script_host', array(), true) == 1,
+            'entity_encoding'=>$this->tinymcerte->getOption('entity_encoding', array(), 'named'),
             'branding'=>$this->tinymcerte->getOption('branding', array(), false) == 1,
         ), $this->getSettings(), $this->getProperties());
 
