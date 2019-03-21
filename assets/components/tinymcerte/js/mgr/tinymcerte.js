@@ -41,7 +41,7 @@ Ext.extend(TinyMCERTE.Tiny,Ext.Component,{
 
                 var found = false;
                 Ext.each(btn.keys, function(key) {
-                    if (key.ctrl == true && key.key == saveKey) {
+                    if (key.ctrl === true && key.key === saveKey) {
                         found = true;
                         return false;
                     }
@@ -130,7 +130,7 @@ Ext.extend(TinyMCERTE.Tiny,Ext.Component,{
                         var imageTypes = ['jpg', 'jpeg', 'png', 'gif', 'svg'];
 
                         var ext = data.node.attributes.text.substring(data.node.attributes.text.lastIndexOf('.')+1);
-                        if (imageTypes.indexOf(ext) != -1) {
+                        if (imageTypes.indexOf(ext) !== -1) {
                             insert.image(data.node.attributes.url);
                         } else {
                             insert.text(data.node.attributes.url);
