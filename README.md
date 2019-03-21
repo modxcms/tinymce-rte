@@ -8,6 +8,10 @@ TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor. It a
 
 ## Change Log
 
+__1.3.1__
+- Get settings from a JSON encoded array in tinymcerte.settings system setting
+- Make the entity_encoding configurable [#79]
+
 __1.3.0__
 - Manage TinyMCE release download by npm
 - Add Gruntfile.js that copies the current release of TinyMCE to the corresponding folders
