@@ -63,13 +63,32 @@ class TinyMCERTE {
 
     public function getLanguageCode($language) {
         $codes = array(
+            'ar' => 'ar_EG',
+            'be' => 'be_BY',
             'bg' => 'bg_BG',
-            'fr' => 'fr_FR',
-            'he' => 'he_IL',
-            'pt-br' => 'pt_BR',
-            'sv' => 'sv_SE',
-            'th' => 'th_TH',
-            'zh' => 'zh_CN',
+            'cs' => 'cs_CZ',
+            'da' => 'da_DK',
+            'de' => 'de_DE',
+            'el' => 'el_GR',
+            'es' => 'es_ES',
+            'et' => 'et_EE',
+            'fa' => 'fa_IR',
+            'fi' => 'fi_FI',
+            'fr_FR' => 'fr_FR',
+            'he_IL' => 'he_IL',
+            'id' => 'id_ID',
+            'it' => 'it_IT',
+            'ja' => 'ja_JP',
+            'nl' => 'nl_NL',
+            'pl' => 'pl_PL',
+            'pt_BR' => 'pt_BR',
+            'ro' => 'ro_RO',
+            'ru' => 'ru_RU',
+            'sk' => 'sk_SK',
+            'sv_SE' => 'sv_SE',
+            'th_TH' => 'th_TH',
+            'uk' => 'uk_UA',
+            'zh_CN' => 'zh_CN',
         );
 
         if (isset($codes[$language])) {
