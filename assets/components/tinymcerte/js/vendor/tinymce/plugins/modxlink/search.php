@@ -38,11 +38,11 @@ $where_clause = array(array(
 ));
 
 if (!$across_contexts) {
-  if (isset($_GET['ctx']) and strlen($_GET['ctx'])) {
-	$where_clause[] = array(
-      'context_key' => $_GET['ctx']
-	);
-  }
+    if (isset($_GET['context']) and strlen($_GET['context']) and $_GET['context'] == 'undefined') {
+        $where_clause[] = array(
+            'context_key' => $_GET['context']
+        );
+    }
 }
 
 $c->where($where_clause);
