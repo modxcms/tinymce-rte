@@ -8,8 +8,8 @@ require_once dirname(dirname(dirname(dirname(dirname(dirname(dirname(dirname(dir
 require_once MODX_CORE_PATH.'config/'.MODX_CONFIG_KEY.'.inc.php';
 require_once MODX_CONNECTORS_PATH.'index.php';
 
-$id = $modx->getOption('id', $_REQUEST, '');
-if (!empty($id)) {
+$id = (int) $modx->getOption('id', $_REQUEST, 0);
+if ($id > 0) {
     $resource = $modx->getObject('modResource', $id);
     if ($resource) {
         exit(json_encode([
