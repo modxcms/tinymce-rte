@@ -2,6 +2,9 @@ Changelog for TinyMCE Rich Text Editor.
 
 TinyMCE Rich Text Editor 1.3.1
 ==============
+- Added field displaying resource pagetitle of MODX link [#83]
+- Expanding the locale list [#82]
+- Added image_caption option for TinyMCE [#60]
 - Get settings from a JSON encoded array in tinymcerte.settings system setting
 - Make the entity_encoding configurable [#79]
 
