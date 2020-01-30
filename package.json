@@ -10,6 +10,6 @@
     "grunt-zip": "^0.18.2"
   },
   "dependencies": {
-    "tinymce": "^4.9.4"
+    "tinymce": "^4.9.7"
   }
 }
