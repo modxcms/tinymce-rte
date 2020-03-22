@@ -8,7 +8,7 @@
 class TinyMCERTE {
     public $modx = null;
     public $namespace = 'tinymcerte';
-    public $version = '1.3.2';
+    public $version = '1.3.3';
     public $cache = null;
     public $options = array();
 
