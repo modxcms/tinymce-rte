@@ -1,5 +1,12 @@
 Changelog for TinyMCE Rich Text Editor.
 
+TinyMCE Rich Text Editor 1.3.4
+==============
+- The modx skin extends the lightgray skin, that way the css changes in the lightgray skin are available after a TinyMCE update
+- Some lexicon changes/improvements
+- Removed some unnecessary files
+- Upgrade TinyMCE to 4.9.11
+
 TinyMCE Rich Text Editor 1.3.3
 ==============
 - Bugfix for not using full width when the editor is moved to a new tab [#86]

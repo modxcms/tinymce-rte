@@ -1,118 +1,174 @@
 {
-    "name": "TinyMCE Rich Text Editor",
-    "lowCaseName": "tinymcerte",
-    "description": "TinyMCE 4",
-    "author": "John Peca",
-    "version": "1.3.3",
-    "package":{
-        "elements": {
-            "plugins": [{
-                "name": "TinyMCERTE",
-                "events": ["OnRichTextBrowserInit", "OnRichTextEditorRegister", "OnRichTextEditorInit"]
-            }]
-        },
-        "systemSettings": [{
-            "key": "plugins",
-            "value": "advlist autolink lists modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink"
-        },{
-            "key": "toolbar1",
-            "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-            "area": "tinymcerte.toolbar"
-        },{
-            "key": "toolbar2",
-            "value": "",
-            "area": "tinymcerte.toolbar"
-        },{
-            "key": "toolbar3",
-            "value": "",
-            "area": "tinymcerte.toolbar"
-        },{
-            "key": "menubar",
-            "value": "file edit insert view format table tools"
-        },{
-            "key": "statusbar",
-            "value": true,
-            "type": "combo-boolean"
-        },{
-            "key": "image_advtab",
-            "value": true,
-            "type": "combo-boolean"
-        },{
-            "key": "object_resizing",
-            "value": 1
-        },{
-            "key": "style_formats",
-            "value": "[{\"title\": \"Headers\", \"items\": \"headers_format\"},{\"title\": \"Inline\", \"items\": \"inline_format\"},{\"title\": \"Blocks\", \"items\": \"blocks_format\"},{\"title\": \"Alignment\", \"items\": \"alignment_format\"}]",
-            "type": "textarea",
-            "area": "tinymcerte.style_formats"
-        },{
-            "key": "headers_format",
-            "value": "[{\"title\": \"Header 1\", \"format\": \"h1\"},{\"title\": \"Header 2\", \"format\": \"h2\"},{\"title\": \"Header 3\", \"format\": \"h3\"},{\"title\": \"Header 4\", \"format\": \"h4\"},{\"title\": \"Header 5\", \"format\": \"h5\"},{\"title\": \"Header 6\", \"format\": \"h6\"}]",
-            "type": "textarea",
-            "area": "tinymcerte.style_formats"
-        },{
-            "key": "inline_format",
-            "value": "[{\"title\": \"Bold\", \"icon\": \"bold\", \"format\": \"bold\"},{\"title\": \"Italic\", \"icon\": \"italic\", \"format\": \"italic\"},{\"title\": \"Underline\", \"icon\": \"underline\", \"format\": \"underline\"},{\"title\": \"Strikethrough\", \"icon\": \"strikethrough\", \"format\": \"strikethrough\"},{\"title\": \"Superscript\", \"icon\": \"superscript\", \"format\": \"superscript\"},{\"title\": \"Subscript\", \"icon\": \"subscript\", \"format\": \"subscript\"},{\"title\": \"Code\", \"icon\": \"code\", \"format\": \"code\"}]",
-            "type": "textarea",
-            "area": "tinymcerte.style_formats"
-        },{
-            "key": "blocks_format",
-            "value": "[{\"title\": \"Paragraph\", \"format\": \"p\"},{\"title\": \"Blockquote\", \"format\": \"blockquote\"},{\"title\": \"Div\", \"format\": \"div\"},{\"title\": \"Pre\", \"format\": \"pre\"}]",
-            "type": "textarea",
-            "area": "tinymcerte.style_formats"
-        },{
-            "key": "alignment_format",
-            "value": "[{\"title\": \"Left\", \"icon\": \"alignleft\", \"format\": \"alignleft\"},{\"title\": \"Center\", \"icon\": \"aligncenter\", \"format\": \"aligncenter\"},{\"title\": \"Right\", \"icon\": \"alignright\", \"format\": \"alignright\"},{\"title\": \"Justify\", \"icon\": \"alignjustify\", \"format\": \"alignjustify\"}]",
-            "type": "textarea",
-            "area": "tinymcerte.style_formats"
-        },{
-            "key": "paste_as_text",
-            "value": false,
-            "type": "combo-boolean"
-        },{
-            "key": "style_formats_merge",
-            "value": false,
-            "type": "combo-boolean",
-            "area": "tinymcerte.style_formats"
-        },{
-            "key": "link_class_list",
-            "value": ""
-        },{
-            "key": "browser_spellcheck",
-            "type": "combo-boolean",
-            "value": false
-        },{
-            "key": "content_css",
-            "value": ""
-        },{
-            "key": "image_class_list",
-            "value": ""
-        },{
-            "key": "external_config",
-            "value": ""
-        },{
-            "key": "skin",
-            "value": "modx"
-        },{
-            "key": "relative_urls",
-            "value": true,
-            "type": "combo-boolean"
-        },{
-            "key": "remove_script_host",
-            "value": true,
-            "type": "combo-boolean"
-        },{
-            "key": "valid_elements",
-            "value": ""
-        },{
-            "key": "links_across_contexts",
-            "value": true,
-            "type": "combo-boolean"
-        }]
-    }
-    ,"build": {
-        "resolver": {
-            "after": ["resolve.update.php", "resolve.whicheditor.php"]
+  "name": "TinyMCE Rich Text Editor",
+  "lowCaseName": "tinymcerte",
+  "description": "TinyMCE 4",
+  "author": "John Peca",
+  "version": "1.3.4",
+  "package": {
+    "elements": {
+      "plugins": [
+        {
+          "name": "TinyMCERTE",
+          "events": [
+            "OnRichTextBrowserInit",
+            "OnRichTextEditorRegister",
+            "OnRichTextEditorInit"
+          ]
         }
+      ]
+    },
+    "systemSettings": [
+      {
+        "key": "plugins",
+        "value": "advlist autolink lists modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink",
+        "area": "system"
+      },
+      {
+        "key": "menubar",
+        "value": "file edit insert view format table tools",
+        "area": "system"
+      },
+      {
+        "key": "statusbar",
+        "value": true,
+        "type": "combo-boolean",
+        "area": "system"
+      },
+      {
+        "key": "image_advtab",
+        "value": true,
+        "type": "combo-boolean",
+        "area": "system"
+      },
+      {
+        "key": "object_resizing",
+        "value": 1,
+        "area": "system"
+      },
+      {
+        "key": "paste_as_text",
+        "value": false,
+        "type": "combo-boolean",
+        "area": "system"
+      },
+      {
+        "key": "link_class_list",
+        "value": "",
+        "area": "system"
+      },
+      {
+        "key": "browser_spellcheck",
+        "type": "combo-boolean",
+        "value": false,
+        "area": "system"
+      },
+      {
+        "key": "content_css",
+        "value": "",
+        "area": "system"
+      },
+      {
+        "key": "image_class_list",
+        "value": "",
+        "area": "system"
+      },
+      {
+        "key": "external_config",
+        "value": "",
+        "area": "system"
+      },
+      {
+        "key": "skin",
+        "value": "modx",
+        "area": "system"
+      },
+      {
+        "key": "relative_urls",
+        "value": true,
+        "type": "combo-boolean",
+        "area": "system"
+      },
+      {
+        "key": "remove_script_host",
+        "value": true,
+        "type": "combo-boolean",
+        "area": "system"
+      },
+      {
+        "key": "valid_elements",
+        "value": "",
+        "area": "system"
+      },
+      {
+        "key": "links_across_contexts",
+        "value": true,
+        "type": "combo-boolean",
+        "area": "system"
+      },
+      {
+        "key": "settings",
+        "value": "",
+        "area": "system"
+      },
+      {
+        "key": "toolbar1",
+        "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+        "area": "tinymcerte.toolbar"
+      },
+      {
+        "key": "toolbar2",
+        "value": "",
+        "area": "tinymcerte.toolbar"
+      },
+      {
+        "key": "toolbar3",
+        "value": "",
+        "area": "tinymcerte.toolbar"
+      },
+      {
+        "key": "style_formats",
+        "value": "[{\"title\": \"Headers\", \"items\": \"headers_format\"},{\"title\": \"Inline\", \"items\": \"inline_format\"},{\"title\": \"Blocks\", \"items\": \"blocks_format\"},{\"title\": \"Alignment\", \"items\": \"alignment_format\"}]",
+        "type": "textarea",
+        "area": "tinymcerte.style_formats"
+      },
+      {
+        "key": "headers_format",
+        "value": "[{\"title\": \"Header 1\", \"format\": \"h1\"},{\"title\": \"Header 2\", \"format\": \"h2\"},{\"title\": \"Header 3\", \"format\": \"h3\"},{\"title\": \"Header 4\", \"format\": \"h4\"},{\"title\": \"Header 5\", \"format\": \"h5\"},{\"title\": \"Header 6\", \"format\": \"h6\"}]",
+        "type": "textarea",
+        "area": "tinymcerte.style_formats"
+      },
+      {
+        "key": "inline_format",
+        "value": "[{\"title\": \"Bold\", \"icon\": \"bold\", \"format\": \"bold\"},{\"title\": \"Italic\", \"icon\": \"italic\", \"format\": \"italic\"},{\"title\": \"Underline\", \"icon\": \"underline\", \"format\": \"underline\"},{\"title\": \"Strikethrough\", \"icon\": \"strikethrough\", \"format\": \"strikethrough\"},{\"title\": \"Superscript\", \"icon\": \"superscript\", \"format\": \"superscript\"},{\"title\": \"Subscript\", \"icon\": \"subscript\", \"format\": \"subscript\"},{\"title\": \"Code\", \"icon\": \"code\", \"format\": \"code\"}]",
+        "type": "textarea",
+        "area": "tinymcerte.style_formats"
+      },
+      {
+        "key": "blocks_format",
+        "value": "[{\"title\": \"Paragraph\", \"format\": \"p\"},{\"title\": \"Blockquote\", \"format\": \"blockquote\"},{\"title\": \"Div\", \"format\": \"div\"},{\"title\": \"Pre\", \"format\": \"pre\"}]",
+        "type": "textarea",
+        "area": "tinymcerte.style_formats"
+      },
+      {
+        "key": "alignment_format",
+        "value": "[{\"title\": \"Left\", \"icon\": \"alignleft\", \"format\": \"alignleft\"},{\"title\": \"Center\", \"icon\": \"aligncenter\", \"format\": \"aligncenter\"},{\"title\": \"Right\", \"icon\": \"alignright\", \"format\": \"alignright\"},{\"title\": \"Justify\", \"icon\": \"alignjustify\", \"format\": \"alignjustify\"}]",
+        "type": "textarea",
+        "area": "tinymcerte.style_formats"
+      },
+      {
+        "key": "style_formats_merge",
+        "value": false,
+        "type": "combo-boolean",
+        "area": "tinymcerte.style_formats"
+      }
+    ]
+  },
+  "build": {
+    "resolver": {
+      "after": [
+        "resolve.update.php",
+        "resolve.whicheditor.php"
+      ]
     }
+  }
 }
