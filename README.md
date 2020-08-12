@@ -8,6 +8,19 @@ TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor. It a
 
 ## Change Log
 
+__1.3.4__
+- The modx skin extends the lightgray skin, that way the css changes in the lightgray skin are available after a TinyMCE update
+- Some lexicon changes/improvements
+- Removed some unnecessary files
+- Upgrade TinyMCE to 4.9.11
+
+__1.3.3__
+- Bugfix for not using full width when the editor is moved to a new tab [#86]
+- Upgrade TinyMCE to 4.9.7
+
+__1.3.2__
+- Bugfix for showing only an english user interface
+
 __1.3.1__
 - Get settings from a JSON encoded array in tinymcerte.settings system setting
 - Make the entity_encoding configurable [#79]
