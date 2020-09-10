@@ -9,6 +9,10 @@ _packages/*.*
 !_packages/.gitignore
 !_packages/*.zip
 
+# TinyMCE Source #
+##################
+/src/tinymce/
+
 # IDE files #
 #############
 .idea

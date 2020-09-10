@@ -7,30 +7,88 @@ module.exports = function (grunt) {
             tinymce: {
                 files: [{
                     src: ['**/*.min.js', '**/*.gif', '**/*.png', '**/*.css'],
-                    cwd: 'node_modules/tinymce/plugins/',
+                    cwd: 'src/tinymce/js/tinymce/plugins/',
                     dest: 'assets/components/tinymcerte/js/vendor/tinymce/plugins/',
                     expand: true,
                     nonull: true
                 }, {
                     src: ['tinymce.min.js', 'license.txt'],
-                    cwd: 'node_modules/tinymce/',
+                    cwd: 'src/tinymce/js/tinymce/',
                     dest: 'assets/components/tinymcerte/js/vendor/tinymce/',
                     expand: true,
                     nonull: true
                 }, {
                     src: ['**/*.css', '**/*.gif', '**/tinymce*.*'],
-                    cwd: 'node_modules/tinymce/skins/',
+                    cwd: 'src/tinymce/js/tinymce/skins/',
                     dest: 'assets/components/tinymcerte/js/vendor/tinymce/skins/',
                     noProcess: 'bower.json',
                     expand: true,
                     nonull: true
                 }, {
                     src: '**/*.min.js',
-                    cwd: 'node_modules/tinymce/themes/',
+                    cwd: 'src/tinymce/js/tinymce/themes/',
                     dest: 'assets/components/tinymcerte/js/vendor/tinymce/themes/',
                     expand: true,
                     nonull: true
                 }]
+            },
+            skin: {
+                files: [{
+                    src: ['**/*'],
+                    cwd: 'src/tinymce/src/skins/lightgray/',
+                    dest: 'src/tinymce/src/skins/modx/',
+                    expand: true,
+                    nonull: true
+                }, {
+                    src: ['*.less'],
+                    cwd: 'src/modx',
+                    dest: 'src/tinymce/src/skins/modx/main/less/desktop/',
+                    expand: true,
+                    nonull: true
+                }]
+            }
+        },
+        gitclone: {
+            tinymce: {
+                options: {
+                    repository: 'https://github.com/tinymce/tinymce.git',
+                    branch: '4.x',
+                    directory: 'src/tinymce'
+                }
+            }
+        },
+        shell: {
+            installgrunt: {
+                command: [
+                    'npm i -g yarn grunt-cli',
+                    'yarn',
+                ].join('&&'),
+                cwd: 'src/tinymce'
+            },
+            buildjs: {
+                command: [
+                    'grunt'
+                ].join('&&'),
+                cwd: 'src/tinymce'
+            },
+            buildcss: {
+                command: [
+                    'grunt less'
+                ].join('&&'),
+                cwd: 'src/tinymce'
+            }
+        },
+        'regex-replace': {
+            modx: {
+                src: ['src/tinymce/Gruntfile.js'],
+                actions: [
+                    {
+                        name: 'modx',
+                        search: '([ ]*)(\'js/tinymce/skins/)(lightgray)(/.*?.css\': \'src/skins/)(\\3)(/main/less/.*?.less\')\\n',
+                        replace: '$1$2$3$4$5$6,\n$1$2modx$4modx$6\n',
+                        flags: 'g'
+                    }
+                ]
             }
         },
         curl: {
@@ -76,10 +134,17 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-curl');
+    grunt.loadNpmTasks('grunt-git');
+    grunt.loadNpmTasks('grunt-regex-replace');
+    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-zip');
     grunt.renameTask('string-replace', 'bump');
 
     //register the task
-    grunt.registerTask('default', ['bump', 'curl', 'unzip', 'copy']);
+    grunt.registerTask('prepare', ['shell:installgrunt', 'regex-replace']);
+    grunt.registerTask('buildjs', ['shell:buildjs', 'copy:tinymce']);
+    grunt.registerTask('buildcss', ['copy:skin', 'shell:buildcss', 'copy:tinymce']);
+    grunt.registerTask('i18n', ['curl', 'unzip']);
+    grunt.registerTask('default', ['bump', 'gitclone', 'i18n', 'prepare', 'build']);
 };

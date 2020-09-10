@@ -1,0 +1,297 @@
+// Variables for modx skin
+// Syntax: <control>-(<sub control>)-<bg|border|text>-(<state>)-(<extra>);
+// Example: @btn-primary-bg-hover;
+
+@prefix:                         mce;
+@has-gradients:                  false;
+@has-radius:                     false;
+@has-boxshadow:                  false;
+@has-button-borders:             false;
+@focus-border:                   #2276d2;
+
+// Box shadows
+@box-shadow-thin:                0 1px 2px rgba(0, 0, 0, 0.2);
+@box-shadow-bold:                0 3px 7px rgba(0, 0, 0, .3);
+
+// Default font
+@font-family:                    "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-size:                      14px;
+@line-height:                    20px;
+
+// Button icons
+@icon-size:                      16px;
+@icon-box:                       16px;
+
+// Text colors
+@text:                           #555555;
+@text-inverse:                   white;
+@text-disabled:                  #aaa;
+@text-shadow:                    0 1px 1px hsla(hue(@text-inverse), saturation(@text-inverse), lightness(@text-inverse), 0.75);
+@text-error:                     #be0000;
+@text-warning:                   #f49548;
+@text-success:                   #6cb24a;
+@text-link:                      #3697cd;
+
+// Button:default
+@btn-text:                       #555555;
+@btn-text-shadow:                none;
+@btn-text-disabled:              @text-disabled;
+@btn-bg:                         #fbfbfb;
+@btn-border-top:                 transparent;
+@btn-border-right:               transparent;
+@btn-border-bottom:              transparent;
+@btn-border-left:                transparent;
+@btn-box-shadow:                 inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+@btn-box-shadow-active:          inset 0 2px 4px rgba(0, 0, 0, .15), 0 1px 2px rgba(0, 0, 0, .05);
+@btn-box-disabled-opacity:       0.4;
+@btn-padding:                    4px 6px;
+@btn-chevron:                    #b5bcc2;
+
+// Button:hover
+@btn-bg-hover:                   darken(@btn-bg, 5%);
+@btn-text-hover:                 @text;
+@btn-border-hover:               transparent;
+@btn-chevron-hover:              @btn-chevron;
+
+// Button:focus
+@btn-bg-focus:                   @btn-bg;
+@btn-text-focus:                 @text;
+@btn-border-focus:               @btn-border-hover;
+@btn-chevron-focus:              @btn-chevron;
+
+// Button:active
+@btn-bg-active:                  #e0e0e0;
+@btn-text-active:                @text;
+@btn-border-active:              transparent;
+@btn-chevron-active:             @text;
+
+// Button primary
+@btn-primary-bg:                 #32ab9a;
+@btn-primary-bg-hover:           darken(@btn-primary-bg, 5%);
+@btn-primary-bg-active:          @btn-primary-bg-hover;
+@btn-primary-text:               #ffffff;
+@btn-primary-text-shadow:        none;
+@btn-primary-border-top:         none;
+@btn-primary-border-right:       none;
+@btn-primary-border-bottom:      none;
+@btn-primary-border-left:        none;
+@btn-primary-border:             transparent;
+@btn-primary-border-hover:       transparent;
+
+// SplitButton
+@splitbtn-delimiter:             transparent;
+@splitbtn-delimiter-focus:       @btn-border-hover;
+@splitbtn-delimiter-hover:       @splitbtn-delimiter-focus;
+@splitbtn-delimiter-active:      @btn-bg;
+
+// Button group
+@btn-group-border-width:         1px;
+
+// Menu
+@menu-bg:                        #ffffff;
+@menu-margin:                    -1px 0 0;
+@menu-border:                    #c9c7c7;
+@menu-box-shadow:                0 0 5px 0 rgba(0, 0, 0, 0.1);
+@menu-min-width:                 180px;
+@menu-max-height:                500px;
+
+@menubar-border:                 #dddddd;
+@menubar-bg-active:              darken(@btn-bg, 10%);
+@menubar-chevron:                @btn-chevron;
+@menubar-chevron-active:         @btn-chevron;
+
+// Menu item:default
+@menuitem-text:                  @text;
+@menuitem-text-inverse:          @text-inverse;
+@menuitem-chevron:               @menuitem-text;
+@menuitem-separator-top:         transparent;
+@menuitem-separator-bottom:      @menubar-border;
+@menuitem-bg-active:             #30759c;
+@menuitem-text-active:           @text-inverse;
+@menuitem-preview-border-active: @btn-bg-active;
+@menuitem-bg:                    @menu-bg;
+@menuitem-shortcut:              @text-disabled;
+
+// Menu item:focus
+@menuitem-border-focus:          darken(@btn-bg, 20%);
+
+// Menu item:hover
+@menuitem-bg-hover:              #30759c;
+@menuitem-text-hover:            @menuitem-text-inverse;
+
+// Menu item:active
+@menuitem-bg-active:             @menuitem-bg-hover;
+@menuitem-text-active:           @menuitem-text-hover;
+@menuitem-chevron-active:        @menuitem-text-hover;
+
+// Menu item:selected
+@menuitem-bg-selected:           @menuitem-bg-hover;
+@menuitem-text-selected:         @menuitem-text-hover;
+@menuitem-chevron-selected:      @menuitem-text-hover;
+
+// Menu item:disabled
+@menuitem-text-disabled:         @text-disabled;
+@menuitem-chevron-disabled:      @text-disabled;
+@menuitem-bg-disabled:           @menuitem-bg;
+
+// Panel
+@panel-border:                   #dddddd;
+@panel-bg:                       #fbfbfb;
+
+// Tabs
+@tab-border:                     transparent;
+@tab-bg:                         #eeeeee;
+@tab-bg-hover:                   #ffffff;
+@tab-bg-active:                  #ffffff;
+@tabs-bg:                        #ffffff;
+
+// Tooltip
+@tooltip-bg:                     #000;
+@tooltip-text:                   white;
+@tooltip-font-size:              11px;
+@tooltip-box-shadow:             none;
+
+// Notification
+@notification-font-size:         14px;
+@notification-bg:                @panel-bg;
+@notification-border:            @panel-border;
+@notification-text:              @text;
+@notification-success-bg:        #dff0d8;
+@notification-success-border:    #d6e9c6;
+@notification-success-text:      #6cb24a;
+@notification-info-bg:           #d9edf7;
+@notification-info-border:       #779ecb;
+@notification-info-text:         #3697cd;
+@notification-warning-bg:        #fcf8e3;
+@notification-warning-border:    #faebcc;
+@notification-warning-text:      #f49548;
+@notification-error-bg:          #f2dede;
+@notification-error-border:      #ebccd1;
+@notification-error-text:        #be0000;
+
+// Infobox
+@infobox-bg:                     @notification-bg;
+@infobox-border:                 @notification-border;
+@infobox-text:                   @notification-text;
+@infobox-success-bg:             @notification-success-bg;
+@infobox-success-border:         @notification-success-border;
+@infobox-success-text:           @notification-success-text;
+@infobox-info-bg:                @notification-info-bg;
+@infobox-info-border:            @notification-info-border;
+@infobox-info-text:              @notification-info-text;
+@infobox-warning-bg:             @notification-warning-bg;
+@infobox-warning-border:         @notification-warning-border;
+@infobox-warning-text:           @notification-warning-text;
+@infobox-error-bg:               @notification-error-bg;
+@infobox-error-border:           @notification-error-border;
+@infobox-error-text:             @notification-error-text;
+
+// Window
+@window-border:                  transparent;
+@window-head-border:             @window-border;
+@window-head-close:              mix(@text, @window-bg, 60%);
+@window-head-close-hover:        mix(@text, @window-bg, 40%);
+@window-foot-border:             @window-border;
+@window-foot-bg:                 @window-bg;
+@window-fullscreen-bg:           #FFF;
+@window-modalblock-bg:           #000;
+@window-modalblock-opacity:      0.3;
+@window-box-shadow:              0 3px 7px rgba(0, 0, 0, 0.3);
+@window-bg:                      #ffffff;
+@window-title-font-size:         20px;
+@window-btn-border:              @panel-border;
+@window-btn-border-hover:        @window-btn-border;
+@window-btn-border-focus:        @focus-border;
+
+// Popover
+@popover-bg:                     @window-bg;
+@popover-arrow-width:            10px;
+@popover-arrow:                  @window-bg;
+@popover-arrow-outer-width:      @popover-arrow-width + 1;
+@popover-arrow-outer:            rgba(0, 0, 0, 0.25);
+
+// Floatpanel
+@floatpanel-box-shadow:          0 5px 10px rgba(0, 0, 0, .2);
+
+// Checkbox
+@checkbox-bg:                    @btn-bg;
+@checkbox-box-shadow:            inset 0 1px 0 rgba(255, 255, 255, .2), 0 1px 2px rgba(0, 0, 0, .05);
+@checkbox-box-shadow-focus:      none;
+@checkbox-border:                #bbbbbb;
+@checkbox-border-focus:          #555555;
+
+// Path
+@path-text:                      @text;
+@path-bg-focus:                  #666;
+@path-text-focus:                #fff;
+
+// Textbox
+@textbox-text-placeholder:       #aaa;
+@textbox-box-shadow:             inset 0 1px 1px rgba(0, 0, 0, 0.075);
+@textbox-bg:                     #f2f2f2;
+@textbox-border:                 #dddddd;
+@textbox-border-focus:           #2d86b7;
+@textbox-box-shadow-focus:       none;
+
+// Selectbox
+@selectbox-bg:                   @textbox-bg;
+@selectbox-border:               @textbox-border;
+
+// Throbber
+@throbber-bg:                    @panel-bg url('img/loader.gif') no-repeat center center;
+
+// Combobox
+@combobox-border:                @textbox-border;
+@combobox-error-text:            @text-error;
+@combobox-warning-text:          @text-warning;
+@combobox-success-text:          @text-success;
+
+// Colorpicker
+@colorpicker-border:             @textbox-border;
+@colorpicker-hue-bg:             white;
+@colorpicker-hue-border:         #333;
+
+// Grid
+@grid-bg-active:                 @menuitem-bg-active;
+@grid-border-active:             #cccccc;
+@grid-border:                    #dddddd;
+
+// Misc
+@colorbtn-backcolor-bg:          #BBB;
+@iframe-border:                  @panel-border;
+
+// Slider
+@slider-border:                  @panel-border;
+@slider-bg:                      @panel-bg;
+@slider-handle-border:           @panel-border;
+@slider-handle-bg:               darken(@panel-bg, 10%);
+@slider-handle-border-focus:     @focus-border;
+
+// Progress
+@progress-border:                #ccc;
+@progress-bar-bg:                #dfdfdf;
+@progress-text:                  @text;
+
+// Flow layout
+@flow-layout-spacing:            2px;
+
+// Table
+@table-row-even:                  #fafafa;
+@table-row-hover:                 darken(@table-row-even, 10%);
+
+// Keeps Edge/Gecko from jumping up/down when the NBZWSP gets added/removed on Windows in particular.
+// The documented default seem to be around 1.2 but depending on the font family/browser/os being used.
+// However by comparing the rendering of adding/removing a forced line height 1.3 seems closer to the truth for
+// the default font in tinymce and having a slightly higher value probably improves readability anyway.
+@content-line-height:            1.3;
+@content-font-family:            Verdana, Arial, Helvetica, sans-serif;
+@content-font-size:              14px;
+@content-selection-bg:           #1a7fb8;
+@content-block-focus:            @content-selection-bg;
+@content-block-hover:            @content-selection-bg;
+@content-block-selected:         @content-selection-bg;
+@content-boundary-bg:            #bfe6ff;
+
+// Main tinymce ui
+@top-part-box-shadow:            @box-shadow-thin;
+@tinymce-box-shadow:             @box-shadow-thin;
