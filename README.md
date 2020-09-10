@@ -1,12 +1,21 @@
 # TinyMCE Rich Text Editor
 [![LICENSE](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](./LICENSE)
 
-### TinyMCE Rich Text Editor
-TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor. It allows non-technical users to format content without knowing how to code. This package is based on the TinyMCE 4. 
+TinyMCE Rich Text Editor TinyMCE is a platform independent web based Javascript
+HTML WYSIWYG editor. It allows non-technical users to format content without
+knowing how to code. This package is based on the TinyMCE 4.
 
-
+To rebuild the MODX skin locally, you have to run the grunt build task. This
+downloads the TinyMCE files, installs the TinyMCE grunt workflow and builds the
+TinyMCE files and the MODX skin. The skin could be modified with the
+`Variables.less` and the `MODX.less` files in `src/modx`
 
 ## Change Log
+
+__1.4.0__
+- Build the modx skin with the internal tinymce grunt workflow
+- Extend/Fix the modx skin styles
+- Fix an issue with the table tool buttons
 
 __1.3.4__
 - The modx skin extends the lightgray skin, that way the css changes in the lightgray skin are available after a TinyMCE update

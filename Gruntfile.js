@@ -142,9 +142,10 @@ module.exports = function (grunt) {
     grunt.renameTask('string-replace', 'bump');
 
     //register the task
-    grunt.registerTask('prepare', ['shell:installgrunt', 'regex-replace']);
+    grunt.registerTask('prepare', ['gitclone', 'i18n', 'shell:installgrunt', 'regex-replace']);
     grunt.registerTask('buildjs', ['shell:buildjs', 'copy:tinymce']);
     grunt.registerTask('buildcss', ['copy:skin', 'shell:buildcss', 'copy:tinymce']);
+    grunt.registerTask('build', ['buildjs', 'buildcss']);
     grunt.registerTask('i18n', ['curl', 'unzip']);
-    grunt.registerTask('default', ['bump', 'gitclone', 'i18n', 'prepare', 'build']);
+    grunt.registerTask('default', ['bump']);
 };
