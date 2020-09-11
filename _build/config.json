@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 4",
   "author": "John Peca",
-  "version": "1.4.0-rc",
+  "version": "1.4.0",
   "package": {
     "elements": {
       "plugins": [
@@ -163,6 +163,16 @@
       }
     ]
   },
+  "dependencies": [
+    {
+      "name": "php",
+      "version": ">=7.1.8"
+    },
+    {
+      "name": "modx",
+      "version": ">=2.6"
+    }
+  ],
   "build": {
     "resolver": {
       "after": [
