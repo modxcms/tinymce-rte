@@ -38,6 +38,10 @@
 
 .@{prefix}-btn {
   border-radius: 3px;
+
+  &.mce-open {
+    border-radius: 0 3px 3px 0;
+  }
 }
 
 .@{prefix}-primary {
@@ -62,8 +66,16 @@
   border-radius: 3px;
 }
 
-.@{prefix}-combobox input {
-  border-radius: 3px;
+.@{prefix}-combobox {
+  input {
+    border-radius: 3px;
+  }
+
+  &.mce-has-open {
+    input {
+      border-radius: 3px 0 0 3px;
+    }
+  }
 }
 
 .@{prefix}-tabs {
