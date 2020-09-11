@@ -48,12 +48,18 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        clean: {
+            tinymce: {
+                src: ['src/tinymce']
+            }
+        },
         gitclone: {
             tinymce: {
                 options: {
                     repository: 'https://github.com/tinymce/tinymce.git',
                     branch: '4.x',
-                    directory: 'src/tinymce'
+                    directory: 'src/tinymce',
+                    force: true
                 }
             }
         },
@@ -131,6 +137,7 @@ module.exports = function (grunt) {
     });
 
     //load the packages
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-curl');
@@ -143,6 +150,7 @@ module.exports = function (grunt) {
 
     //register the task
     grunt.registerTask('prepare', ['gitclone', 'i18n', 'shell:installgrunt', 'regex-replace']);
+    grunt.registerTask('update', ['clean:tinymce', 'prepare']);
     grunt.registerTask('buildjs', ['shell:buildjs', 'copy:tinymce']);
     grunt.registerTask('buildcss', ['copy:skin', 'shell:buildcss', 'copy:tinymce']);
     grunt.registerTask('build', ['buildjs', 'buildcss']);
