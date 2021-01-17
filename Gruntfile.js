@@ -3,10 +3,15 @@ module.exports = function (grunt) {
     grunt.initConfig({
         modx: grunt.file.readJSON('_build/config.json'),
         copy: {
-            /* move files */
             tinymce: {
                 files: [{
-                    src: ['**/*.min.js', '**/*.gif', '**/*.png', '**/*.css'],
+                    src: ['**/*.min.js'],
+                    cwd: 'src/tinymce/js/tinymce/icons/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/icons/',
+                    expand: true,
+                    nonull: true
+                }, {
+                    src: ['**/*.min.js'],
                     cwd: 'src/tinymce/js/tinymce/plugins/',
                     dest: 'assets/components/tinymcerte/js/vendor/tinymce/plugins/',
                     expand: true,
@@ -18,10 +23,9 @@ module.exports = function (grunt) {
                     expand: true,
                     nonull: true
                 }, {
-                    src: ['**/*.css', '**/*.gif', '**/tinymce*.*'],
+                    src: ['**/*.min.css', '**/*.woff'],
                     cwd: 'src/tinymce/js/tinymce/skins/',
                     dest: 'assets/components/tinymcerte/js/vendor/tinymce/skins/',
-                    noProcess: 'bower.json',
                     expand: true,
                     nonull: true
                 }, {
@@ -32,17 +36,57 @@ module.exports = function (grunt) {
                     nonull: true
                 }]
             },
-            skin: {
+            tinymce_debug: {
                 files: [{
-                    src: ['**/*'],
-                    cwd: 'src/tinymce/src/skins/lightgray/',
-                    dest: 'src/tinymce/src/skins/modx/',
+                    src: ['**/*.js', '!**/*.min.js'],
+                    cwd: 'src/tinymce/js/tinymce/icons/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/icons/',
+                    expand: true,
+                    nonull: true,
+                    ext: '.min.js'
+                }, {
+                    src: ['**/*.js', '!**/*.min.js'],
+                    cwd: 'src/tinymce/js/tinymce/plugins/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/plugins/',
+                    expand: true,
+                    nonull: true,
+                    ext: '.min.js'
+                }, {
+                    src: ['tinymce.min.js', 'license.txt'],
+                    cwd: 'src/tinymce/js/tinymce/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/',
                     expand: true,
                     nonull: true
                 }, {
-                    src: ['*.less'],
-                    cwd: 'src/modx',
-                    dest: 'src/tinymce/src/skins/modx/main/less/desktop/',
+                    src: ['**/*.min.css', '**/*.woff'],
+                    cwd: 'src/tinymce/js/tinymce/skins/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/skins/',
+                    expand: true,
+                    nonull: true
+                }, {
+                    src: ['**/*.js', '!**/*.min.js'],
+                    cwd: 'src/tinymce/js/tinymce/themes/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/themes/',
+                    expand: true,
+                    nonull: true,
+                    ext: '.min.js'
+                }]
+            },
+            modx: {
+                files: [{
+                    src: ['**/plugin.js'],
+                    cwd: 'src/modx/plugins/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/plugins/',
+                    expand: true,
+                    nonull: true,
+                    ext: '.min.js'
+                }]
+            },
+            skin: {
+                files: [{
+                    src: ['**/*.min.css', '**/*.woff'],
+                    cwd: 'src/modx/skins/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/skins/',
                     expand: true,
                     nonull: true
                 }]
@@ -53,62 +97,29 @@ module.exports = function (grunt) {
                 src: ['src/tinymce']
             }
         },
-        gitclone: {
-            tinymce: {
-                options: {
-                    repository: 'https://github.com/tinymce/tinymce.git',
-                    branch: '4.x',
-                    directory: 'src/tinymce',
-                    force: true
-                }
-            }
-        },
-        shell: {
-            installgrunt: {
-                command: [
-                    'npm i -g yarn grunt-cli',
-                    'yarn',
-                ].join('&&'),
-                cwd: 'src/tinymce'
-            },
-            buildjs: {
-                command: [
-                    'grunt'
-                ].join('&&'),
-                cwd: 'src/tinymce'
-            },
-            buildcss: {
-                command: [
-                    'grunt less'
-                ].join('&&'),
-                cwd: 'src/tinymce'
-            }
-        },
-        'regex-replace': {
-            modx: {
-                src: ['src/tinymce/Gruntfile.js'],
-                actions: [
-                    {
-                        name: 'modx',
-                        search: '([ ]*)(\'js/tinymce/skins/)(lightgray)(/.*?.css\': \'src/skins/)(\\3)(/main/less/.*?.less\')\\n',
-                        replace: '$1$2$3$4$5$6,\n$1$2modx$4modx$6\n',
-                        flags: 'g'
-                    }
-                ]
-            }
-        },
         curl: {
+            tinymce: {
+                src: {
+                    url: 'https://download.tiny.cloud/tinymce/community/tinymce_5.6.2_dev.zip',
+                    method: 'GET'
+                },
+                dest: 'src/tinymce_5.6.2_dev.zip'
+            },
             i18n: {
                 src: {
                     url: 'https://www.tiny.cloud/tinymce-services-azure/1/i18n/download?langs=ar,be,bg_BG,cs,da,de,el,es,et,fa,fi,fr_FR,he_IL,id,it,ja,nl,pl,pt_BR,ro,ru,sk,sv_SE,th_TH,uk,zh_CN',
                     method: 'GET'
                 },
-                dest: 'node_modules/tinymce/langs/tinymce_languages.zip'
+                dest: 'src/tinymce_languages.zip'
             }
         },
         unzip: {
+            tinymce: {
+                src: 'src/tinymce_5.6.2_dev.zip',
+                dest: 'src/'
+            },
             i18n: {
-                src: 'node_modules/tinymce/langs/tinymce_languages.zip',
+                src: 'src/tinymce_languages.zip',
                 dest: 'assets/components/tinymcerte/js/vendor/tinymce/'
             }
         },
@@ -141,19 +152,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-curl');
-    grunt.loadNpmTasks('grunt-git');
-    grunt.loadNpmTasks('grunt-regex-replace');
-    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-string-replace');
     grunt.loadNpmTasks('grunt-zip');
     grunt.renameTask('string-replace', 'bump');
 
     //register the task
-    grunt.registerTask('prepare', ['gitclone', 'i18n', 'shell:installgrunt', 'regex-replace']);
-    grunt.registerTask('update', ['clean:tinymce', 'prepare']);
-    grunt.registerTask('buildjs', ['shell:buildjs', 'copy:tinymce']);
-    grunt.registerTask('buildcss', ['copy:skin', 'shell:buildcss', 'copy:tinymce']);
-    grunt.registerTask('build', ['buildjs', 'buildcss']);
-    grunt.registerTask('i18n', ['curl', 'unzip']);
+    grunt.registerTask('prepare', ['curl', 'unzip', 'copy:tinymce', 'copy:modx', 'copy:skin']);
+    grunt.registerTask('update', ['clean', 'prepare']);
     grunt.registerTask('default', ['bump']);
 };

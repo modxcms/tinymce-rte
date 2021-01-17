@@ -1,41 +1,76 @@
 <?php
-
 /**
- * The main TinyMCE Rich Text Editor service class.
+ * TinyMCE Rich Text Editor
  *
  * @package tinymcerte
+ * @subpackage classfile
  */
-class TinyMCERTE {
-    public $modx = null;
-    public $namespace = 'tinymcerte';
-    public $version = '1.4.0';
-    public $cache = null;
-    public $options = array();
 
-    public function __construct(modX &$modx, array $options = array()) {
+/**
+ * Class TinyMCERTE
+ */
+class TinyMCERTE
+{
+    /**
+     * A reference to the modX instance
+     * @var modX $modx
+     */
+    public $modx;
+
+    /**
+     * The namespace
+     * @var string $namespace
+     */
+    public $namespace = 'tinymcerte';
+
+    /**
+     * The version
+     * @var string $version
+     */
+    public $version = '2.0.0-b1';
+
+    /**
+     * The class options
+     * @var array $options
+     */
+    public $options = [];
+
+    /**
+     * TinyMCERTE constructor
+     *
+     * @param modX $modx A reference to the modX instance.
+     * @param array $options An array of options. Optional.
+     */
+    public function __construct(modX &$modx, array $options = [])
+    {
         $this->modx =& $modx;
-        $this->namespace = $this->getOption('namespace', $options, 'tinymcerte');
+        $this->namespace = $this->getOption('namespace', $options, $this->namespace);
 
         $corePath = $this->getOption('core_path', $options, $this->modx->getOption('core_path', null, MODX_CORE_PATH) . 'components/tinymcerte/');
         $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path', null, MODX_ASSETS_PATH) . 'components/tinymcerte/');
         $assetsUrl = $this->getOption('assets_url', $options, $this->modx->getOption('assets_url', null, MODX_ASSETS_URL) . 'components/tinymcerte/');
 
-        /* loads some default paths for easier management */
-        $this->options = array_merge(array(
+        // Load some default paths for easier management
+        $this->options = array_merge([
             'namespace' => $this->namespace,
+            'version' => $this->version,
             'corePath' => $corePath,
             'modelPath' => $corePath . 'model/',
             'chunksPath' => $corePath . 'elements/chunks/',
             'snippetsPath' => $corePath . 'elements/snippets/',
+            'pluginsPath' => $corePath . 'elements/plugins/',
+            'controllersPath' => $corePath . 'controllers/',
+            'processorsPath' => $corePath . 'processors/',
             'templatesPath' => $corePath . 'templates/',
             'assetsPath' => $assetsPath,
             'assetsUrl' => $assetsUrl,
             'jsUrl' => $assetsUrl . 'js/',
             'cssUrl' => $assetsUrl . 'css/',
             'connectorUrl' => $assetsUrl . 'connector.php'
-        ), $options);
+        ], $options);
 
-        $this->modx->lexicon->load('tinymcerte:default');
+        $lexicon = $this->modx->getService('lexicon', 'modLexicon');
+        $lexicon->load($this->namespace . ':default');
     }
 
     /**
@@ -47,7 +82,8 @@ class TinyMCERTE {
      * namespaced system setting; by default this value is null.
      * @return mixed The option value or the default value specified.
      */
-    public function getOption($key, $options = array(), $default = null) {
+    public function getOption($key, $options = [], $default = null)
+    {
         $option = $default;
         if (!empty($key) && is_string($key)) {
             if ($options != null && array_key_exists($key, $options)) {
@@ -61,8 +97,15 @@ class TinyMCERTE {
         return $option;
     }
 
-    public function getLanguageCode($language) {
-        $codes = array(
+    /**
+     * Get the TinyMCE language code by the manager language
+     *
+     * @param $language
+     * @return mixed|string
+     */
+    public function getLanguageCode($language)
+    {
+        $codes = [
             'bg' => 'bg_BG',
             'fr' => 'fr_FR',
             'he' => 'he_IL',
@@ -70,7 +113,7 @@ class TinyMCERTE {
             'sv' => 'sv_SE',
             'th' => 'th_TH',
             'zh' => 'zh_CN',
-        );
+        ];
 
         if (isset($codes[$language])) {
             $language = $codes[$language];
@@ -83,12 +126,20 @@ class TinyMCERTE {
 
         return $language;
     }
-    
-    public function explodeAndClean($array, $delimiter = ',') {
-        $array = explode($delimiter, $array);     // Explode fields to array
-        $array = array_map('trim', $array);       // Trim array's values
-        $array = array_keys(array_flip($array));  // Remove duplicate fields
-        $array = array_filter($array);            // Remove empty values from array
+
+    /**
+     * Explode and clean comma separaded setting values
+     *
+     * @param string $array
+     * @param string $delimiter
+     * @return array
+     */
+    public function explodeAndClean($array, $delimiter = ',')
+    {
+        $array = explode($delimiter, $array); // Explode fields to array
+        $array = array_map('trim', $array);  // Trim array's values
+        $array = array_keys(array_flip($array)); // Remove duplicate fields
+        $array = array_filter($array); // Remove empty values from array
         return $array;
     }
 }

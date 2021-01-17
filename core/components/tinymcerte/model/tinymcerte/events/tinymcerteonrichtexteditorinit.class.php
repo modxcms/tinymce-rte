@@ -1,25 +1,33 @@
 <?php
+/**
+ * @package tinymcerte
+ * @subpackage plugin
+ */
 
-class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
-
-    public function init(){
+class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin
+{
+    public function init()
+    {
         $useEditor = $this->modx->getOption('use_editor', false);
-        $whichEditor = $this->modx->getOption('which_editor', '');
+        $whichEditor = $this->modx->getOption('which_editor', null, '');
 
-        if ($useEditor && $whichEditor == 'TinyMCE RTE') return true;
+        if ($useEditor && $whichEditor == 'TinyMCE RTE') {
+            return true;
+        }
 
         return false;
     }
 
-    public function process() {
+    public function process()
+    {
         $html = $this->initTinyMCE();
 
         $this->modx->event->output($html);
     }
 
-    private function initTinyMCE() {
+    private function initTinyMCE()
+    {
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/autocomplete.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addCss($this->tinymcerte->getOption('cssUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
 
@@ -33,83 +41,85 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
         </script>';
     }
 
-    private function getTinyConfig() {
-        $language = $this->modx->getOption('manager_language');
-        $language = $this->tinymcerte->getLanguageCode($language);
-
-        $objectResizing = $this->tinymcerte->getOption('object_resizing', array(), '1');
-
+    private function getTinyConfig()
+    {
+        $language = $this->tinymcerte->getLanguageCode($this->modx->getOption('manager_language'));
+        $objectResizing = $this->tinymcerte->getOption('object_resizing', [], '1');
         if ($objectResizing === '1' || $objectResizing === 'true') {
             $objectResizing = true;
-        }
-
-        if ($objectResizing === '0' || $objectResizing === 'false') {
+        } elseif ($objectResizing === '0' || $objectResizing === 'false') {
             $objectResizing = false;
         }
 
-        $config = array_merge(array(
-            'plugins' => $this->tinymcerte->getOption('plugins', array(), 'advlist autolink lists link modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink'),
-            'toolbar1' => $this->tinymcerte->getOption('toolbar1', array(), 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
-            'toolbar2' => $this->tinymcerte->getOption('toolbar2', array(), ''),
-            'toolbar3' => $this->tinymcerte->getOption('toolbar3', array(), ''),
-            'modxlinkSearch' => $this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/plugins/modxlink/search.php',
+        $config = array_merge([
+            'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modximage modxlink'),
+            'toolbar1' => $this->tinymcerte->getOption('toolbar1', [], 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
+            'toolbar2' => $this->tinymcerte->getOption('toolbar2', [], ''),
+            'toolbar3' => $this->tinymcerte->getOption('toolbar3', [], ''),
+            'connector_url' => $this->tinymcerte->getOption('connectorUrl'),
             'language' => $language,
-            'directionality' => $this->modx->getOption('manager_direction', array(), 'ltr'),
-            'menubar' => $this->tinymcerte->getOption('menubar', array(), 'file edit insert view format table tools'),
-            'statusbar' => $this->tinymcerte->getOption('statusbar', array(), 1) == 1,
-            'image_advtab' => $this->tinymcerte->getOption('image_advtab', array(), true) == 1,
-            'paste_as_text' => $this->tinymcerte->getOption('paste_as_text', array(), false) == 1,
-            'style_formats_merge' => $this->tinymcerte->getOption('style_formats_merge', array(), false) == 1,
+            'directionality' => $this->modx->getOption('manager_direction', [], 'ltr'),
+            'menubar' => $this->tinymcerte->getOption('menubar', [], 'file edit insert view format table tools'),
+            'statusbar' => $this->tinymcerte->getOption('statusbar', [], 1) == 1,
+            'image_advtab' => $this->tinymcerte->getOption('image_advtab', [], true) == 1,
+            'paste_as_text' => $this->tinymcerte->getOption('paste_as_text', [], false) == 1,
+            'style_formats_merge' => $this->tinymcerte->getOption('style_formats_merge', [], false) == 1,
             'object_resizing' => $objectResizing,
-            'link_class_list' => json_decode($this->tinymcerte->getOption('link_class_list', array(), '[]'), true),
-            'browser_spellcheck' => $this->tinymcerte->getOption('browser_spellcheck', array(), false) == 1,
-            'content_css' => $this->tinymcerte->explodeAndClean($this->tinymcerte->getOption('content_css', array(), '')),
-            'image_class_list' => json_decode($this->tinymcerte->getOption('image_class_list', array(), '[]'), true),
-            'skin' => $this->tinymcerte->getOption('skin', array(), 'modx'),
-            'relative_urls' => $this->tinymcerte->getOption('relative_urls', array(), true) == 1,
-            'remove_script_host' => $this->tinymcerte->getOption('remove_script_host', array(), true) == 1,
-            'entity_encoding' => $this->tinymcerte->getOption('entity_encoding', array(), 'named'),
-            'branding' => $this->tinymcerte->getOption('branding', array(), false) == 1
-        ), $this->getSettings(), $this->getProperties());
+            'link_class_list' => json_decode($this->tinymcerte->getOption('link_class_list', [], '[]'), true),
+            'browser_spellcheck' => $this->tinymcerte->getOption('browser_spellcheck', [], false) == 1,
+            'content_css' => $this->tinymcerte->explodeAndClean($this->tinymcerte->getOption('content_css', [], '')),
+            'image_class_list' => json_decode($this->tinymcerte->getOption('image_class_list', [], '[]'), true),
+            'skin' => $this->tinymcerte->getOption('skin', [], 'modx'),
+            'relative_urls' => $this->tinymcerte->getOption('relative_urls', [], true) == 1,
+            'remove_script_host' => $this->tinymcerte->getOption('remove_script_host', [], true) == 1,
+            'entity_encoding' => $this->tinymcerte->getOption('entity_encoding', [], 'named'),
+            'branding' => $this->tinymcerte->getOption('branding', [], false) == 1,
+            'cache_suffix' => '?v=' . $this->tinymcerte->version
+        ], $this->getSettings(), $this->getProperties());
 
-        $styleFormats = $this->tinymcerte->getOption('style_formats', array(), '[]');
+        $styleFormats = $this->tinymcerte->getOption('style_formats', [], '[]');
         $styleFormats = json_decode($styleFormats, true);
-
-        $finalFormats = array();
-
+        $finalFormats = [];
         foreach ($styleFormats as $format) {
-            if (!isset($format['items'])) continue;
-
-            $items = $this->tinymcerte->getOption($format['items'], array(), '[]');
-            $items = json_decode($items, true);
-
-            if (empty($items)) continue;
-
+            if (!isset($format['items'])) {
+                continue;
+            } elseif (is_array($format['items'])) {
+                $items = $format['items'];
+            } else {
+                $items = $this->tinymcerte->getOption($format['items'], [], '[]');
+                $items = json_decode($items, true);
+            }
+            if (empty($items)) {
+                continue;
+            }
             $format['items'] = $items;
-
             $finalFormats[] = $format;
         }
-
         if (!empty($finalFormats)) {
             $config['style_formats'] = $finalFormats;
         }
 
         $validElements = $this->tinymcerte->getOption('valid_elements');
-        if(!empty($validElements)){
+        if (!empty($validElements)) {
             $config['valid_elements'] = $validElements;
         }
 
         $externalConfig = $this->tinymcerte->getOption('external_config');
         if (!empty($externalConfig)) {
-            $externalConfig = str_replace('{base_path}', $this->modx->getOption('base_path'), $externalConfig);
-            $externalConfig = str_replace('{core_path}', $this->modx->getOption('core_path'), $externalConfig);
-            $externalConfig = str_replace('{assets_path}', $this->modx->getOption('assets_path'), $externalConfig);
-
+            $externalConfig = str_replace([
+                '{base_path}',
+                '{core_path}',
+                '{assets_path}',
+            ], [
+                $this->modx->getOption('base_path'),
+                $this->modx->getOption('core_path'),
+                $this->modx->getOption('assets_path'),
+            ], $externalConfig);
             if (file_exists($externalConfig) && is_readable($externalConfig)) {
                 $externalConfig = file_get_contents($externalConfig);
-                $externalConfig = $this->modx->fromJSON($externalConfig);
+                $externalConfig = json_decode($externalConfig, true);
                 if (is_array($externalConfig)) {
-                    $config = array_merge($config, $externalConfig);
+                    $config = array_merge_recursive($config, $externalConfig);
                 }
             }
         }
@@ -122,7 +132,8 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
      *
      * @return array
      */
-    private function getProperties() {
+    private function getProperties()
+    {
         $props = $this->scriptProperties;
         // unset the regular properties sent by resource controllers
         unset($props['editor'], $props['elements'], $props['id'], $props['resource'], $props['mode']);
@@ -135,9 +146,10 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin {
      *
      * @return array
      */
-    private function getSettings() {
-        $settings = $this->modx->fromJSON($this->tinymcerte->getOption('settings'));
-        $settings = $settings ? $settings : array();
+    private function getSettings()
+    {
+        $settings = json_decode($this->tinymcerte->getOption('settings'), true);
+        $settings = ($settings) ? $settings : [];
 
         return $settings;
     }
