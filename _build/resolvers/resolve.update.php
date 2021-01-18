@@ -9,7 +9,7 @@
  */
 
 if ($object->xpdo) {
-    if (function_exists('changeSetting')) {
+    if (!function_exists('changeSetting')) {
         function changeSetting($modx, $key, $old, $new)
         {
             $setting = $modx->getObject('modSystemSetting', [
@@ -33,7 +33,7 @@ if ($object->xpdo) {
         }
     }
 
-    if (function_exists('cleanupFolders')) {
+    if (!function_exists('cleanupFolders')) {
         function cleanupFolders($modx, $corePath, $assetsPath, $cleanup)
         {
             $paths = [
