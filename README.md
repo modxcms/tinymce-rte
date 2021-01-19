@@ -1,5 +1,5 @@
 # TinyMCE Rich Text Editor
-[![LICENSE](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](./LICENSE)
+[![LICENSE](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](./LICENSE) [![Crowdin](https://badges.crowdin.net/modx-tinymce-rte/localized.svg)](https://crowdin.com/project/modx-tinymce-rte)
 
 TinyMCE Rich Text Editor TinyMCE is a platform independent web based Javascript
 HTML WYSIWYG editor. It allows non-technical users to format content without
@@ -11,6 +11,15 @@ TinyMCE files and the MODX skin. The skin could be modified with the
 `Variables.less` and the `MODX.less` files in `src/modx`
 
 ## Change Log
+
+__2.0.0__
+- Upgrade TinyMCE to 5.6.2
+- Refactored modxlink TinyMCE plugin to use the nested link_list option
+- Refactored modximage TinyMCE plugin
+- Recursive merge the external config with the config
+- Remove the deprecated file_browser_callback and use the file_picker_callback
+- Allow direct JSON based style_formats items
+- Deprecated links_across_contexts system setting (currently not working)
 
 __1.4.0__
 - Build the modx skin with the internal tinymce grunt workflow

@@ -5,5 +5,7 @@ TinyMCERTE.browserCallback = function(data) {
             mceAction: 'selectFile',
             url: data.fullRelativeUrl
         }, origin);
+    } else {
+        top.tinymce.activeEditor.windowManager.close();
     }
 };

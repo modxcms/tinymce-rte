@@ -6,9 +6,8 @@
  * @subpackage lexicon
  */
 
-$_lang['area_tinymcerte.style_formats'] = 'Style formats';
+$_lang['area_tinymcerte.style_formats'] = 'Style Formats';
 $_lang['area_tinymcerte.toolbar'] = 'Toolbar';
-$_lang['area_default'] = 'Default';
 
 $_lang['setting_tinymcerte.toolbar1'] = 'Toolbar 1';
 $_lang['setting_tinymcerte.toolbar1_desc'] = 'This controls what buttons you want show up in the toolbar. <a href="https://www.tiny.cloud/docs-4x/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs-4x/configure/editor-appearance/#toolbar</a>';

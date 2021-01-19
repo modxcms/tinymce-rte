@@ -2,6 +2,11 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         modx: grunt.file.readJSON('_build/config.json'),
+        banner: '/*!\n' +
+            ' * <%= modx.name %> - <%= modx.description %>\n' +
+            ' * Version: <%= modx.version %>\n' +
+            ' * Build date: <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            ' */\n',
         copy: {
             tinymce: {
                 files: [{
@@ -92,6 +97,34 @@ module.exports = function (grunt) {
                 }]
             }
         },
+        uglify: {
+            mgr: {
+                options: {
+                    banner: '<%= banner %>'
+                },
+                files: [{
+                    src: ['*.js'],
+                    cwd: 'src/modx/mgr/',
+                    dest: 'assets/components/tinymcerte/js/mgr/',
+                    expand: true,
+                    nonull: true,
+                    ext: '.min.js'
+                }]
+            },
+            plugins: {
+                options: {
+                    banner: '<%= banner %>'
+                },
+                files: [{
+                    src: ['**/*.js', '!**/*.original.js'],
+                    cwd: 'src/modx/plugins/',
+                    dest: 'assets/components/tinymcerte/js/vendor/tinymce/plugins/',
+                    expand: true,
+                    nonull: true,
+                    ext: '.min.js'
+                }]
+            }
+        },
         clean: {
             tinymce: {
                 src: ['src/tinymce']
@@ -150,6 +183,7 @@ module.exports = function (grunt) {
     //load the packages
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-curl');
     grunt.loadNpmTasks('grunt-string-replace');
@@ -157,7 +191,8 @@ module.exports = function (grunt) {
     grunt.renameTask('string-replace', 'bump');
 
     //register the task
-    grunt.registerTask('prepare', ['curl', 'unzip', 'copy:tinymce', 'copy:modx', 'copy:skin']);
+    grunt.registerTask('prepare', ['curl', 'unzip', 'copy:tinymce', 'uglify', 'copy:skin']);
+    grunt.registerTask('prepare_debug', ['curl', 'unzip', 'copy:tinymce_debug', 'copy:modx', 'copy:skin']);
     grunt.registerTask('update', ['clean', 'prepare']);
     grunt.registerTask('default', ['bump']);
 };

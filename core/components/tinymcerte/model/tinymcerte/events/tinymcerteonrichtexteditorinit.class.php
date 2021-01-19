@@ -28,7 +28,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin
     private function initTinyMCE()
     {
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.js?v=' . $this->tinymcerte->version);
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addCss($this->tinymcerte->getOption('cssUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
 
         return '<script type="text/javascript">
