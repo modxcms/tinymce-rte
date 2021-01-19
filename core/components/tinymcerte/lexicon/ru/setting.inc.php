@@ -6,9 +6,8 @@
  * @subpackage lexicon
  */
 
-$_lang['area_tinymcerte.style_formats'] = 'Форматы стилей';
+$_lang['area_tinymcerte.style_formats'] = 'Style Formats';
 $_lang['area_tinymcerte.toolbar'] = 'Панель инструментов';
-$_lang['area_default'] = 'По умолчанию';
 
 $_lang['setting_tinymcerte.toolbar1'] = 'Панель инструментов 1';
 $_lang['setting_tinymcerte.toolbar1_desc'] = 'Этот параметр позволяет управлять тем, какие кнопки вы хотите отображать на панели инструментов. <a href="https://www.tiny.cloud/docs-4x/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs-4x/configure/editor-appearance/#toolbar</a>';
