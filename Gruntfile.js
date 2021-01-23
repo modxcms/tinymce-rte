@@ -2,6 +2,7 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         modx: grunt.file.readJSON('_build/config.json'),
+        tinymce_version: '5.6.2',
         banner: '/*!\n' +
             ' * <%= modx.name %> - <%= modx.description %>\n' +
             ' * Version: <%= modx.version %>\n' +
@@ -133,10 +134,10 @@ module.exports = function (grunt) {
         curl: {
             tinymce: {
                 src: {
-                    url: 'https://download.tiny.cloud/tinymce/community/tinymce_5.6.2_dev.zip',
+                    url: 'https://download.tiny.cloud/tinymce/community/tinymce_<%= tinymce_version %>_dev.zip',
                     method: 'GET'
                 },
-                dest: 'src/tinymce_5.6.2_dev.zip'
+                dest: 'src/tinymce_dev.zip'
             },
             i18n: {
                 src: {
@@ -148,7 +149,7 @@ module.exports = function (grunt) {
         },
         unzip: {
             tinymce: {
-                src: 'src/tinymce_5.6.2_dev.zip',
+                src: 'src/tinymce_dev.zip',
                 dest: 'src/'
             },
             i18n: {
@@ -173,7 +174,7 @@ module.exports = function (grunt) {
                 options: {
                     replacements: [{
                         pattern: /version = '\d+.\d+.\d+[-a-z0-9]*'/ig,
-                        replacement: 'version = \'' + '<%= modx.version %>' + '\''
+                        replacement: 'version = \'<%= modx.version %>\''
                     }]
                 }
             }
