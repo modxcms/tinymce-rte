@@ -6,7 +6,7 @@
  * @subpackage lexicon
  */
 
-$_lang['tinymcerte'] = 'Текстовый редактор TinyMCE Rich';
+$_lang['tinymcerte'] = 'TinyMCE Rich Text Editor';
 
 $_lang['tinymcerte.float_left'] = 'Слева';
 $_lang['tinymcerte.float_none'] = 'Нет';
