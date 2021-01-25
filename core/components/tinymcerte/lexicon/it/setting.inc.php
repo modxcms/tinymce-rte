@@ -58,8 +58,8 @@ $_lang['setting_tinymcerte.remove_script_host_desc'] = 'Se questa opzione è abi
 $_lang['setting_tinymcerte.settings'] = 'Impostazioni aggiuntive';
 $_lang['setting_tinymcerte.settings_desc'] = 'Array codificato JSON di ulteriori impostazioni TinyMCE.';
 $_lang['setting_tinymcerte.skin'] = 'Aspetto';
-$_lang['setting_tinymcerte.skin_desc'] = 'This option allows you to specify the skin that TinyMCE should use. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#skin">https://www.tiny.cloud/docs/configure/editor-appearance/#skin</a>';
+$_lang['setting_tinymcerte.skin_desc'] = 'Questa opzione ti permette di specificare la skin che TinyMCE dovrebbe usare. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#skin">https://www.tiny.cloud/docs/configure/editor-appearance/#skin</a>';
 $_lang['setting_tinymcerte.statusbar'] = 'Barra di stato';
-$_lang['setting_tinymcerte.statusbar_desc'] = 'This option allows you to specify whether TinyMCE should display the status bar at the bottom of the editor. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar">https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar</a>';
+$_lang['setting_tinymcerte.statusbar_desc'] = 'Questa opzione consente di specificare se TinyMCE debba visualizzare la barra di stato in fondo all\'editor. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar">https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar</a>';
 $_lang['setting_tinymcerte.valid_elements'] = 'Elementi validi';
-$_lang['setting_tinymcerte.valid_elements_desc'] = 'This option defines which elements will remain in the edited text when the editor saves. You can use this to limit the returned HTML to a subset. <a href="https://www.tiny.cloud/docs/configure/content-filtering/#extended_valid_elements">https://www.tiny.cloud/docs/configure/content-filtering/#extended_valid_elements</a>.';
+$_lang['setting_tinymcerte.valid_elements_desc'] = 'Questa opzione definisce quali elementi rimarranno nel testo modificato quando l\' editor salva. È possibile utilizzare questo per limitare l\'HTML restituito a un sottoset. <a href="https://www.tiny.cloud/docs/configure/content-filtering/#extended_valid_elements">https://www.tiny.cloud/docs/configure/content-filtering/#extended_valid_elements</a>.';
