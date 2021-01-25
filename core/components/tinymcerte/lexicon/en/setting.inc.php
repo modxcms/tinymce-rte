@@ -58,8 +58,8 @@ $_lang['setting_tinymcerte.remove_script_host_desc'] = 'If this option is enable
 $_lang['setting_tinymcerte.settings'] = 'Additional Settings';
 $_lang['setting_tinymcerte.settings_desc'] = 'JSON encoded array of additional TinyMCE settings.';
 $_lang['setting_tinymcerte.skin'] = 'Skin';
-$_lang['setting_tinymcerte.skin_desc'] = 'Select what skin to use, this should match the foldername of the skin. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#skin">https://www.tiny.cloud/docs/configure/editor-appearance/#skin</a>';
+$_lang['setting_tinymcerte.skin_desc'] = 'This option allows you to specify the skin that TinyMCE should use. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#skin">https://www.tiny.cloud/docs/configure/editor-appearance/#skin</a>';
 $_lang['setting_tinymcerte.statusbar'] = 'Statusbar';
-$_lang['setting_tinymcerte.statusbar_desc'] = 'Boolean, show or hide the statusbar. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar">https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar</a>';
+$_lang['setting_tinymcerte.statusbar_desc'] = 'This option allows you to specify whether TinyMCE should display the status bar at the bottom of the editor. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar">https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar</a>';
 $_lang['setting_tinymcerte.valid_elements'] = 'Valid elements';
-$_lang['setting_tinymcerte.valid_elements_desc'] = 'Defines which elements will remain in the edited text when the editor saves. You can use this setting to limit the returned HTML to a subset as described on: <a href="https://www.tiny.cloud/docs/configure/content-filtering/#extended_valid_elements">https://www.tiny.cloud/docs/configure/content-filtering/#extended_valid_elements</a>.';
+$_lang['setting_tinymcerte.valid_elements_desc'] = 'This option defines which elements will remain in the edited text when the editor saves. You can use this to limit the returned HTML to a subset. <a href="https://www.tiny.cloud/docs/configure/content-filtering/#extended_valid_elements">https://www.tiny.cloud/docs/configure/content-filtering/#extended_valid_elements</a>.';
