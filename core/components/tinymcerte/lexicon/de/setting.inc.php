@@ -7,17 +7,17 @@
  */
 
 $_lang['area_tinymcerte.style_formats'] = 'Stil-Formate';
-$_lang['area_tinymcerte.toolbar'] = 'Toolbar';
+$_lang['area_tinymcerte.toolbar'] = 'Werkzeugleiste';
 
-$_lang['setting_tinymcerte.toolbar1'] = 'Toolbar 1';
-$_lang['setting_tinymcerte.toolbar1_desc'] = 'This controls what buttons you want show up in the toolbar. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
-$_lang['setting_tinymcerte.toolbar2'] = 'Toolbar 2';
-$_lang['setting_tinymcerte.toolbar2_desc'] = 'This controls what buttons you want show up in the toolbar. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
+$_lang['setting_tinymcerte.toolbar1'] = 'Werkzeugleiste 1';
+$_lang['setting_tinymcerte.toolbar1_desc'] = 'Dies steuert, welche Schaltflächen in der Werkzeugleiste 1 angezeigt werden sollen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
+$_lang['setting_tinymcerte.toolbar2'] = 'Werkzeugleiste 2';
+$_lang['setting_tinymcerte.toolbar2_desc'] = 'Dies steuert, welche Schaltflächen in der Werkzeugleiste 2 angezeigt werden sollen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
 $_lang['setting_tinymcerte.toolbar3'] = 'Toolbar 3';
-$_lang['setting_tinymcerte.toolbar3_desc'] = 'This controls what buttons you want show up in the toolbar. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
+$_lang['setting_tinymcerte.toolbar3_desc'] = 'Dies steuert, welche Schaltflächen in der Werkzeugleiste 3 angezeigt werden sollen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
 
-$_lang['setting_tinymcerte.style_formats'] = 'Style formats';
-$_lang['setting_tinymcerte.style_formats_desc'] = 'This option enables you to add more advanced style formats for text and other elements to the editor. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
+$_lang['setting_tinymcerte.style_formats'] = 'Stil-Formate';
+$_lang['setting_tinymcerte.style_formats_desc'] = 'Mit dieser Option können Sie dem Editor erweiterte Stilformate für Text und andere Elemente hinzufügen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
 $_lang['setting_tinymcerte.headers_format'] = 'Headers format';
 $_lang['setting_tinymcerte.headers_format_desc'] = 'This option enables you to add more advanced style formats for text and other elements to the editor. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
 $_lang['setting_tinymcerte.inline_format'] = 'Inline format';
