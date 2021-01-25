@@ -6,7 +6,7 @@
  * @subpackage lexicon
  */
 
-$_lang['area_tinymcerte.style_formats'] = 'Style Formats';
+$_lang['area_tinymcerte.style_formats'] = 'Stil-Formate';
 $_lang['area_tinymcerte.toolbar'] = 'Toolbar';
 
 $_lang['setting_tinymcerte.toolbar1'] = 'Toolbar 1';
