@@ -58,7 +58,7 @@ $_lang['setting_tinymcerte.remove_script_host_desc'] = 'Wenn diese Option aktivi
 $_lang['setting_tinymcerte.settings'] = 'Zusätzliche Einstellungen';
 $_lang['setting_tinymcerte.settings_desc'] = 'JSON-kodiertes Array mit zusätzlichen TinyMCE-Einstellungen.';
 $_lang['setting_tinymcerte.skin'] = 'Erscheinungsbild';
-$_lang['setting_tinymcerte.skin_desc'] = 'Mit dieser Option können Sie das Erscheinungsbild festlegen, den TinyMCE verwenden soll. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#skin">https://www.tiny.cloud/docs/configure/editor-appearance/#skin</a>';
+$_lang['setting_tinymcerte.skin_desc'] = 'Mit dieser Option können Sie das Erscheinungsbild festlegen, das TinyMCE verwenden soll. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#skin">https://www.tiny.cloud/docs/configure/editor-appearance/#skin</a>';
 $_lang['setting_tinymcerte.statusbar'] = 'Statusleiste';
 $_lang['setting_tinymcerte.statusbar_desc'] = 'Mit dieser Option können Sie festlegen, ob TinyMCE die Statusleiste am unteren Rand des Editors anzeigen soll. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar">https://www.tiny.cloud/docs/configure/editor-appearance/#statusbar</a>';
 $_lang['setting_tinymcerte.valid_elements'] = 'Gültige Elemente';
