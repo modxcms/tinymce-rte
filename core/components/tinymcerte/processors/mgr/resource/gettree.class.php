@@ -36,10 +36,30 @@ class TinyMCERTEResourceGetTreeProcessor extends modProcessor
     {
         $this->getRootNode();
         $this->getResources($this->contextKey);
-        $tree = $this->modx->getTree($this->startNode);
-        $resources = $this->getResources($this->contextKey);
-        $items = $this->fillTree($tree, $resources);
+        if (!$this->modx->getOption('tinymcerte.links_across_contexts')) {
+            $items = $this->getContextTree($this->contextKey);
+        } else {
+            $items = array();
+            /** @var modContext[] $contexts */
+            $contexts = $this->modx->getCollection('modContext', array(
+                'key:!=' => 'mgr'
+            ));
+            foreach ($contexts as $context) {
+                $items[] = array(
+                    'title' => $context->get('key'),
+                    'menu' => $this->getContextTree($context->get('key'))
+                );
+            }
+        }
         return $this->outputArray($items);
+    }
+
+    private function getContextTree($contextKey) {
+        $tree = $this->modx->getTree($this->startNode, 10, array(
+            'context' => $contextKey
+        ));
+        $resources = $this->getResources($contextKey);
+        return $this->fillTree($tree, $resources);
     }
 
     /**
