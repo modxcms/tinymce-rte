@@ -1,0 +1,22 @@
+{
+  "name": "modxcms/tinymcerte",
+  "description": "Calendar management for MODX",
+  "authors": [
+    {
+      "name": "John Peca",
+      "email": "pecajan@gmail.com",
+      "homepage": "http://www.bxr.cz"
+    },
+    {
+      "name": "Thomas Jakobi",
+      "email": "office@treehillstudio.com",
+      "homepage": "https://treehillstudio.com"
+    }
+  ],
+  "license": "GPL-2.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "TinyMCERTE\\": "src/"
+    }
+  }
+}

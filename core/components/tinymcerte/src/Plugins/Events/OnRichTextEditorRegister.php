@@ -4,7 +4,11 @@
  * @subpackage plugin
  */
 
-class TinyMCERTEOnRichTextEditorRegister extends TinyMCERTEPlugin
+namespace TinyMCERTE\Plugins\Events;
+
+use TinyMCERTE\Plugins\Plugin;
+
+class OnRichTextEditorRegister extends Plugin
 {
     public function process()
     {

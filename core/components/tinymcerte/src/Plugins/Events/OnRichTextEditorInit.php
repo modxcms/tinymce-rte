@@ -4,9 +4,13 @@
  * @subpackage plugin
  */
 
-class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin
+namespace TinyMCERTE\Plugins\Events;
+
+use TinyMCERTE\Plugins\Plugin;
+
+class OnRichTextEditorInit extends Plugin
 {
-    public function init()
+    public function init(): bool
     {
         $useEditor = $this->modx->getOption('use_editor', false);
         $whichEditor = $this->modx->getOption('which_editor', null, '');
@@ -25,7 +29,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin
         $this->modx->event->output($html);
     }
 
-    private function initTinyMCE()
+    private function initTinyMCE(): string
     {
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
@@ -41,7 +45,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin
         </script>';
     }
 
-    private function getTinyConfig()
+    private function getTinyConfig(): array
     {
         $language = $this->tinymcerte->getLanguageCode($this->modx->getOption('manager_language'));
         $objectResizing = $this->tinymcerte->getOption('object_resizing', [], '1');
@@ -132,7 +136,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin
      *
      * @return array
      */
-    private function getProperties()
+    private function getProperties(): array
     {
         $props = $this->scriptProperties;
         // unset the regular properties sent by resource controllers
@@ -146,7 +150,7 @@ class TinyMCERTEOnRichTextEditorInit extends TinyMCERTEPlugin
      *
      * @return array
      */
-    private function getSettings()
+    private function getSettings(): array
     {
         $settings = json_decode($this->tinymcerte->getOption('settings'), true);
         $settings = ($settings) ? $settings : [];

@@ -4,9 +4,13 @@
  * @subpackage plugin
  */
 
-class TinyMCERTEOnManagerPageBeforeRender extends TinyMCERTEPlugin
+namespace TinyMCERTE\Plugins\Events;
+
+use TinyMCERTE\Plugins\Plugin;
+
+class OnManagerPageBeforeRender extends Plugin
 {
-    public function init()
+    public function init(): bool
     {
         $useEditor = $this->modx->getOption('use_editor', false);
         $whichEditor = $this->modx->getOption('which_editor', null, '');

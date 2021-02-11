@@ -8,14 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - MODX skintool.json for http://skin.tiny.cloud/t5/
 ### Changed
-- Upgrade TinyMCE to 5.6.2
+- Upgrade TinyMCE to 5
 - Refactored modxlink TinyMCE plugin to use the nested link_list option
 - Refactored modximage TinyMCE plugin
 - Recursive merge the external config with the config
 - Remove the deprecated file_browser_callback and use the file_picker_callback 
 - Allow direct JSON based style_formats items
-### Deprecated
-- links_across_contexts system setting (currently not working)
 
 ## [1.4.0] - 2020-09-11
 ### Added

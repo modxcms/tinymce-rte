@@ -4,7 +4,15 @@
  * @subpackage plugin
  */
 
-abstract class TinyMCERTEPlugin
+namespace TinyMCERTE\Plugins;
+
+use modX;
+use TinyMCERTE;
+
+/**
+ * Class Plugin
+ */
+abstract class Plugin
 {
     /** @var modX $modx */
     protected $modx;
@@ -13,6 +21,12 @@ abstract class TinyMCERTEPlugin
     /** @var array $scriptProperties */
     protected $scriptProperties;
 
+    /**
+     * Plugin constructor.
+     *
+     * @param $modx
+     * @param $scriptProperties
+     */
     public function __construct($modx, &$scriptProperties)
     {
         $this->scriptProperties = &$scriptProperties;
@@ -23,6 +37,9 @@ abstract class TinyMCERTEPlugin
         ]);
     }
 
+    /**
+     * Run the plugin event.
+     */
     public function run()
     {
         $init = $this->init();
@@ -33,10 +50,20 @@ abstract class TinyMCERTEPlugin
         $this->process();
     }
 
-    public function init()
+    /**
+     * Initialize the plugin event.
+     *
+     * @return bool
+     */
+    public function init(): bool
     {
         return true;
     }
 
+    /**
+     * Process the plugin event code.
+     *
+     * @return mixed
+     */
     abstract public function process();
 }
