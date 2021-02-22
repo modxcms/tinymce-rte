@@ -39,7 +39,6 @@ __2.0.0__
 - Recursive merge the external config with the config
 - Remove the deprecated file_browser_callback and use the file_picker_callback
 - Allow direct JSON based style_formats items
-- Deprecated links_across_contexts system setting (currently not working)
 
 __1.4.0__
 - Build the modx skin with the internal tinymce grunt workflow
