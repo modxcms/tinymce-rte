@@ -33,7 +33,7 @@ There is a `grunt prepare_debug` task, that copies not uglyfied script files to
 ## Change Log
 
 __2.0.0__
-- Upgrade TinyMCE to 5.6.2
+- Upgrade TinyMCE to 5
 - Refactored modxlink TinyMCE plugin to use the nested link_list option
 - Refactored modximage TinyMCE plugin
 - Recursive merge the external config with the config
