@@ -2,7 +2,7 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         modx: grunt.file.readJSON('_build/config.json'),
-        tinymce_version: '5.6.2',
+        tinymce_version: '5.7.0',
         banner: '/*!\n' +
             ' * <%= modx.name %> - <%= modx.description %>\n' +
             ' * Version: <%= modx.version %>\n' +
