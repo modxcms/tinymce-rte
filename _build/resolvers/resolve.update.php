@@ -12,11 +12,27 @@ if ($object->xpdo) {
     if (!function_exists('changeSetting')) {
         function changeSetting($modx, $key, $old, $new)
         {
+            /** @var modSystemSetting $setting */
             $setting = $modx->getObject('modSystemSetting', [
                 'key' => $key
             ]);
             if ($setting) {
                 $setting->set('value', str_replace($old, $new, $setting->get('value')));
+                $setting->save();
+            }
+        }
+    }
+
+    if (!function_exists('changeSettingArea')) {
+        function changeSettingArea($modx, $old, $new)
+        {
+            /** @var modSystemSetting[] $settings */
+            $settings = $modx->getIterator('modSystemSetting', [
+                'namespace' => 'tinymcerte',
+                'area' => $old
+            ]);
+            foreach ($settings as $setting) {
+                $setting->set('area', $new);
                 $setting->save();
             }
         }
@@ -58,6 +74,19 @@ if ($object->xpdo) {
             }
             if ($countFolders || $countFiles) {
                 $modx->log(xPDO::LOG_LEVEL_INFO, 'Removed ' . $countFiles . ' legacy files and ' . $countFolders . ' legacy folders of TinyMCE 1.x');
+            }
+        }
+    }
+
+    if (!function_exists('cleanupPlugin')) {
+        function cleanupPlugin($modx, $name)
+        {
+            /** @var modPlugin $plugin */
+            $plugin = $modx->getObject('modPlugin', [
+                'name' => $name
+            ]);
+            if ($plugin) {
+                $plugin->remove();
             }
         }
     }
@@ -105,7 +134,7 @@ if ($object->xpdo) {
                 changeSetting($modx, 'tinymcerte.plugins', ' image ', ' modximage ');
             }
 
-            if ($oldPackage && $oldPackage->compareVersion('2.0.0-b1', '>')) {
+            if ($oldPackage && $oldPackage->compareVersion('2.0.0-pl', '>')) {
                 changeSetting($modx, 'tinymcerte.plugins', ' contextmenu ', ' ');
                 changeSetting($modx, 'tinymcerte.inline_format', '"icon": "strikethrough"', '"icon": "strike-through"');
                 changeSetting($modx, 'tinymcerte.inline_format', '"icon": "code"', '"icon": "sourcecode"');
@@ -113,6 +142,7 @@ if ($object->xpdo) {
                 changeSetting($modx, 'tinymcerte.alignment_format', '"icon": "aligncenter"', '"icon": "align-center"');
                 changeSetting($modx, 'tinymcerte.alignment_format', '"icon": "alignright"', '"icon": "align-right"');
                 changeSetting($modx, 'tinymcerte.alignment_format', '"icon": "alignjustify"', '"icon": "align-justify"');
+                changeSettingArea($modx, 'default', 'tinymcerte.default');
 
                 $cleanup = [
                     'core' => [
@@ -126,6 +156,7 @@ if ($object->xpdo) {
                     ]
                 ];
                 cleanupFolders($modx, $corePath, $assetsPath, $cleanup);
+                cleanupPlugin($modx, 'TinyMCERTE');
             }
 
             break;

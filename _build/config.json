@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 5",
   "author": "John Peca/Thomas Jakobi",
-  "version": "2.0.0-rc4",
+  "version": "2.0.0-rc5",
   "package": {
     "elements": {
       "plugins": [
@@ -23,94 +23,94 @@
       {
         "key": "plugins",
         "value": "advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modxlink modximage",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "menubar",
         "value": "file edit insert view format table tools",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "statusbar",
         "value": true,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "image_advtab",
         "value": true,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "object_resizing",
         "value": 1,
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "paste_as_text",
         "value": false,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "link_class_list",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "browser_spellcheck",
         "type": "combo-boolean",
         "value": false,
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "content_css",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "image_class_list",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "external_config",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "skin",
         "value": "modx",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "relative_urls",
         "value": true,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "remove_script_host",
         "value": true,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "valid_elements",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "settings",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "links_across_contexts",
         "value": false,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "toolbar1",

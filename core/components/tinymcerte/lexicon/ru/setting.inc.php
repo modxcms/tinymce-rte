@@ -8,6 +8,7 @@
 
 $_lang['area_tinymcerte.style_formats'] = 'Форматы стилей';
 $_lang['area_tinymcerte.toolbar'] = 'Панель инструментов';
+$_lang['area_tinymcerte.default'] = 'TinyMCE';
 
 $_lang['setting_tinymcerte.toolbar1'] = 'Панель инструментов 1';
 $_lang['setting_tinymcerte.toolbar1_desc'] = 'Это определяет, какие кнопки вы хотите показать на панели инструментов. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';

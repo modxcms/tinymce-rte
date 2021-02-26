@@ -8,6 +8,7 @@
 
 $_lang['area_tinymcerte.style_formats'] = 'Formati di stile';
 $_lang['area_tinymcerte.toolbar'] = 'Barra degli strumenti';
+$_lang['area_tinymcerte.default'] = 'TinyMCE';
 
 $_lang['setting_tinymcerte.toolbar1'] = 'Barra degli strumenti 1';
 $_lang['setting_tinymcerte.toolbar1_desc'] = 'Questo controlla quali pulsanti vuoi visualizzare nella barra degli strumenti. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';

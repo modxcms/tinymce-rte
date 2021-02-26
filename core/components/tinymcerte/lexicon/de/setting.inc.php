@@ -8,6 +8,7 @@
 
 $_lang['area_tinymcerte.style_formats'] = 'Stil-Formate';
 $_lang['area_tinymcerte.toolbar'] = 'Werkzeugleiste';
+$_lang['area_tinymcerte.default'] = 'TinyMCE';
 
 $_lang['setting_tinymcerte.toolbar1'] = 'Werkzeugleiste 1';
 $_lang['setting_tinymcerte.toolbar1_desc'] = 'Dies steuert, welche Schaltflächen in der Werkzeugleiste 1 angezeigt werden sollen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
