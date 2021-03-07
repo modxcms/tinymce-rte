@@ -123,8 +123,6 @@ if ($object->xpdo) {
             $oldPackage = $modx->getObject('transport.modTransportPackage', $c);
             $corePath = $modx->getOption('tinymcerte.core_path', null, $modx->getOption('coee_path', null, MODX_CORE_PATH) . 'components/tinymcerte/');
             $assetsPath = $modx->getOption('tinymcerte.assets_path', null, $modx->getOption('assets_path', null, MODX_ASSETS_PATH) . 'components/tinymcerte/');
-            $modelPath = $corePath . 'model/';
-            $modx->addPackage('tinymcerte', $modelPath);
 
             if ($oldPackage && $oldPackage->compareVersion('1.1.0-pl', '>')) {
                 changeSetting($modx, 'tinymcerte.plugins', ' link ', ' modxlink ');
