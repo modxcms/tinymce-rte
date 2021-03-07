@@ -48,7 +48,7 @@ Ext.extend(TinyMCERTE.Tiny, Ext.Component, {
         tinymce.init(this.cfg);
     },
     loadBrowser: function (callback, url, meta) {
-        var browserUrl = MODx.config.manager_url + 'index.php?a=' + MODx.action.browser + '&source=' + MODx.config.default_media_source + (MODx.ctx ? ('&ctx=' + MODx.ctx) : '') + (MODx.request.id ? ('&id=' + MODx.request.id) : '');
+        var browserUrl = MODx.config.manager_url + 'index.php?a=browser&source=' + MODx.config.default_media_source + (MODx.ctx ? ('&ctx=' + MODx.ctx) : '') + (MODx.request.id ? ('&id=' + MODx.request.id) : '');
         tinyMCE.activeEditor.windowManager.openUrl({
             title: _('modx_browser'),
             url: browserUrl,
