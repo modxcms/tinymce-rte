@@ -5,9 +5,9 @@
  * @package tinymcerte
  * @subpackage lexicon
  */
-$_lang['tinymcerte'] = 'TinyMCE Rich Text Editor';
-$_lang['tinymcerte.float_left'] = 'Left';
-$_lang['tinymcerte.float_none'] = 'None';
-$_lang['tinymcerte.float_right'] = 'Right';
-$_lang['tinymcerte.select_none'] = '(None)';
-$_lang['tinymcerte.select_resource'] = 'Select resource';
+$_lang['tinymcerte'] = 'TinyMCE-tekstbehandler';
+$_lang['tinymcerte.float_left'] = 'Venstre';
+$_lang['tinymcerte.float_none'] = 'Ingen';
+$_lang['tinymcerte.float_right'] = 'Høyre';
+$_lang['tinymcerte.select_none'] = '(Ingen)';
+$_lang['tinymcerte.select_resource'] = 'Velg ressurs';
