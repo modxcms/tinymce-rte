@@ -304,7 +304,8 @@
           out.push({
             text: text,
             value: value,
-            display: item.display || ''
+            display: item.display || '',
+            classes: item.classes || ''
           });
         }
       });

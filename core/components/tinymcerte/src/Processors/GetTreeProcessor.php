@@ -71,10 +71,13 @@ class GetTreeProcessor extends modProcessor
             $items = $this->getContextTree($this->contextKey);
         } else {
             $items = array();
-            /** @var modContext[] $contexts */
-            $contexts = $this->modx->getCollection('modContext', array(
+            $c = $this->modx->newQuery('modContext');
+            $c->where(array(
                 'key:!=' => 'mgr'
             ));
+            $c->sortby('rank');
+            /** @var modContext[] $contexts */
+            $contexts = $this->modx->getCollection('modContext', $c);
             foreach ($contexts as $context) {
                 $items[] = array(
                     'title' => $context->get('key'),
@@ -113,14 +116,24 @@ class GetTreeProcessor extends modProcessor
             'context_key' => $context,
             'deleted' => false,
         ]);
-        $c->select('id, pagetitle');
+        $c->select('id, pagetitle, published, hidemenu');
         if ($c->prepare() && $c->stmt->execute()) {
-            $resoures = $c->stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+            $result = [];
+            $resoures = $c->stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($resoures as $resource) {
+                $classes = '';
+                $classes .= ($resource['published']) ? 'published ' : 'unpublished ';
+                $classes .= ($resource['hidemenu']) ? 'hidden ' : 'visible ';
+                $result[$resource['id']] = [
+                    'pagetitle' => $resource['pagetitle'],
+                    'classes' => trim($classes)
+                ];
+            }
         } else {
-            $resoures = [];
+            $result = [];
         }
 
-        return $resoures;
+        return $result;
     }
 
     /**
@@ -136,23 +149,26 @@ class GetTreeProcessor extends modProcessor
         if (is_array($nodes)) {
             foreach ($nodes as $node => $subtree) {
                 if (isset($resources[$node])) {
+                    $class = $resources;
                     if (is_array($subtree)) {
                         $result[] = [
-                            'title' => $resources[$node] . ' (' . $node . ')',
+                            'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
                             'menu' => array_merge([
                                 [
-                                    'title' => '◁ ' . $resources[$node] . ' (' . $node . ')',
+                                    'title' => '◁ ' . $resources[$node]['pagetitle'] . ' (' . $node . ')',
                                     'value' => '[[~' . $node . ']]',
-                                    'display' => $resources[$node]
+                                    'display' => $resources[$node],
+                                    'classes' => $resources[$node]['classes']
                                 ]
                             ],
                                 $this->fillTree($subtree, $resources))
                         ];
                     } else {
                         $result[] = [
-                            'title' => $resources[$node] . ' (' . $node . ')',
+                            'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
                             'value' => '[[~' . $node . ']]',
-                            'display' => $resources[$node]
+                            'display' => $resources[$node],
+                            'classes' => $resources[$node]['classes']
                         ];
                     }
                 }
