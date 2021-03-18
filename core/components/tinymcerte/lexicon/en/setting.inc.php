@@ -33,7 +33,9 @@ $_lang['setting_tinymcerte.style_formats_merge_desc'] = 'If you want to merge yo
 $_lang['setting_tinymcerte.browser_spellcheck'] = 'Spellcheck';
 $_lang['setting_tinymcerte.browser_spellcheck_desc'] = 'Enable or disable browser spellscher. <a href="https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck">https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck</a>';
 $_lang['setting_tinymcerte.content_css'] = 'Content CSS';
-$_lang['setting_tinymcerte.content_css_desc'] = 'Load additional CSS files with Tiny MCE. Use "," (comma) delimiter for multiple files. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
+$_lang['setting_tinymcerte.content_css_desc'] = 'Load additional CSS files with TinyMCE. Use "," (comma) delimiter for multiple files. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
+$_lang['setting_tinymcerte.enable_link_list'] = 'Enable Link List';
+$_lang['setting_tinymcerte.enable_link_list_desc'] = 'This option enables the nested link list in the link plugin. It can be switched off, when the link list creates a timeout on very large sites.';
 $_lang['setting_tinymcerte.external_config'] = 'External config';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Path to the external config file, that will be merged with with defaults from system setting. Config file has to contain valid JSON object.';
 $_lang['setting_tinymcerte.image_advtab'] = 'Image advanced tab';

@@ -77,6 +77,7 @@ class OnRichTextEditorInit extends Plugin
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', [], true) == 1,
             'remove_script_host' => $this->tinymcerte->getOption('remove_script_host', [], true) == 1,
             'entity_encoding' => $this->tinymcerte->getOption('entity_encoding', [], 'named'),
+            'enable_link_list' => $this->tinymcerte->getOption('enable_link_list', [], true) == 1,
             'branding' => $this->tinymcerte->getOption('branding', [], false) == 1,
             'cache_suffix' => '?v=' . $this->tinymcerte->version
         ], $this->getSettings(), $this->getProperties());
@@ -123,7 +124,7 @@ class OnRichTextEditorInit extends Plugin
                 $externalConfig = file_get_contents($externalConfig);
                 $externalConfig = json_decode($externalConfig, true);
                 if (is_array($externalConfig)) {
-                    $config = array_merge_recursive($config, $externalConfig);
+                    $config = array_replace_recursive($config, $externalConfig);
                 }
             }
         }

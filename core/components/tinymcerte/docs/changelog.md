@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - MODX skintool.json for http://skin.tiny.cloud/t5/
 - MODX 3 compatibility
+- link_list_enable system setting
 
 ### Changed
 

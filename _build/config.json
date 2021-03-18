@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 5",
   "author": "John Peca/Thomas Jakobi",
-  "version": "2.0.0-rc7",
+  "version": "2.0.0-rc8",
   "package": {
     "elements": {
       "plugins": [
@@ -104,6 +104,12 @@
       {
         "key": "settings",
         "value": "",
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "enable_link_list",
+        "value": true,
+        "type": "combo-boolean",
         "area": "tinymcerte.default"
       },
       {

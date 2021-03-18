@@ -34,6 +34,8 @@ $_lang['setting_tinymcerte.browser_spellcheck'] = 'Controllo ortografico';
 $_lang['setting_tinymcerte.browser_spellcheck_desc'] = 'Abilita o disabilita il controllo ortografico del browser. <a href="https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck">https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck</a>';
 $_lang['setting_tinymcerte.content_css'] = 'CSS contenuto';
 $_lang['setting_tinymcerte.content_css_desc'] = 'Carica file CSS aggiuntivi con Tiny MCE. Usa il delimitatore "," (comma) per più file. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
+$_lang['setting_tinymcerte.enable_link_list'] = 'Abilita elenco link';
+$_lang['setting_tinymcerte.enable_link_list_desc'] = 'Questa opzione abilita l\'elenco dei link annidati nel plugin dei link. Può essere disattivata, quando l\'elenco dei link crea un timeout su siti molto grandi.';
 $_lang['setting_tinymcerte.external_config'] = 'Configurazione esterna';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Percorso del file di configurazione esterno, che verrà unito con le impostazioni predefinite dall\'impostazione di sistema. Il file di configurazione deve contenere un oggetto JSON valido.';
 $_lang['setting_tinymcerte.image_advtab'] = 'Scheda avanzata immagine';

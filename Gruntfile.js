@@ -168,8 +168,8 @@ module.exports = function (grunt) {
         bump: {
             version: {
                 files: [{
-                    src: 'core/components/tinymcerte/model/tinymcerte/tinymcerte.class.php',
-                    dest: 'core/components/tinymcerte/model/tinymcerte/tinymcerte.class.php'
+                    src: 'core/components/tinymcerte/src/TinyMCERTE.php',
+                    dest: 'core/components/tinymcerte/src/TinyMCERTE.php'
                 }],
                 options: {
                     replacements: [{

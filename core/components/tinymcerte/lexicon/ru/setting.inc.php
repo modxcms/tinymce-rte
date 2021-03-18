@@ -34,6 +34,8 @@ $_lang['setting_tinymcerte.browser_spellcheck'] = 'Проверка орфогр
 $_lang['setting_tinymcerte.browser_spellcheck_desc'] = 'Включить или отключить проверку орфографии в браузере. <a href="https://www.tiny.cloud/docs-4x/configure/spelling/#browser_spellcheck">https://www.tiny.cloud/docs-4x/configure/spelling/#browser_spellcheck</a>';
 $_lang['setting_tinymcerte.content_css'] = 'CSS для контента';
 $_lang['setting_tinymcerte.content_css_desc'] = 'Загрузите дополнительные файлы CSS для Tiny MCE. Используйте "," (запятую) разделитель для нескольких файлов. <a href="https://www.tiny.cloud/docs-4x/configure/content-appearance/#content_css">https://www.tiny.cloud/docs-4x/configure/content-appearance/#content_css</a>';
+$_lang['setting_tinymcerte.enable_link_list'] = 'Включить список ссылок';
+$_lang['setting_tinymcerte.enable_link_list_desc'] = 'Эта опция включает вложенный список ссылок в плагине ссылок. Ее можно отключить, когда список ссылок создает таймаут на очень больших сайтах.';
 $_lang['setting_tinymcerte.external_config'] = 'Внешний конфиг';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Путь к внешнему файлу конфигурации, который будет объединен со стандартными настройками системы. Файл конфигурации должен содержать действительный объект JSON.';
 $_lang['setting_tinymcerte.image_advtab'] = 'Вкладка "Расширенные изображения"';
