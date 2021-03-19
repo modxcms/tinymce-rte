@@ -31,7 +31,7 @@ class TinyMCERTE
      * The version
      * @var string $version
      */
-    public $version = '2.0.0-rc8';
+    public $version = '2.0.0';
 
     /**
      * The class options
