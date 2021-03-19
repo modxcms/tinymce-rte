@@ -1,0 +1,4 @@
+files:
+  - source: /core/components/tinymcerte/lexicon/en/*.php
+    translation: >-
+      /core/components/tinymcerte/lexicon/%two_letters_code%/%original_file_name%

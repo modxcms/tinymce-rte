@@ -1,25 +1,33 @@
 <?php
 /**
- * TinyMCE Rich Tech Editor
+ * TinyMCE Rich Tech Editor Plugin
  *
+ * @package tinymcerte
+ * @subpackage pluginfile
+ *
+ * @var modX $modx
+ * @var array $scriptProperties
  */
-$corePath = $modx->getOption('tinymcerte.core_path', null, $modx->getOption('core_path', null, MODX_CORE_PATH) . 'components/tinymcerte/');
-/** @var TinyMCERTE $tinymcerte */
-$tinymcerte = $modx->getService(
-    'tinymcerte',
-    'TinyMCERTE',
-    $corePath . 'model/tinymcerte/',
-    array(
-        'core_path' => $corePath
-    )
-);
 
-$className = 'TinyMCERTE' . $modx->event->name;
-$modx->loadClass('TinyMCERTEPlugin', $tinymcerte->getOption('modelPath') . 'tinymcerte/events/', true, true);
-$modx->loadClass($className, $tinymcerte->getOption('modelPath') . 'tinymcerte/events/', true, true);
-if (class_exists($className)) {
-    /** @var TinyMCERTEPlugin $handler */
-    $handler = new $className($modx, $scriptProperties);
-    $handler->run();
+$className = 'TinyMCERTE\Plugins\Events\\' . $modx->event->name;
+
+$corePath = $modx->getOption('tinymcerte.core_path', null, $modx->getOption('core_path') . 'components/tinymcerte/');
+/** @var TinyMCERTE $tinymcerte */
+$tinymcerte = $modx->getService('tinymcerte', 'TinyMCERTE', $corePath . 'model/tinymcerte/', [
+    'core_path' => $corePath
+]);
+
+if ($tinymcerte) {
+    if (class_exists($className)) {
+        $handler = new $className($modx, $scriptProperties);
+        if (get_class($handler) == $className) {
+            $handler->run();
+        } else {
+            $modx->log(xPDO::LOG_LEVEL_ERROR, $className. ' could not be initialized!', '', 'TinyMCE RTE Plugin');
+        }
+    } else {
+        $modx->log(xPDO::LOG_LEVEL_ERROR, $className. ' was not found!', '', 'TinyMCE RTE Plugin');
+    }
 }
+
 return;

@@ -1,18 +1,20 @@
 {
   "name": "TinyMCE Rich Text Editor",
   "lowCaseName": "tinymcerte",
-  "description": "TinyMCE 4",
-  "author": "John Peca",
-  "version": "1.4.0",
+  "description": "TinyMCE 5",
+  "author": "John Peca/Thomas Jakobi",
+  "version": "2.0.0",
   "package": {
     "elements": {
       "plugins": [
         {
-          "name": "TinyMCERTE",
+          "name": "TinyMCE Rich Text Editor",
+          "file": "tinymcerte.plugin.php",
           "events": [
-            "OnRichTextBrowserInit",
+            "OnManagerPageBeforeRender",
             "OnRichTextEditorRegister",
-            "OnRichTextEditorInit"
+            "OnRichTextEditorInit",
+            "OnRichTextBrowserInit"
           ]
         }
       ]
@@ -20,95 +22,101 @@
     "systemSettings": [
       {
         "key": "plugins",
-        "value": "advlist autolink lists modximage charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table contextmenu paste modxlink",
-        "area": "system"
+        "value": "advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modxlink modximage",
+        "area": "tinymcerte.default"
       },
       {
         "key": "menubar",
         "value": "file edit insert view format table tools",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "statusbar",
         "value": true,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "image_advtab",
         "value": true,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "object_resizing",
         "value": 1,
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "paste_as_text",
         "value": false,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "link_class_list",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "browser_spellcheck",
         "type": "combo-boolean",
         "value": false,
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "content_css",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "image_class_list",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "external_config",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "skin",
         "value": "modx",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "relative_urls",
         "value": true,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "remove_script_host",
         "value": true,
         "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "valid_elements",
         "value": "",
-        "area": "system"
-      },
-      {
-        "key": "links_across_contexts",
-        "value": true,
-        "type": "combo-boolean",
-        "area": "system"
+        "area": "tinymcerte.default"
       },
       {
         "key": "settings",
         "value": "",
-        "area": "system"
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "enable_link_list",
+        "value": true,
+        "type": "combo-boolean",
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "links_across_contexts",
+        "value": false,
+        "type": "combo-boolean",
+        "area": "tinymcerte.default"
       },
       {
         "key": "toolbar1",
@@ -139,7 +147,7 @@
       },
       {
         "key": "inline_format",
-        "value": "[{\"title\": \"Bold\", \"icon\": \"bold\", \"format\": \"bold\"},{\"title\": \"Italic\", \"icon\": \"italic\", \"format\": \"italic\"},{\"title\": \"Underline\", \"icon\": \"underline\", \"format\": \"underline\"},{\"title\": \"Strikethrough\", \"icon\": \"strikethrough\", \"format\": \"strikethrough\"},{\"title\": \"Superscript\", \"icon\": \"superscript\", \"format\": \"superscript\"},{\"title\": \"Subscript\", \"icon\": \"subscript\", \"format\": \"subscript\"},{\"title\": \"Code\", \"icon\": \"code\", \"format\": \"code\"}]",
+        "value": "[{\"title\": \"Bold\", \"icon\": \"bold\", \"format\": \"bold\"},{\"title\": \"Italic\", \"icon\": \"italic\", \"format\": \"italic\"},{\"title\": \"Underline\", \"icon\": \"underline\", \"format\": \"underline\"},{\"title\": \"Strikethrough\", \"icon\": \"strike-through\", \"format\": \"strikethrough\"},{\"title\": \"Superscript\", \"icon\": \"superscript\", \"format\": \"superscript\"},{\"title\": \"Subscript\", \"icon\": \"subscript\", \"format\": \"subscript\"},{\"title\": \"Code\", \"icon\": \"sourcecode\", \"format\": \"code\"}]",
         "type": "textarea",
         "area": "tinymcerte.style_formats"
       },
@@ -151,7 +159,7 @@
       },
       {
         "key": "alignment_format",
-        "value": "[{\"title\": \"Left\", \"icon\": \"alignleft\", \"format\": \"alignleft\"},{\"title\": \"Center\", \"icon\": \"aligncenter\", \"format\": \"aligncenter\"},{\"title\": \"Right\", \"icon\": \"alignright\", \"format\": \"alignright\"},{\"title\": \"Justify\", \"icon\": \"alignjustify\", \"format\": \"alignjustify\"}]",
+        "value": "[{\"title\": \"Left\", \"icon\": \"align-left\", \"format\": \"alignleft\"},{\"title\": \"Center\", \"icon\": \"align-center\", \"format\": \"aligncenter\"},{\"title\": \"Right\", \"icon\": \"align-right\", \"format\": \"alignright\"},{\"title\": \"Justify\", \"icon\": \"align-justify\", \"format\": \"alignjustify\"}]",
         "type": "textarea",
         "area": "tinymcerte.style_formats"
       },
@@ -166,14 +174,17 @@
   "dependencies": [
     {
       "name": "php",
-      "version": ">=5.6"
+      "version": ">=7.2"
     },
     {
       "name": "modx",
-      "version": ">=2.6"
+      "version": ">=2.7"
     }
   ],
   "build": {
+    "readme": "docs/readme.md",
+    "license": "docs/license.md",
+    "changelog": "docs/changelog.md",
     "resolver": {
       "after": [
         "resolve.update.php",
