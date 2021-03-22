@@ -27,7 +27,7 @@ $_lang['setting_tinymcerte.alignment_format_desc'] = 'This option enables you to
 $_lang['setting_tinymcerte.style_formats_merge'] = 'Style formats merge';
 $_lang['setting_tinymcerte.style_formats_merge_desc'] = 'If you want to merge your styles to the default styles_format. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
 $_lang['setting_tinymcerte.browser_spellcheck'] = 'Spellcheck';
-$_lang['setting_tinymcerte.browser_spellcheck_desc'] = 'Enable or disable browser spellscher. <a href="https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck">https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck</a>';
+$_lang['setting_tinymcerte.browser_spellcheck_desc'] = 'Enable or disable browser spellscheck. <a href="https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck">https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck</a>';
 $_lang['setting_tinymcerte.content_css'] = 'Content CSS';
 $_lang['setting_tinymcerte.content_css_desc'] = 'Load additional CSS files with TinyMCE. Use "," (comma) delimiter for multiple files. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
 $_lang['setting_tinymcerte.enable_link_list'] = 'Enable Link List';
