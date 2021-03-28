@@ -51,9 +51,9 @@ $_lang['setting_tinymcerte.paste_as_text_desc'] = 'This option enables you to se
 $_lang['setting_tinymcerte.plugins'] = 'Plugins';
 $_lang['setting_tinymcerte.plugins_desc'] = 'Set which plugins are loaded (None are loaded by default). <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
 $_lang['setting_tinymcerte.relative_urls'] = 'Relative URLs';
-$_lang['setting_tinymcerte.relative_urls_desc'] = 'If this option is set to true, all URLs returned from the MCFileManager will be relative from the specified document_base_url. If it\'s set to false all URLs will be converted to absolute URLs.';
+$_lang['setting_tinymcerte.relative_urls_desc'] = 'If this option is set to true, all URLs returned from the MODX file browser will be relative from the specified document_base_url. If it\'s set to false all URLs will be converted to absolute URLs.';
 $_lang['setting_tinymcerte.remove_script_host'] = 'Remove script host';
-$_lang['setting_tinymcerte.remove_script_host_desc'] = 'Removes the protocol and host part of URLs returned from the MCFileManager (Only used if relative_urls is off).';
+$_lang['setting_tinymcerte.remove_script_host_desc'] = 'Removes the protocol and host part of URLs returned from the MODX file browser (Only used if relative_urls is off).';
 $_lang['setting_tinymcerte.settings'] = 'Additional Settings';
 $_lang['setting_tinymcerte.settings_desc'] = 'JSON encoded array of additional TinyMCE settings.';
 $_lang['setting_tinymcerte.skin'] = 'Skin';
