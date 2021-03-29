@@ -5,9 +5,7 @@
  * @package tinymcerte
  * @subpackage lexicon
  */
-
 $_lang['tinymcerte'] = 'TinyMCE Rich Text Editor';
-
 $_lang['tinymcerte.float_left'] = 'Links';
 $_lang['tinymcerte.float_none'] = 'Ohne';
 $_lang['tinymcerte.float_right'] = 'Rechts';

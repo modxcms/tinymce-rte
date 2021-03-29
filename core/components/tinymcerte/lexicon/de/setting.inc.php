@@ -5,18 +5,15 @@
  * @package tinymcerte
  * @subpackage lexicon
  */
-
 $_lang['area_tinymcerte.style_formats'] = 'Stil-Formate';
 $_lang['area_tinymcerte.toolbar'] = 'Werkzeugleiste';
 $_lang['area_tinymcerte.default'] = 'TinyMCE';
-
 $_lang['setting_tinymcerte.toolbar1'] = 'Werkzeugleiste 1';
 $_lang['setting_tinymcerte.toolbar1_desc'] = 'Dies steuert, welche Schaltflächen in der Werkzeugleiste 1 angezeigt werden sollen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
 $_lang['setting_tinymcerte.toolbar2'] = 'Werkzeugleiste 2';
 $_lang['setting_tinymcerte.toolbar2_desc'] = 'Dies steuert, welche Schaltflächen in der Werkzeugleiste 2 angezeigt werden sollen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
-$_lang['setting_tinymcerte.toolbar3'] = 'Toolbar 3';
+$_lang['setting_tinymcerte.toolbar3'] = 'Werkzeugleiste 3';
 $_lang['setting_tinymcerte.toolbar3_desc'] = 'Dies steuert, welche Schaltflächen in der Werkzeugleiste 3 angezeigt werden sollen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
-
 $_lang['setting_tinymcerte.style_formats'] = 'Stil-Formate';
 $_lang['setting_tinymcerte.style_formats_desc'] = 'Mit dieser Einstellung können Sie dem Editor erweiterte Stilformate für Text und andere Elemente hinzufügen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
 $_lang['setting_tinymcerte.headers_format'] = 'Titel-Formate';
@@ -29,11 +26,10 @@ $_lang['setting_tinymcerte.alignment_format'] = 'Ausrichtungs-Formate';
 $_lang['setting_tinymcerte.alignment_format_desc'] = 'Mit dieser Einstellung können Sie erweiterte Stil-Formate für Ausrichtungen zum Editor hinzufügen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
 $_lang['setting_tinymcerte.style_formats_merge'] = 'Stil-Formate zusammenführen';
 $_lang['setting_tinymcerte.style_formats_merge_desc'] = 'Wenn Sie Ihre Stil-Formate mit den vorgegebenen Inhalt in styles_format zusammenführen möchten. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
-
 $_lang['setting_tinymcerte.browser_spellcheck'] = 'Rechtschreibprüfung';
 $_lang['setting_tinymcerte.browser_spellcheck_desc'] = 'Browser-Rechtschreibprüfung aktivieren oder deaktivieren. <a href="https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck">https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck</a>';
 $_lang['setting_tinymcerte.content_css'] = 'Inhalts-CSS';
-$_lang['setting_tinymcerte.content_css_desc'] = 'Zusätzliche CSS-Dateien mit Tiny MCE laden. Verwenden Sie "," (Komma) als Trennzeichen für mehrere Dateien. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
+$_lang['setting_tinymcerte.content_css_desc'] = 'Zusätzliche CSS-Dateien mit TinyMCE laden. Verwenden Sie "," (Komma) als Trennzeichen für mehrere Dateien. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
 $_lang['setting_tinymcerte.enable_link_list'] = 'Linkliste aktivieren';
 $_lang['setting_tinymcerte.enable_link_list_desc'] = 'Diese Option aktiviert die verschachtelte Linkliste im Link-Plugin. Sie kann ausgeschaltet werden, wenn die Linkliste auf sehr großen Seiten einen Timeout erzeugt.';
 $_lang['setting_tinymcerte.external_config'] = 'Externe Konfiguration';
@@ -53,11 +49,11 @@ $_lang['setting_tinymcerte.object_resizing_desc'] = 'Mit dieser Einstellung kön
 $_lang['setting_tinymcerte.paste_as_text'] = 'Als Text einfügen';
 $_lang['setting_tinymcerte.paste_as_text_desc'] = 'Mit dieser Einstellung können Sie den Standardzustand des "Einfügen als Text" Menüpunktes im \'Bearbeiten\'-Menü festlegen. <a href="https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text">https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text</a>';
 $_lang['setting_tinymcerte.plugins'] = 'Plugins';
-$_lang['setting_tinymcerte.plugins_desc'] = 'Legen Sie fest, welche Plugins eingebunden werden sollen. <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
+$_lang['setting_tinymcerte.plugins_desc'] = 'Legen Sie fest, welche Plugins geladen werden (Standardmäßig werden keine geladen.) <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
 $_lang['setting_tinymcerte.relative_urls'] = 'Relative URLs';
 $_lang['setting_tinymcerte.relative_urls_desc'] = 'Wenn diese Einstellung aktiviert ist, werden alle vom MODX Datei Browser zurückgegebenen URLs relativ zur angegebenen document_base_url gesetzt. Wenn sie deaktiviert ist, werden alle URLs in absolute URLs umgewandelt.';
 $_lang['setting_tinymcerte.remove_script_host'] = 'Script-Host entfernen';
-$_lang['setting_tinymcerte.remove_script_host_desc'] = 'Wenn diese Einstellung aktiviert ist, wird der Protokoll- und Hostteil von URLs die der MODX Datei Browser zurückgegeben werden entfernt. Diese Option wird nur verwendet, wenn die Option relative_urls auf false gesetzt ist.';
+$_lang['setting_tinymcerte.remove_script_host_desc'] = 'Wenn diese Einstellung aktiviert ist, wird der Protokoll- und Hostteil von URLs entfernt, die vom MODX Datei Browser zurückgegeben werden. Diese (Option wird nur verwendet, wenn die Option relative_urls auf false gesetzt ist.)';
 $_lang['setting_tinymcerte.settings'] = 'Zusätzliche Einstellungen';
 $_lang['setting_tinymcerte.settings_desc'] = 'JSON-kodiertes Array mit zusätzlichen TinyMCE-Einstellungen.';
 $_lang['setting_tinymcerte.skin'] = 'Erscheinungsbild';
