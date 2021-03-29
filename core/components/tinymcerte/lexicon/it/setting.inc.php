@@ -29,11 +29,11 @@ $_lang['setting_tinymcerte.style_formats_merge_desc'] = 'Se vuoi unire i tuoi st
 $_lang['setting_tinymcerte.browser_spellcheck'] = 'Controllo ortografico';
 $_lang['setting_tinymcerte.browser_spellcheck_desc'] = 'Abilita o disabilita il controllo ortografico del browser. <a href="https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck">https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck</a>';
 $_lang['setting_tinymcerte.content_css'] = 'CSS contenuto';
-$_lang['setting_tinymcerte.content_css_desc'] = 'Carica file CSS aggiuntivi con Tiny MCE. Usa il delimitatore "," (comma) per più file. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
+$_lang['setting_tinymcerte.content_css_desc'] = 'Carica file CSS aggiuntivi con TinyMCE. Usa il delimitatore "," (comma) per più file. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
 $_lang['setting_tinymcerte.enable_link_list'] = 'Abilita elenco link';
 $_lang['setting_tinymcerte.enable_link_list_desc'] = 'Questa opzione abilita l\'elenco dei link annidati nel plugin dei link. Può essere disattivata, quando l\'elenco dei link crea un timeout su siti molto grandi.';
 $_lang['setting_tinymcerte.external_config'] = 'Configurazione esterna';
-$_lang['setting_tinymcerte.external_config_desc'] = 'Percorso del file di configurazione esterno, che verrà unito con le impostazioni predefinite dall\'impostazione di sistema. Il file di configurazione deve contenere un oggetto JSON valido.';
+$_lang['setting_tinymcerte.external_config_desc'] = 'Percorso a un file di configurazione JSON esterno. Sarà fuso con le impostazioni predefinite del sistema.';
 $_lang['setting_tinymcerte.image_advtab'] = 'Scheda avanzata immagine';
 $_lang['setting_tinymcerte.image_advtab_desc'] = 'Questa opzione abilita la scheda avanzata della finestra immagine che permette di aggiungere stili personalizzati alle immagini. <a href="https://www.tiny.cloud/docs/plugins/opensource/image/#image_advtab">https://www.tiny.cloud/docs/plugins/opensource/image/#image_advtab</a>';
 $_lang['setting_tinymcerte.image_class_list'] = 'Lista classi immagine';
@@ -41,7 +41,7 @@ $_lang['setting_tinymcerte.image_class_list_desc'] = 'Elenco delle classi per le
 $_lang['setting_tinymcerte.link_class_list'] = 'Lista classi collegamenti';
 $_lang['setting_tinymcerte.link_class_list_desc'] = 'Elenco delle classi per i collegamenti. <a href="https://www.tiny.cloud/docs/plugins/opensource/link/#link_class_list">https://www.tiny.cloud/docs/plugins/opensource/link/#link_class_list</a>';
 $_lang['setting_tinymcerte.links_across_contexts'] = 'Collegamenti tra contesti';
-$_lang['setting_tinymcerte.links_across_contexts_desc'] = 'Se attivato, l\'editor elencherà Risorse da altri contesti quando si creano collegamenti interni. Se disattivato, appaiono solo Risorse dallo stesso contesto.';
+$_lang['setting_tinymcerte.links_across_contexts_desc'] = 'Elenca le risorse di altri contesti quando si creano collegamenti interni nell\'editor. Altrimenti appaiono solo le risorse dello stesso contesto.';
 $_lang['setting_tinymcerte.menubar'] = 'Barra dei menù';
 $_lang['setting_tinymcerte.menubar_desc'] = 'Questa opzione ti permette di configurare i menu che vuoi apparire nella barra dei menu. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#menubar">https://www.tiny.cloud/docs/configure/editor-appearance/#menubar</a>';
 $_lang['setting_tinymcerte.object_resizing'] = 'Ridimensionamento oggetto';
@@ -49,11 +49,11 @@ $_lang['setting_tinymcerte.object_resizing_desc'] = 'Questa opzione consente di 
 $_lang['setting_tinymcerte.paste_as_text'] = 'Incolla come testo';
 $_lang['setting_tinymcerte.paste_as_text_desc'] = 'Questa opzione consente di impostare lo stato predefinito dell\'opzione di modifica "incolla come testo". <a href="https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text">https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text</a>';
 $_lang['setting_tinymcerte.plugins'] = 'Plugin';
-$_lang['setting_tinymcerte.plugins_desc'] = 'Imposta quali plugin dovrebbero essere inclusi, per impostazione predefinita, nessun plugin caricato. <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
+$_lang['setting_tinymcerte.plugins_desc'] = 'Imposta quali plugin sono caricati. (Nessuno è caricato di default.) <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
 $_lang['setting_tinymcerte.relative_urls'] = 'URL relativi';
 $_lang['setting_tinymcerte.relative_urls_desc'] = 'Se questa opzione è impostata a VERO, tutti gli URL restituiti da MCFileManager saranno relativi dal document_base_url specificato. Se impostato su falso, tutti gli URL saranno convertiti in URL assoluti.';
 $_lang['setting_tinymcerte.remove_script_host'] = 'Rimuovi host script';
-$_lang['setting_tinymcerte.remove_script_host_desc'] = 'Se questa opzione è abilitata, il protocollo e la parte host degli URL restituiti da MCFileManager verranno rimossi. Questa opzione è usata solo se l\'opzione relative_urls è impostata a false.';
+$_lang['setting_tinymcerte.remove_script_host_desc'] = 'Rimuove la parte di protocollo e di host degli URL restituiti da MCFileManager. (Usato solo se relative_urls è off.)';
 $_lang['setting_tinymcerte.settings'] = 'Impostazioni aggiuntive';
 $_lang['setting_tinymcerte.settings_desc'] = 'Array codificato JSON di ulteriori impostazioni TinyMCE.';
 $_lang['setting_tinymcerte.skin'] = 'Aspetto';
