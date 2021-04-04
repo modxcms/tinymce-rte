@@ -49,11 +49,11 @@ $_lang['setting_tinymcerte.object_resizing_desc'] = 'Questa opzione consente di 
 $_lang['setting_tinymcerte.paste_as_text'] = 'Incolla come testo';
 $_lang['setting_tinymcerte.paste_as_text_desc'] = 'Questa opzione consente di impostare lo stato predefinito dell\'opzione di modifica "incolla come testo". <a href="https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text">https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text</a>';
 $_lang['setting_tinymcerte.plugins'] = 'Plugin';
-$_lang['setting_tinymcerte.plugins_desc'] = 'Imposta quali plugin sono caricati. (Nessuno è caricato di default.) <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
+$_lang['setting_tinymcerte.plugins_desc'] = 'Imposta quali plugin sono caricati (Nessuno è caricato di default). <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
 $_lang['setting_tinymcerte.relative_urls'] = 'URL relativi';
-$_lang['setting_tinymcerte.relative_urls_desc'] = 'Se questa opzione è impostata a VERO, tutti gli URL restituiti da MCFileManager saranno relativi dal document_base_url specificato. Se impostato su falso, tutti gli URL saranno convertiti in URL assoluti.';
+$_lang['setting_tinymcerte.relative_urls_desc'] = 'Se questa opzione è impostata a VERO, tutti gli URL restituiti dal gestore di file MODX saranno relativi dal document_base_url specificato. Se impostato su falso, tutti gli URL saranno convertiti in URL assoluti.';
 $_lang['setting_tinymcerte.remove_script_host'] = 'Rimuovi host script';
-$_lang['setting_tinymcerte.remove_script_host_desc'] = 'Rimuove la parte di protocollo e di host degli URL restituiti da MCFileManager. (Usato solo se relative_urls è off.)';
+$_lang['setting_tinymcerte.remove_script_host_desc'] = 'Rimuove la parte di protocollo e di host degli URL restituiti dal gestore di file MODX (Usato solo se relative_urls è off).';
 $_lang['setting_tinymcerte.settings'] = 'Impostazioni aggiuntive';
 $_lang['setting_tinymcerte.settings_desc'] = 'Array codificato JSON di ulteriori impostazioni TinyMCE.';
 $_lang['setting_tinymcerte.skin'] = 'Aspetto';
