@@ -24,7 +24,7 @@ $_lang['setting_tinymcerte.blocks_format'] = 'Blocks format';
 $_lang['setting_tinymcerte.blocks_format_desc'] = 'This option enables you to add more advanced style formats for text and other elements to the editor. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
 $_lang['setting_tinymcerte.alignment_format'] = 'Alignment format';
 $_lang['setting_tinymcerte.alignment_format_desc'] = 'This option enables you to add more advanced style formats for text and other elements to the editor. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
-$_lang['setting_tinymcerte.style_formats_merge'] = 'Style formats merge';
+$_lang['setting_tinymcerte.style_formats_merge'] = 'Merge style formats';
 $_lang['setting_tinymcerte.style_formats_merge_desc'] = 'If you want to merge your styles to the default styles_format. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats">https://www.tiny.cloud/docs/configure/editor-appearance/#style_formats</a>';
 $_lang['setting_tinymcerte.browser_spellcheck'] = 'Spellcheck';
 $_lang['setting_tinymcerte.browser_spellcheck_desc'] = 'Enable or disable browser spellscheck. <a href="https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck">https://www.tiny.cloud/docs/configure/spelling/#browser_spellcheck</a>';
@@ -51,7 +51,7 @@ $_lang['setting_tinymcerte.paste_as_text_desc'] = 'This option enables you to se
 $_lang['setting_tinymcerte.plugins'] = 'Plugins';
 $_lang['setting_tinymcerte.plugins_desc'] = 'Set which plugins are loaded (None are loaded by default). <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
 $_lang['setting_tinymcerte.relative_urls'] = 'Relative URLs';
-$_lang['setting_tinymcerte.relative_urls_desc'] = 'If this option is set to true, all URLs returned from the MODX file browser will be relative from the specified document_base_url. If it\'s set to false all URLs will be converted to absolute URLs.';
+$_lang['setting_tinymcerte.relative_urls_desc'] = 'If this option is set to true, all URLs starting with the URL in the MODX site_url system setting will be converted to a relative URL to this site_url. If it\'s set to false all URLs will be converted to absolute URLs (see remove_script_host for additional options in that case).';
 $_lang['setting_tinymcerte.remove_script_host'] = 'Remove script host';
 $_lang['setting_tinymcerte.remove_script_host_desc'] = 'Removes the protocol and host part of URLs returned from the MODX file browser (Only used if relative_urls is off).';
 $_lang['setting_tinymcerte.settings'] = 'Additional Settings';
