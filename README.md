@@ -1,5 +1,10 @@
+[![LICENSE](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](./LICENSE) [![Default Lexicon](https://hosted.weblate.org/widgets/modx-extras/-/modx-tinymcerte-standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/modx-tinymcerte-standard/)
+
 # TinyMCE Rich Text Editor
-[![LICENSE](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](./LICENSE) [![Weblate](https://hosted.weblate.org/widgets/modx-tinymce-rte/-/svg-badge.svg)](https://hosted.weblate.org/engage/modx-tinymce-rte/)
+
+TinyMCE 5 for MODX Revolution
+
+## Features
 
 TinyMCE is a platform independent web based Javascript HTML WYSIWYG editor. It
 allows non-technical users to format content without knowing how to code. This
@@ -32,3 +37,8 @@ There is a `grunt prepare_debug` task, that copies not uglyfied script files to
 
 ## Change Log
 https://github.com/modxcms/tinymce-rte/blob/master/core/components/tinymcerte/docs/changelog.md
+
+## Translations
+
+Translations of the package can be made for the [Default Lexicon](https://hosted.weblate.org/projects/modx-extras/modx-tinymcerte-standard/) and the [System Setting Lexicon](https://hosted.weblate.org/projects/modx-extras/modx-tinymcerte-system-settings/)
+
