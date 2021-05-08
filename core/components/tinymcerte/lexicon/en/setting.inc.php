@@ -34,7 +34,7 @@ $_lang['setting_tinymcerte.enable_link_list'] = 'Enable Link List';
 $_lang['setting_tinymcerte.enable_link_list_desc'] = 'This option enables the nested link list in the link plugin. It can be switched off, when the link list creates a timeout on very large sites.';
 $_lang['setting_tinymcerte.external_config'] = 'External config';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Path to an external JSON config file. It will be merged with with the system setting defaults.';
-$_lang['setting_tinymcerte.image_advtab'] = 'Image advanced tab';
+$_lang['setting_tinymcerte.image_advtab'] = 'Advanced tab for images';
 $_lang['setting_tinymcerte.image_advtab_desc'] = 'This option enables the advanced tab the image dialog allowing you to add custom styles to images. <a href="https://www.tiny.cloud/docs/plugins/opensource/image/#image_advtab">https://www.tiny.cloud/docs/plugins/opensource/image/#image_advtab</a>';
 $_lang['setting_tinymcerte.image_class_list'] = 'Image class list';
 $_lang['setting_tinymcerte.image_class_list_desc'] = 'Class list for images. <a href="https://www.tiny.cloud/docs/plugins/opensource/image/#image_class_list">https://www.tiny.cloud/docs/plugins/opensource/image/#image_class_list</a>';
