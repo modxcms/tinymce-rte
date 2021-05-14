@@ -37,7 +37,7 @@ class OnRichTextEditorInit extends Plugin
 
         return '<script type="text/javascript">
             Ext.ns("TinyMCERTE");
-            TinyMCERTE.editorConfig = ' . json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT) . ';
+            TinyMCERTE.editorConfig = ' . json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';
 
             Ext.onReady(function(){
                 TinyMCERTE.loadForTVs();
@@ -75,6 +75,7 @@ class OnRichTextEditorInit extends Plugin
             'image_class_list' => json_decode($this->tinymcerte->getOption('image_class_list', [], '[]'), true),
             'skin' => $this->tinymcerte->getOption('skin', [], 'modx'),
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', [], true) == 1,
+            'document_base_url' => $this->modx->getOption('site_url'),
             'remove_script_host' => $this->tinymcerte->getOption('remove_script_host', [], true) == 1,
             'entity_encoding' => $this->tinymcerte->getOption('entity_encoding', [], 'named'),
             'enable_link_list' => $this->tinymcerte->getOption('enable_link_list', [], true) == 1,
