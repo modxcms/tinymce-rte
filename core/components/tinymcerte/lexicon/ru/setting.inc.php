@@ -34,7 +34,7 @@ $_lang['setting_tinymcerte.enable_link_list'] = 'Включить список �
 $_lang['setting_tinymcerte.enable_link_list_desc'] = 'Эта опция включает вложенный список ссылок в плагине ссылок. Ее можно отключить, когда список ссылок создает таймаут на очень больших сайтах.';
 $_lang['setting_tinymcerte.external_config'] = 'Внешний конфиг';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Путь к внешнему JSON-конфигурационному файлу. Он будет объединен с системными настройками по умолчанию.';
-$_lang['setting_tinymcerte.image_advtab'] = 'Вкладка "Расширенные изображения"';
+$_lang['setting_tinymcerte.image_advtab'] = 'Расширенная вкладка для изображений';
 $_lang['setting_tinymcerte.image_advtab_desc'] = 'Эта опция включает расширенную вкладку диалога изображений, позволяющую добавлять пользовательские стили к изображениям. <a href="https://www.tiny.cloud/docs-4x/plugins/image/#image_advtab">https://www.tiny.cloud/docs-4x/plugins/image/#image_advtab</a>';
 $_lang['setting_tinymcerte.image_class_list'] = 'Список классов для изображений';
 $_lang['setting_tinymcerte.image_class_list_desc'] = 'Список классов для изображений. <a href="https://www.tiny.cloud/docs-4x/plugins/image/#image_class_list">https://www.tiny.cloud/docs-4x/plugins/image/#image_class_list</a>';
