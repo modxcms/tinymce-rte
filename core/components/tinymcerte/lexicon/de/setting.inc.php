@@ -55,7 +55,7 @@ $_lang['setting_tinymcerte.relative_urls_desc'] = 'Wenn diese Einstellung aktivi
 $_lang['setting_tinymcerte.remove_script_host'] = 'Script-Host entfernen';
 $_lang['setting_tinymcerte.remove_script_host_desc'] = 'Wenn diese Einstellung aktiviert ist, wird der Protokoll- und Hostteil von URLs entfernt, die vom MODX Datei Browser zurückgegeben werden. Diese (Option wird nur verwendet, wenn die Option relative_urls auf false gesetzt ist.)';
 $_lang['setting_tinymcerte.settings'] = 'Zusätzliche Einstellungen';
-$_lang['setting_tinymcerte.settings_desc'] = 'JSON-kodiertes Array mit zusätzlichen TinyMCE-Einstellungen.';
+$_lang['setting_tinymcerte.settings_desc'] = 'JSON-kodiertes Objekt mit zusätzlichen TinyMCE-Einstellungen.';
 $_lang['setting_tinymcerte.skin'] = 'Erscheinungsbild';
 $_lang['setting_tinymcerte.skin_desc'] = 'Mit dieser Einstellung können Sie das Erscheinungsbild festlegen, das TinyMCE verwenden soll. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#skin">https://www.tiny.cloud/docs/configure/editor-appearance/#skin</a>';
 $_lang['setting_tinymcerte.statusbar'] = 'Statusleiste';
