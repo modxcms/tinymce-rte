@@ -34,7 +34,7 @@ $_lang['setting_tinymcerte.enable_link_list'] = 'Linkliste aktivieren';
 $_lang['setting_tinymcerte.enable_link_list_desc'] = 'Diese Option aktiviert die verschachtelte Linkliste im Link-Plugin. Sie kann ausgeschaltet werden, wenn die Linkliste auf sehr großen Seiten einen Timeout erzeugt.';
 $_lang['setting_tinymcerte.external_config'] = 'Externe Konfiguration';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Pfad zur externen Konfigurationsdatei, die mit den Vorgaben aus der Systemeinstellung zusammengeführt wird. Die Konfigurationsdatei muss ein gültiges JSON-Objekt enthalten.';
-$_lang['setting_tinymcerte.image_advtab'] = 'Erweiterte Optionen Bild-Dialog';
+$_lang['setting_tinymcerte.image_advtab'] = 'Erweiterte Registerkarte für Bilder';
 $_lang['setting_tinymcerte.image_advtab_desc'] = 'Mit dieser Einstellung können Sie die erweiterten Optionen im Bild-Dialog aktivieren, die es Ihnen ermöglichen, benutzerdefinierte Stile zu Bildern hinzuzufügen. <a href="https://www.tiny.cloud/docs/plugins/opensource/image/#image_advtab">https://www.tiny.cloud/docs/plugins/opensource/image/#image_advtab</a>';
 $_lang['setting_tinymcerte.image_class_list'] = 'Klassenliste für Bilder';
 $_lang['setting_tinymcerte.image_class_list_desc'] = 'Klassenliste für Bilder. <a href="https://www.tiny.cloud/docs/plugins/opensource/image/#image_class_list">https://www.tiny.cloud/docs/plugins/opensource/image/#image_class_list</a>';

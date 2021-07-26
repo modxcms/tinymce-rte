@@ -51,11 +51,11 @@ $_lang['setting_tinymcerte.paste_as_text_desc'] = 'Setter forvalgt tilstand for 
 $_lang['setting_tinymcerte.plugins'] = 'Programtillegg';
 $_lang['setting_tinymcerte.plugins_desc'] = 'Sett hvilke programtillegg som skal innlastes (Ingen er innlastet som forvalg). <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
 $_lang['setting_tinymcerte.relative_urls'] = 'Relative nettadresser';
-$_lang['setting_tinymcerte.relative_urls_desc'] = 'Returnerer alle nettadresser fra MODX-filleseren relativt til angitt document_base_url. Ellers vil alle nettadresser konverteres til absolutte.';
+$_lang['setting_tinymcerte.relative_urls_desc'] = 'Hvis dette alternativet er satt til Sann, konverteres alle URL-adresser som starter med URL-adressen i systeminnstillingen MODX site_url, til en relativ URL-adresse til denne site_url. Hvis den er satt til usann, konverteres alle URL-adresser til absolutte URL-adresser (se remove_script_host for flere alternativer i så fall).';
 $_lang['setting_tinymcerte.remove_script_host'] = 'Fjern skriptvert';
 $_lang['setting_tinymcerte.remove_script_host_desc'] = 'Fjerner protokoll- og vertsnavnsdelen fra nettadresser fra MODX-filleseren. Brukes kun hvis relative_urls option er av.';
 $_lang['setting_tinymcerte.settings'] = 'Ytterligere innstillinger';
-$_lang['setting_tinymcerte.settings_desc'] = 'JSON-kodet tabell over ytterligere TinyMCE-innstillinger.';
+$_lang['setting_tinymcerte.settings_desc'] = 'JSON-kodet objekt over ytterligere TinyMCE-innstillinger.';
 $_lang['setting_tinymcerte.skin'] = 'Drakt';
 $_lang['setting_tinymcerte.skin_desc'] = 'Lar deg angi hvilken drakt TinyMCE skal iføre. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#skin">https://www.tiny.cloud/docs/configure/editor-appearance/#skin</a>';
 $_lang['setting_tinymcerte.statusbar'] = 'Statusfelt';
