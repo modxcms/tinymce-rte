@@ -1240,7 +1240,7 @@
         vspace: data.vspace,
         border: data.border,
         borderStyle: data.borderstyle,
-        float: image.float,
+        float: data.float,
         isDecorative: data.isDecorative
       };
     };

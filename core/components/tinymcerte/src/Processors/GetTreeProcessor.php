@@ -33,7 +33,7 @@ class GetTreeProcessor extends modProcessor
      * @param modX $modx A reference to the modX instance
      * @param array $properties An array of properties
      */
-    function __construct(modX &$modx, array $properties = [])
+    public function __construct(modX &$modx, array $properties = [])
     {
         parent::__construct($modx, $properties);
 
@@ -148,7 +148,6 @@ class GetTreeProcessor extends modProcessor
         if (is_array($nodes)) {
             foreach ($nodes as $node => $subtree) {
                 if (isset($resources[$node])) {
-                    $class = $resources;
                     if (is_array($subtree)) {
                         $result[] = [
                             'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
