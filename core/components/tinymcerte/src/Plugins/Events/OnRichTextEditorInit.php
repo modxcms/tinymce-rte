@@ -8,9 +8,16 @@ namespace TinyMCERTE\Plugins\Events;
 
 use TinyMCERTE\Plugins\Plugin;
 
+/**
+ * Class OnRichTextEditorInit
+ */
 class OnRichTextEditorInit extends Plugin
 {
-    public function init(): bool
+    /**
+     * {@inheritDoc}
+     * @return bool
+     */
+    public function init()
     {
         $useEditor = $this->modx->getOption('use_editor', false);
         $whichEditor = $this->modx->getOption('which_editor', null, '');
@@ -22,6 +29,10 @@ class OnRichTextEditorInit extends Plugin
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     * @return mixed|void
+     */
     public function process()
     {
         $html = $this->initTinyMCE();
@@ -29,7 +40,12 @@ class OnRichTextEditorInit extends Plugin
         $this->modx->event->output($html);
     }
 
-    private function initTinyMCE(): string
+    /**
+     * Register TinyMCE scripts and return the configuration
+     *
+     * @return string
+     */
+    private function initTinyMCE()
     {
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
@@ -45,7 +61,12 @@ class OnRichTextEditorInit extends Plugin
         </script>';
     }
 
-    private function getTinyConfig(): array
+    /**
+     * Get the TinyMCE configuration
+     *
+     * @return array
+     */
+    private function getTinyConfig()
     {
         $language = $this->tinymcerte->getLanguageCode($this->modx->getOption('manager_language'));
         $objectResizing = $this->tinymcerte->getOption('object_resizing', [], '1');
@@ -138,7 +159,7 @@ class OnRichTextEditorInit extends Plugin
      *
      * @return array
      */
-    private function getProperties(): array
+    private function getProperties()
     {
         $props = $this->scriptProperties;
         // unset the regular properties sent by resource controllers
@@ -152,11 +173,9 @@ class OnRichTextEditorInit extends Plugin
      *
      * @return array
      */
-    private function getSettings(): array
+    private function getSettings()
     {
         $settings = json_decode($this->tinymcerte->getOption('settings'), true);
-        $settings = ($settings) ? $settings : [];
-
-        return $settings;
+        return ($settings) ?: [];
     }
 }

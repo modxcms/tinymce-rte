@@ -8,6 +8,9 @@
 
 use TinyMCERTE\Processors\GetTreeProcessor;
 
+/**
+ * Class TinyMCERTEGetTreeProcessor
+ */
 class TinyMCERTEGetTreeProcessor extends GetTreeProcessor
 {
 }

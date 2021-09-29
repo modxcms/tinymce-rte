@@ -31,7 +31,7 @@ class TinyMCERTE
      * The version
      * @var string $version
      */
-    public $version = '2.0.1';
+    public $version = '2.0.2';
 
     /**
      * The class options
@@ -87,7 +87,7 @@ class TinyMCERTE
      * namespaced system setting; by default this value is null.
      * @return mixed The option value or the default value specified.
      */
-    public function getOption(string $key, $options = [], $default = null)
+    public function getOption($key, $options = [], $default = null)
     {
         $option = $default;
         if (!empty($key) && is_string($key)) {
@@ -108,7 +108,7 @@ class TinyMCERTE
      * @param $language
      * @return string
      */
-    public function getLanguageCode($language): string
+    public function getLanguageCode($language)
     {
         $codes = [
             'bg' => 'bg_BG',
@@ -139,12 +139,11 @@ class TinyMCERTE
      * @param string $delimiter
      * @return array
      */
-    public function explodeAndClean(string $string, $delimiter = ','): array
+    public function explodeAndClean($string, $delimiter = ',')
     {
         $array = explode($delimiter, $string); // Explode fields to array
         $array = array_map('trim', $array);  // Trim array's values
         $array = array_keys(array_flip($array)); // Remove duplicate fields
-        $array = array_filter($array); // Remove empty values from array
-        return $array;
+        return array_filter($array); // Remove empty values from array
     }
 }

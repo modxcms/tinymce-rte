@@ -23,7 +23,7 @@ class GetTreeProcessor extends modProcessor
     public $startNode = 0;
     public $permissions = [];
 
-    public $languageTopics = array('tinymcerte:default');
+    public $languageTopics = ['tinymcerte:default'];
 
     /** @var TinyMCERTE */
     public $tinymcerte;
@@ -33,7 +33,7 @@ class GetTreeProcessor extends modProcessor
      * @param modX $modx A reference to the modX instance
      * @param array $properties An array of properties
      */
-    function __construct(modX &$modx, array $properties = array())
+    function __construct(modX &$modx, array $properties = [])
     {
         parent::__construct($modx, $properties);
 
@@ -45,7 +45,7 @@ class GetTreeProcessor extends modProcessor
      * {@inheritDoc}
      * @return bool
      */
-    public function checkPermissions(): bool
+    public function checkPermissions()
     {
         return $this->modx->hasPermission('resource_tree');
     }
@@ -54,14 +54,14 @@ class GetTreeProcessor extends modProcessor
      * {@inheritDoc}
      * @return string[]
      */
-    public function getLanguageTopics(): array
+    public function getLanguageTopics()
     {
         return ['tinymcerte:default'];
     }
 
     /**
      * {@inheritDoc}
-     * @return mixed
+     * @return string
      */
     public function process()
     {
@@ -70,19 +70,19 @@ class GetTreeProcessor extends modProcessor
         if (!$this->tinymcerte->getOption('links_across_contexts')) {
             $items = $this->getContextTree($this->contextKey);
         } else {
-            $items = array();
+            $items = [];
             $c = $this->modx->newQuery('modContext');
-            $c->where(array(
+            $c->where([
                 'key:!=' => 'mgr'
-            ));
+            ]);
             $c->sortby('rank');
             /** @var modContext[] $contexts */
             $contexts = $this->modx->getCollection('modContext', $c);
             foreach ($contexts as $context) {
-                $items[] = array(
+                $items[] = [
                     'title' => $context->get('key'),
                     'menu' => $this->getContextTree($context->get('key'))
-                );
+                ];
             }
         }
         return $this->outputArray($items);
@@ -94,11 +94,11 @@ class GetTreeProcessor extends modProcessor
      * @param $contextKey
      * @return array
      */
-    private function getContextTree($contextKey): array
+    private function getContextTree($contextKey)
     {
-        $tree = $this->modx->getTree($this->startNode, 10, array(
+        $tree = $this->modx->getTree($this->startNode, 10, [
             'context' => $contextKey
-        ));
+        ]);
         $resources = $this->getResources($contextKey);
         return $this->fillTree($tree, $resources);
     }
@@ -109,7 +109,7 @@ class GetTreeProcessor extends modProcessor
      * @param string $context
      * @return array
      */
-    private function getResources(string $context): array
+    private function getResources($context)
     {
         $c = $this->modx->newQuery('modResource');
         $c->where([
@@ -121,8 +121,7 @@ class GetTreeProcessor extends modProcessor
             $result = [];
             $resoures = $c->stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resoures as $resource) {
-                $classes = '';
-                $classes .= ($resource['published']) ? 'published ' : 'unpublished ';
+                $classes = ($resource['published']) ? 'published ' : 'unpublished ';
                 $classes .= ($resource['hidemenu']) ? 'hidden ' : 'visible ';
                 $result[$resource['id']] = [
                     'pagetitle' => $resource['pagetitle'],
@@ -143,7 +142,7 @@ class GetTreeProcessor extends modProcessor
      * @param array $resources
      * @return array
      */
-    private function fillTree(array $nodes, array $resources): array
+    private function fillTree(array $nodes, array $resources)
     {
         $result = [];
         if (is_array($nodes)) {

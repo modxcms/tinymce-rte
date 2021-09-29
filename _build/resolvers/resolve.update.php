@@ -10,6 +10,12 @@
 
 if ($object->xpdo) {
     if (!function_exists('changeSetting')) {
+        /**
+         * @param modX $modx
+         * @param string $key
+         * @param string $old
+         * @param string $new
+         */
         function changeSetting($modx, $key, $old, $new)
         {
             /** @var modSystemSetting $setting */
@@ -24,6 +30,11 @@ if ($object->xpdo) {
     }
 
     if (!function_exists('changeSettingArea')) {
+        /**
+         * @param modX $modx
+         * @param string $old
+         * @param string $new
+         */
         function changeSettingArea($modx, $old, $new)
         {
             /** @var modSystemSetting[] $settings */
@@ -39,6 +50,10 @@ if ($object->xpdo) {
     }
 
     if (!function_exists('recursiveRemoveFolder')) {
+        /**
+         * @param string $dir
+         * @return bool
+         */
         function recursiveRemoveFolder($dir)
         {
             $files = array_diff(scandir($dir), ['.', '..']);
@@ -50,6 +65,12 @@ if ($object->xpdo) {
     }
 
     if (!function_exists('cleanupFolders')) {
+        /**
+         * @param modX $modx
+         * @param string $corePath
+         * @param string $assetsPath
+         * @param array $cleanup
+         */
         function cleanupFolders($modx, $corePath, $assetsPath, $cleanup)
         {
             $paths = [
@@ -79,6 +100,10 @@ if ($object->xpdo) {
     }
 
     if (!function_exists('cleanupPlugin')) {
+        /**
+         * @param modX $modx
+         * @param string $name
+         */
         function cleanupPlugin($modx, $name)
         {
             /** @var modPlugin $plugin */

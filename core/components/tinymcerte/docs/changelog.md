@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Update TinyMCE to 5.9.2
+- Restored compatibility for PHP 7.1 and less
+
+## [2.0.1] - 2021-05-14
+
+### Changed
+
 - Update TinyMCE to 5.8.0
 - Improve the configuration output in the manager html code
 

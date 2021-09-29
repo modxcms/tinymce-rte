@@ -8,9 +8,16 @@ namespace TinyMCERTE\Plugins\Events;
 
 use TinyMCERTE\Plugins\Plugin;
 
+/**
+ * Class OnRichTextBrowserInit
+ */
 class OnRichTextBrowserInit extends Plugin
 {
-    public function init(): bool
+    /**
+     * {@inheritDoc}
+     * @return bool
+     */
+    public function init()
     {
         $useEditor = $this->modx->getOption('use_editor', false);
         $whichEditor = $this->modx->getOption('which_editor', null, '');
@@ -22,6 +29,10 @@ class OnRichTextBrowserInit extends Plugin
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     * @return mixed|void
+     */
     public function process()
     {
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/browser.min.js?v=' . $this->tinymcerte->version);
