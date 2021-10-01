@@ -155,7 +155,7 @@ class GetTreeProcessor extends modProcessor
                                 [
                                     'title' => '◁ ' . $resources[$node]['pagetitle'] . ' (' . $node . ')',
                                     'value' => '[[~' . $node . ']]',
-                                    'display' => $resources[$node],
+                                    'display' => $resources[$node]['pagetitle'],
                                     'classes' => $resources[$node]['classes']
                                 ]
                             ],
@@ -165,7 +165,7 @@ class GetTreeProcessor extends modProcessor
                         $result[] = [
                             'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
                             'value' => '[[~' . $node . ']]',
-                            'display' => $resources[$node],
+                            'display' => $resources[$node]['pagetitle'],
                             'classes' => $resources[$node]['classes']
                         ];
                     }
