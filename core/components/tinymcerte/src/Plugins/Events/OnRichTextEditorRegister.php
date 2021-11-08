@@ -15,7 +15,7 @@ class OnRichTextEditorRegister extends Plugin
 {
     /**
      * {@inheritDoc}
-     * @return mixed|void
+     * @return void
      */
     public function process()
     {

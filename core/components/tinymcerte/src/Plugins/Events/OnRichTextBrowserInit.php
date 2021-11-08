@@ -23,7 +23,7 @@ class OnRichTextBrowserInit extends Plugin
         $whichEditor = $this->modx->getOption('which_editor', null, '');
 
         if ($useEditor && $whichEditor == 'TinyMCE RTE') {
-            return true;
+            return parent::init();
         }
 
         return false;
@@ -31,7 +31,7 @@ class OnRichTextBrowserInit extends Plugin
 
     /**
      * {@inheritDoc}
-     * @return mixed|void
+     * @return void
      */
     public function process()
     {
