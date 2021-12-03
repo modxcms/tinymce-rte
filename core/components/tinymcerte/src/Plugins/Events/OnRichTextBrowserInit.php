@@ -23,6 +23,7 @@ class OnRichTextBrowserInit extends Plugin
         $whichEditor = $this->modx->getOption('which_editor', null, '');
 
         if ($useEditor && $whichEditor == 'TinyMCE RTE') {
+            // Load the tinymcerte browser, when the editor is TinyMCE RTE
             return parent::init();
         }
 

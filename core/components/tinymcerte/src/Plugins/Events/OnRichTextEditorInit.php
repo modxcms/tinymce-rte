@@ -23,6 +23,7 @@ class OnRichTextEditorInit extends Plugin
         $whichEditor = $this->modx->getOption('which_editor', null, '');
 
         if ($useEditor && $whichEditor == 'TinyMCE RTE') {
+            // Load the tinymcerte scripts, when the editor is TinyMCE RTE
             return parent::init();
         }
 
@@ -50,11 +51,12 @@ class OnRichTextEditorInit extends Plugin
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addCss($this->tinymcerte->getOption('cssUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
-
-        return '<script type="text/javascript">
+        $this->modx->controller->addHtml('<script type="text/javascript">
             Ext.ns("TinyMCERTE");
             TinyMCERTE.editorConfig = ' . json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';
+        </script>');
 
+        return '<script type="text/javascript">
             Ext.onReady(function(){
                 TinyMCERTE.loadForTVs();
             });

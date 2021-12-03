@@ -19,7 +19,7 @@ Ext.extend(TinyMCERTE.Tiny, Ext.Component, {
         var that = this;
         Ext.apply(this.cfg, TinyMCERTE.editorConfig, {});
         this.cfg.file_picker_callback = this.loadBrowser;
-        this.cfg.link_list = (TinyMCERTE.editorConfig.enable_link_list) ? this.linkList : null;
+        this.cfg.link_list = (this.cfg.enable_link_list) ? this.linkList : null;
         this.cfg.init_instance_callback = function (editor) {
             that.editor = editor;
             editor.on('change', function () { // Keep synced textarea and iframe on each change
@@ -197,7 +197,7 @@ Ext.extend(TinyMCERTE.Tiny, Ext.Component, {
 });
 TinyMCERTE.loadForTVs = function () {
     new TinyMCERTE.Tiny({
-        allowDrop: false
+        allowDrop: true
     }, {
         selector: '.modx-richtext'
     });

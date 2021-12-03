@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.4] - 2021-12-03
+
+### Added
+
+- Load the TinyMCE configuration even if the resource is not using a rich text editor
+- Allow drop of MODX elements to the editor content in richtext template variables
+
+### Fix
+
+- Fix an uncaught type error when the current resource has richtext disabled and uses ContentBlocks
+
 ## [2.0.3] - 2021-10-01
 
 ### Fix
