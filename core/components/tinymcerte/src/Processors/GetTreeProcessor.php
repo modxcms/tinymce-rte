@@ -75,7 +75,7 @@ class GetTreeProcessor extends modProcessor
             $c->where([
                 'key:!=' => 'mgr'
             ]);
-            $c->sortby('rank');
+            $c->sortby($this->xpdo->escape('rank'));
             /** @var modContext[] $contexts */
             $contexts = $this->modx->getCollection('modContext', $c);
             foreach ($contexts as $context) {
