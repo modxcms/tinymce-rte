@@ -75,7 +75,7 @@ class GetTreeProcessor extends modProcessor
             $c->where([
                 'key:!=' => 'mgr'
             ]);
-            $c->sortby($this->xpdo->escape('rank'));
+            $c->sortby($this->modx->escape('rank'));
             /** @var modContext[] $contexts */
             $contexts = $this->modx->getCollection('modContext', $c);
             foreach ($contexts as $context) {
@@ -117,8 +117,8 @@ class GetTreeProcessor extends modProcessor
             'deleted' => false,
         ]);
         $c->select('id, pagetitle, published, hidemenu');
+        $result = [];
         if ($c->prepare() && $c->stmt->execute()) {
-            $result = [];
             $resoures = $c->stmt->fetchAll(PDO::FETCH_ASSOC);
             foreach ($resoures as $resource) {
                 $classes = ($resource['published']) ? 'published ' : 'unpublished ';
@@ -128,8 +128,6 @@ class GetTreeProcessor extends modProcessor
                     'classes' => trim($classes)
                 ];
             }
-        } else {
-            $result = [];
         }
 
         return $result;
@@ -145,30 +143,28 @@ class GetTreeProcessor extends modProcessor
     private function fillTree(array $nodes, array $resources)
     {
         $result = [];
-        if (is_array($nodes)) {
-            foreach ($nodes as $node => $subtree) {
-                if (isset($resources[$node])) {
-                    if (is_array($subtree)) {
-                        $result[] = [
-                            'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
-                            'menu' => array_merge([
-                                [
-                                    'title' => '◁ ' . $resources[$node]['pagetitle'] . ' (' . $node . ')',
-                                    'value' => '[[~' . $node . ']]',
-                                    'display' => $resources[$node]['pagetitle'],
-                                    'classes' => $resources[$node]['classes']
-                                ]
-                            ],
-                                $this->fillTree($subtree, $resources))
-                        ];
-                    } else {
-                        $result[] = [
-                            'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
-                            'value' => '[[~' . $node . ']]',
-                            'display' => $resources[$node]['pagetitle'],
-                            'classes' => $resources[$node]['classes']
-                        ];
-                    }
+        foreach ($nodes as $node => $subtree) {
+            if (isset($resources[$node])) {
+                if (is_array($subtree)) {
+                    $result[] = [
+                        'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
+                        'menu' => array_merge([
+                            [
+                                'title' => '◁ ' . $resources[$node]['pagetitle'] . ' (' . $node . ')',
+                                'value' => '[[~' . $node . ']]',
+                                'display' => $resources[$node]['pagetitle'],
+                                'classes' => $resources[$node]['classes']
+                            ]
+                        ],
+                            $this->fillTree($subtree, $resources))
+                    ];
+                } else {
+                    $result[] = [
+                        'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
+                        'value' => '[[~' . $node . ']]',
+                        'display' => $resources[$node]['pagetitle'],
+                        'classes' => $resources[$node]['classes']
+                    ];
                 }
             }
         }
