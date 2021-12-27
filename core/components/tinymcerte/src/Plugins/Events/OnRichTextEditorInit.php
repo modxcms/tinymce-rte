@@ -51,9 +51,17 @@ class OnRichTextEditorInit extends Plugin
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addCss($this->tinymcerte->getOption('cssUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
+
+        $configstring = json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        // unescape escaped regular expressions, that can't be contained directly in the external config
+        $configstring = preg_replace_callback('/"##(.*?)##"/', function ($matches) {
+            // replace double backslashes with single ones that have to be set for a valid json in the external config
+            return str_replace(['\\\\'], ['\\'], $matches[1]);
+        }, $configstring);
+
         $this->modx->controller->addHtml('<script type="text/javascript">
             Ext.ns("TinyMCERTE");
-            TinyMCERTE.editorConfig = ' . json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . ';
+            TinyMCERTE.editorConfig = ' . $configstring . ';
         </script>');
 
         return '<script type="text/javascript">
