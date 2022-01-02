@@ -3,7 +3,7 @@
 TinyMCE 5 for MODX Revolution.
 
 - Author: John Peca <john@modx.com>
-- Upgrade to TinyMCE 5: Thomas Jakobi <thomas.jakobi@partout.info>
+- Upgrade to TinyMCE 5: Thomas Jakobi <office@treehillstudio.com>
 - License: GNU GPLv2
 
 ## Features
