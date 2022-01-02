@@ -38,7 +38,7 @@ class GetTreeProcessor extends modProcessor
         parent::__construct($modx, $properties);
 
         $corePath = $this->modx->getOption('tinymcerte.core_path', null, $this->modx->getOption('core_path') . 'components/tinymcerte/');
-        $this->tinymcerte =& $this->modx->getService('tinymcerte', 'TinyMCERTE', $corePath . 'model/tinymcerte/');
+        $this->tinymcerte = $this->modx->getService('tinymcerte', 'TinyMCERTE', $corePath . 'model/tinymcerte/');
     }
 
     /**
