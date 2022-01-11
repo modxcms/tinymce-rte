@@ -9,6 +9,7 @@
       "plugins": [
         {
           "name": "TinyMCE Rich Text Editor",
+          "description": "TinyMCE Rich Text Editor runtime hooks - registers and includes javascripts on document edit pages",
           "file": "tinymcerte.plugin.php",
           "events": [
             "OnManagerPageBeforeRender",
