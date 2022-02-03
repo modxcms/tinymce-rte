@@ -3,7 +3,7 @@
  * TinyMCE Rich Tech Editor Plugin
  *
  * @package tinymcerte
- * @subpackage pluginfile
+ * @subpackage plugin
  *
  * @var modX $modx
  * @var array $scriptProperties
