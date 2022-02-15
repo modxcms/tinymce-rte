@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 5",
   "author": "John Peca/Thomas Jakobi",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "package": {
     "elements": {
       "plugins": [
@@ -23,7 +23,7 @@
     "systemSettings": [
       {
         "key": "plugins",
-        "value": "advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modxlink modximage",
+        "value": "autoresize advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modxlink modximage",
         "area": "tinymcerte.default"
       },
       {

@@ -9,6 +9,52 @@
  */
 
 if ($object->xpdo) {
+    if (!function_exists('addToSetting')) {
+        /**
+         * @param modX $modx
+         * @param string $key
+         * @param string $old
+         * @param string $new
+         */
+        function addToSetting($modx, $key, $add, $separator = ' ')
+        {
+            /** @var modSystemSetting $setting */
+            $setting = $modx->getObject('modSystemSetting', [
+                'key' => $key
+            ]);
+            if ($setting && strpos($setting->get('value'), $add) === false) {
+                $array = explode($separator, $setting->get('value'));
+                $array[] = $add;
+                sort($array);
+                $setting->set('value', implode(' ', $array));
+                $setting->save();
+            }
+        }
+    }
+
+    if (!function_exists('removeFromSetting')) {
+        /**
+         * @param modX $modx
+         * @param string $key
+         * @param string $old
+         * @param string $new
+         */
+        function removeFromSetting($modx, $key, $remove, $separator = ' ')
+        {
+            /** @var modSystemSetting $setting */
+            $setting = $modx->getObject('modSystemSetting', [
+                'key' => $key
+            ]);
+            if ($setting && strpos($setting->get('value'), $remove) !== false) {
+                $array = explode($separator, $setting->get('value'));
+                $array = array_diff($array, [$remove]);
+                sort($array);
+                $setting->set('value', implode(' ', $array));
+                $setting->save();
+            }
+        }
+    }
+
     if (!function_exists('changeSetting')) {
         /**
          * @param modX $modx
@@ -158,13 +204,14 @@ if ($object->xpdo) {
             }
 
             if ($oldPackage && $oldPackage->compareVersion('2.0.0-pl', '>')) {
-                changeSetting($modx, 'tinymcerte.plugins', ' contextmenu ', ' ');
+                changeSetting($modx, 'tinymcerte.skin', 'lightgray', 'modx');
                 changeSetting($modx, 'tinymcerte.inline_format', '"icon": "strikethrough"', '"icon": "strike-through"');
                 changeSetting($modx, 'tinymcerte.inline_format', '"icon": "code"', '"icon": "sourcecode"');
                 changeSetting($modx, 'tinymcerte.alignment_format', '"icon": "alignleft"', '"icon": "align-left"');
                 changeSetting($modx, 'tinymcerte.alignment_format', '"icon": "aligncenter"', '"icon": "align-center"');
                 changeSetting($modx, 'tinymcerte.alignment_format', '"icon": "alignright"', '"icon": "align-right"');
                 changeSetting($modx, 'tinymcerte.alignment_format', '"icon": "alignjustify"', '"icon": "align-justify"');
+                removeFromSetting($modx, 'tinymcerte.plugins', 'contextmenu');
                 changeSettingArea($modx, 'default', 'tinymcerte.default');
 
                 $cleanup = [
@@ -180,6 +227,10 @@ if ($object->xpdo) {
                 ];
                 cleanupFolders($modx, $corePath, $assetsPath, $cleanup);
                 cleanupPlugin($modx, 'TinyMCERTE');
+            }
+
+            if ($oldPackage && $oldPackage->compareVersion('2.0.6-pl', '>')) {
+                addToSetting($modx, 'tinymcerte.plugins', 'autoresize');
             }
 
             break;
