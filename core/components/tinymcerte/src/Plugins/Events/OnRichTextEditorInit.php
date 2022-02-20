@@ -78,7 +78,15 @@ class OnRichTextEditorInit extends Plugin
      */
     private function getTinyConfig()
     {
-        $language = $this->tinymcerte->getLanguageCode($this->modx->getOption('manager_language'));
+        switch ($this->tinymcerte->getOption('modxversion')) {
+            case 3:
+                $managerlanguage = $this->modx->getOption('cultureKey');
+                break;
+            default:
+                $managerlanguage = $this->modx->getOption('manager_language');
+                break;
+        }
+        $language = $this->tinymcerte->getLanguageCode($managerlanguage);
         $objectResizing = $this->tinymcerte->getOption('object_resizing', [], '1');
         if ($objectResizing === '1' || $objectResizing === 'true') {
             $objectResizing = true;

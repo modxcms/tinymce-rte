@@ -47,12 +47,13 @@ class TinyMCERTE
      */
     public function __construct(modX &$modx, $options = [])
     {
-        $this->modx = &$modx;
+        $this->modx =& $modx;
         $this->namespace = $this->getOption('namespace', $options, $this->namespace);
 
         $corePath = $this->getOption('core_path', $options, $this->modx->getOption('core_path', null, MODX_CORE_PATH) . 'components/' . $this->namespace . '/');
         $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path', null, MODX_ASSETS_PATH) . 'components/' . $this->namespace . '/');
         $assetsUrl = $this->getOption('assets_url', $options, $this->modx->getOption('assets_url', null, MODX_ASSETS_URL) . 'components/' . $this->namespace . '/');
+        $modxversion = $this->modx->getVersionData();
 
         // Load some default paths for easier management
         $this->options = array_merge([
@@ -73,6 +74,12 @@ class TinyMCERTE
             'cssUrl' => $assetsUrl . 'css/',
             'connectorUrl' => $assetsUrl . 'connector.php'
         ], $options);
+
+        // Add default options
+        $this->options = array_merge($this->options, [
+            'debug' => (bool)$this->getOption('debug', $options, false),
+            'modxversion' => $modxversion['version'],
+        ]);
 
         $lexicon = $this->modx->getService('lexicon', 'modLexicon');
         $lexicon->load($this->namespace . ':default');
