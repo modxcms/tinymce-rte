@@ -7,6 +7,7 @@
 namespace TinyMCERTE\Plugins\Events;
 
 use TinyMCERTE\Plugins\Plugin;
+use xPDO;
 
 /**
  * Class OnRichTextEditorInit
@@ -53,6 +54,10 @@ class OnRichTextEditorInit extends Plugin
         $this->modx->controller->addCss($this->tinymcerte->getOption('cssUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
 
         $configstring = json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        if (json_last_error()) {
+            $test = json_last_error_msg();
+            $this->modx->log(xPDO::LOG_LEVEL_ERROR, json_last_error_msg());
+        }
         // unescape escaped regular expressions, that can't be contained directly in the external config
         $configstring = preg_replace_callback('/"##(.*?)##"/', function ($matches) {
             // replace double backslashes with single ones that have to be set for a valid json in the external config
@@ -182,6 +187,11 @@ class OnRichTextEditorInit extends Plugin
         $props = $this->scriptProperties;
         // unset the regular properties sent by resource controllers
         unset($props['editor'], $props['elements'], $props['id'], $props['resource'], $props['mode']);
+        foreach ($props as $key => $prop) {
+            if (is_object($prop)) {
+                unset($props[$key]);
+            }
+        }
 
         return $props;
     }
