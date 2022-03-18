@@ -56,7 +56,7 @@ class OnRichTextEditorInit extends Plugin
         $configstring = json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         if (json_last_error()) {
             $test = json_last_error_msg();
-            $this->modx->log(xPDO::LOG_LEVEL_ERROR, json_last_error_msg());
+            $this->modx->log(xPDO::LOG_LEVEL_ERROR, 'TinyMCE RTE configuration can\'t be encoded as JSON: ', json_last_error_msg());
         }
         // unescape escaped regular expressions, that can't be contained directly in the external config
         $configstring = preg_replace_callback('/"##(.*?)##"/', function ($matches) {
