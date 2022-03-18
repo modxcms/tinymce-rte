@@ -47,7 +47,7 @@ $_lang['setting_tinymcerte.menubar_desc'] = 'Mit dieser Einstellung können Sie 
 $_lang['setting_tinymcerte.object_resizing'] = 'Größenänderung für Objekte';
 $_lang['setting_tinymcerte.object_resizing_desc'] = 'Mit dieser Einstellung können Sie die Griffe zur manuellen Grössenanpassung von Bildern, Tabellen oder Medienobjekten ein-/ausschalten. <a href="https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing">https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing</a>';
 $_lang['setting_tinymcerte.paste_as_text'] = 'Als Text einfügen';
-$_lang['setting_tinymcerte.paste_as_text_desc'] = 'Mit dieser Einstellung können Sie den Standardzustand des "Einfügen als Text" Menüpunktes im \'Bearbeiten\'-Menü festlegen. <a href="https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text">https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text</a>';
+$_lang['setting_tinymcerte.paste_as_text_desc'] = 'Mit dieser Einstellung können Sie den Standardzustand des ‚Einfügen als Text‘ Menüpunktes im Bearbeiten-Menü festlegen. <a href="https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text">https://www.tiny.cloud/docs/plugins/opensource/paste/#paste_as_text</a>';
 $_lang['setting_tinymcerte.plugins'] = 'Plugins';
 $_lang['setting_tinymcerte.plugins_desc'] = 'Legen Sie fest, welche Plugins geladen werden (Standardmäßig werden keine geladen.) <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
 $_lang['setting_tinymcerte.relative_urls'] = 'Relative URLs';

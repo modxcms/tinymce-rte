@@ -51,7 +51,7 @@ $_lang['setting_tinymcerte.paste_as_text_desc'] = 'This option enables you to se
 $_lang['setting_tinymcerte.plugins'] = 'Plugins';
 $_lang['setting_tinymcerte.plugins_desc'] = 'Set which plugins are loaded (None are loaded by default). <a href="https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins">https://www.tiny.cloud/docs/configure/integration-and-setup/#plugins</a>';
 $_lang['setting_tinymcerte.relative_urls'] = 'Relative URLs';
-$_lang['setting_tinymcerte.relative_urls_desc'] = 'If this option is set to true, all URLs starting with the URL in the MODX site_url system setting will be converted to a relative URL to this site_url. If it\'s set to false all URLs will be converted to absolute URLs (see remove_script_host for additional options in that case).';
+$_lang['setting_tinymcerte.relative_urls_desc'] = 'If this option is set to true, all URLs starting with the URL in the MODX site_url system setting will be converted to a relative URL to this site_url. If it’s set to false all URLs will be converted to absolute URLs (see remove_script_host for additional options in that case).';
 $_lang['setting_tinymcerte.remove_script_host'] = 'Remove script host';
 $_lang['setting_tinymcerte.remove_script_host_desc'] = 'Removes the protocol and host part of URLs returned from the MODX file browser (Only used if relative_urls is off).';
 $_lang['setting_tinymcerte.settings'] = 'Additional Settings';
