@@ -7,6 +7,7 @@
 namespace TinyMCERTE\Plugins\Events;
 
 use TinyMCERTE\Plugins\Plugin;
+use modResource;
 use xPDO;
 
 /**
@@ -98,6 +99,15 @@ class OnRichTextEditorInit extends Plugin
             $objectResizing = false;
         }
 
+        /** @var modResource $resource */
+        $resource = $this->modx->getOption('resource', $this->scriptProperties, null);
+        if ($resource && $resource->get('context_key')) {
+            $context = $this->modx->getContext($resource->get('context_key'));
+            $documentBaseUrl = $context->getOption('site_url');
+        } else {
+            $documentBaseUrl = $this->modx->getOption('site_url');
+        }
+
         $config = array_merge([
             'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modximage modxlink'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', [], 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'),
@@ -118,7 +128,7 @@ class OnRichTextEditorInit extends Plugin
             'image_class_list' => json_decode($this->tinymcerte->getOption('image_class_list', [], '[]'), true),
             'skin' => $this->tinymcerte->getOption('skin', [], 'modx'),
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', [], true) == 1,
-            'document_base_url' => $this->modx->getOption('site_url'),
+            'document_base_url' => $documentBaseUrl,
             'remove_script_host' => $this->tinymcerte->getOption('remove_script_host', [], true) == 1,
             'entity_encoding' => $this->tinymcerte->getOption('entity_encoding', [], 'named'),
             'enable_link_list' => $this->tinymcerte->getOption('enable_link_list', [], true) == 1,
