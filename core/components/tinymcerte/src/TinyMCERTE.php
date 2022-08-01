@@ -28,10 +28,16 @@ class TinyMCERTE
     public $namespace = 'tinymcerte';
 
     /**
+     * The package name
+     * @var string $packageName
+     */
+    public $packageName = 'TinyMCE Rich Text Editor';
+
+    /**
      * The version
      * @var string $version
      */
-    public $version = '2.0.7';
+    public $version = '2.0.8';
 
     /**
      * The class options
@@ -75,14 +81,16 @@ class TinyMCERTE
             'connectorUrl' => $assetsUrl . 'connector.php'
         ], $options);
 
+        $lexicon = $this->modx->getService('lexicon', 'modLexicon');
+        $lexicon->load($this->namespace . ':default');
+
+        $this->packageName = $this->modx->lexicon('tinymcerte');
+
         // Add default options
         $this->options = array_merge($this->options, [
             'debug' => (bool)$this->getOption('debug', $options, false),
             'modxversion' => $modxversion['version'],
         ]);
-
-        $lexicon = $this->modx->getService('lexicon', 'modLexicon');
-        $lexicon->load($this->namespace . ':default');
     }
 
     /**
