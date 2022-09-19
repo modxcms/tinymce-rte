@@ -117,7 +117,7 @@ class OnRichTextEditorInit extends Plugin
             'language' => $language,
             'directionality' => $this->modx->getOption('manager_direction', [], 'ltr'),
             'menubar' => $this->tinymcerte->getOption('menubar', [], 'file edit insert view format table tools'),
-            'statusbar' => $this->tinymcerte->getOption('statusbar', [], 1) == 1,
+            'statusbar' => $this->tinymcerte->getOption('statusbar', [], true) == 1,
             'image_advtab' => $this->tinymcerte->getOption('image_advtab', [], true) == 1,
             'paste_as_text' => $this->tinymcerte->getOption('paste_as_text', [], false) == 1,
             'style_formats_merge' => $this->tinymcerte->getOption('style_formats_merge', [], false) == 1,
