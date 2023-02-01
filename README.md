@@ -1,5 +1,3 @@
-[![LICENSE](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](./LICENSE) [![Default Lexicon](https://hosted.weblate.org/widgets/modx-extras/-/modx-tinymcerte-standard/svg-badge.svg)](https://hosted.weblate.org/projects/modx-extras/modx-tinymcerte-standard/)
-
 # TinyMCE Rich Text Editor
 
 TinyMCE 5 for MODX Revolution
@@ -37,8 +35,4 @@ There is a `grunt prepare_debug` task, that copies not uglyfied script files to
 
 ## Change Log
 https://github.com/modxcms/tinymce-rte/blob/master/core/components/tinymcerte/docs/changelog.md
-
-## Translations
-
-Translations of the package can be made for the [Default Lexicon](https://hosted.weblate.org/projects/modx-extras/modx-tinymcerte-standard/) and the [System Setting Lexicon](https://hosted.weblate.org/projects/modx-extras/modx-tinymcerte-system-settings/)
 
