@@ -143,12 +143,12 @@ const downloadLanguages = function () {
 gulp.task('download', gulp.series(downloadTinyMCE, downloadLanguages));
 
 const unzipTinyMCE = function () {
-    return gulp.src('src/tinymce_dev.zip')
+    return gulp.src('src/tinymce_dev.zip', {encoding: false})
         .pipe(unzip())
         .pipe(gulp.dest('src/'));
 };
 const unzipLanguages = function () {
-    return gulp.src('src/tinymce_languages.zip')
+    return gulp.src('src/tinymce_languages.zip', {encoding: false})
         .pipe(unzip())
         .pipe(gulp.dest('assets/components/tinymcerte/js/vendor/tinymce/'));
 };
