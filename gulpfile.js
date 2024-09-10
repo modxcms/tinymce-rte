@@ -1,7 +1,7 @@
 const gulp = require('gulp'),
     composer = require('gulp-uglify/composer'),
     format = require('date-format'),
-    header = require('gulp-header'),
+    header = require('@fomantic/gulp-header'),
     rename = require('gulp-rename'),
     replace = require('gulp-replace'),
     uglifyjs = require('uglify-js'),

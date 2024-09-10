@@ -6,11 +6,11 @@
     "gulp": "^5.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-download2": "^1.1.0",
-    "gulp-header": "^2.0.9",
+    "@fomantic/gulp-header": "^2.1.1",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.1.4",
     "gulp-uglify": "^3.0.2",
     "gulp-unzip": "^1.1.0",
-    "uglify-js": "^3.17.4"
+    "uglify-js": "^3.19.3"
   }
 }
