@@ -25,7 +25,7 @@ class GetTreeProcessor extends modProcessor
 
     public $languageTopics = ['tinymcerte:default'];
 
-    /** @var TinyMCERTE */
+    /** @var TinyMCERTE $tinymcerte */
     public $tinymcerte;
 
     /**
