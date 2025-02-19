@@ -138,7 +138,7 @@ class OnRichTextEditorInit extends Plugin
         ], $this->getSettings(), $this->getProperties());
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', [], '[]');
-        $styleFormats = json_decode($styleFormats, true);
+        $styleFormats = json_decode($styleFormats, true) ?? [];
         $finalFormats = [];
         foreach ($styleFormats as $format) {
             if (!isset($format['items'])) {
