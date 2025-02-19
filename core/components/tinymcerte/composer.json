@@ -13,6 +13,15 @@
       "homepage": "https://treehillstudio.com"
     }
   ],
+  "config": {
+    "platform": {
+      "php": "7.4"
+    }
+  },
+  "require": {
+    "php": ">=7.4",
+    "ext-json": "*"
+  },
   "license": "GPL-2.0-or-later",
   "autoload": {
     "psr-4": {
