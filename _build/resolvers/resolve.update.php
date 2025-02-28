@@ -233,6 +233,11 @@ if ($object->xpdo) {
                 addToSetting($modx, 'tinymcerte.plugins', 'autoresize');
             }
 
+            if ($oldPackage && $oldPackage->compareVersion('2.1.0-pl', '>')) {
+                addToSetting($modx, 'tinymcerte.plugins', 'modai');
+                addToSetting($modx, 'tinymcerte.toolbar1', '| modai_generate modai_generate_image modai_enhance');
+            }
+
             break;
     }
 }
