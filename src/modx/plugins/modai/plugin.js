@@ -3,10 +3,32 @@ tinymce.PluginManager.add('modai', function(editor, url) {
         return;
     }
 
-    const defaultParams = {
-        namespace: 'tinymcerte.modai',
-        field: editor.id,
-    };
+    const modAIPromptHandler = () => {
+        const selectedText = editor.selection.getContent({format: 'text'});
+
+        return modAI.ui.localChat({
+            namespace: 'tinymcerte.modai',
+            field: editor.id,
+            key: editor.id,
+            resource: (MODx.request.a.toLowerCase() === 'resource/update') ? MODx.request.id : undefined,
+            availableTypes: ['text', 'image'],
+            context: selectedText,
+            customCSS: editor.contentCSS,
+            textActions: {
+                insert: (msg, modal) => {
+                    editor.insertContent(msg.content);
+                    modal.api.closeModal();
+                }
+            },
+            imageActions: {
+                copy: false,
+                insert: (msg, modal) => {
+                    editor.insertContent(`<img src="${msg.ctx.fullUrl}" />`);
+                    modal.api.closeModal();
+                }
+            }
+        });
+    }
 
     const getEnhancePrompts = () => {
         try {
@@ -16,7 +38,7 @@ tinymce.PluginManager.add('modai', function(editor, url) {
         }
     }
 
-    const formatEnhancePrompts = (item, selection, disabled) => {
+    const formatEnhancePrompts = (item, disabled) => {
         if (item.prompts) {
             if (!item.label) return null;
 
@@ -25,7 +47,7 @@ tinymce.PluginManager.add('modai', function(editor, url) {
                 text: item.label,
                 getSubmenuItems: () => {
                     return item.prompts.map((n) => {
-                        return formatEnhancePrompts(n, selection, disabled);
+                        return formatEnhancePrompts(n, disabled);
                     }).filter(Boolean);
                 }
             }
@@ -38,344 +60,35 @@ tinymce.PluginManager.add('modai', function(editor, url) {
             text: item.label,
             disabled: disabled,
             onAction: async function () {
-                await generate(item.prompt, selection);
+                await generate(item.prompt);
 
             }
         };
     }
 
-    const freeTextPrompt = async (api, cache, prompt, selectedText) => {
-        try {
-            const result = await modAI.executor.mgr.prompt.freeText({
-                ...defaultParams,
-                prompt,
-                context: selectedText,
-            }, (data) => {
-                cache.insert({prompt, content: data.content}, true);
-            });
-            cache.insert({prompt, content: result.content});
-            api.unblock();
-        } catch (err) {
-            api.unblock();
-            tinymce.activeEditor.windowManager.alert(`Failed: ${err.message}`);
-        }
-    }
+    const generate = async (prompt) => {
+        const modal = modAIPromptHandler();
 
-    const openTextPromptWindow = (selectedText) => {
-        const windowAPI = editor.windowManager.open({
-            title: 'Generate Content',
-            size: 'medium',
-            body: {
-                type: 'panel',
-                items: [
-                    {
-                        type: 'textarea',
-                        name: 'prompt',
-                        label: 'Prompt',
-                        multiline: true,
-                    },
-                    {
-                        type: 'button',
-                        name: 'generate',
-                        text: 'Generate',
-                    },
-                    {
-                        type: 'htmlpanel',
-                        html: `<iframe style="width:100%" id="tinymcerte-${editor.id}-modai-iframe">` +
-                            '<!DOCTYPE html>' +
-                            '<html>' +
-                            '<head>' +
-                            editor.contentCSS.map((css) => {
-                                return `<link rel="stylesheet" type="text/css" href="${css}" />`;
-                            }).join('') +
-                            '</head>' +
-                            `<body></body>` +
-                            '</html>' +
-                            '</iframe>'
-                    }
-                ]
-            },
-            buttons: [
-                {
-                    text: '<<',
-                    type: 'custom',
-                    align: 'start',
-                    name: 'prev',
-                    disabled: true
-                },
-                {
-                    text: '>>',
-                    type: 'custom',
-                    align: 'start',
-                    name: 'next',
-                    disabled: true
-                },
-                {
-                    text: 'Insert',
-                    type: 'submit',
-                    name: 'submit',
-                    primary: true,
-                    disabled: true
-                },
-                {
-                    text: 'Cancel',
-                    type: 'cancel'
-                }
-            ],
-            onAction: async function (api, details) {
-                if (details.name === 'prev') {
-                    cache.prev();
-                    return;
-                }
-
-                if (details.name === 'next') {
-                    cache.next();
-                    return;
-                }
-
-                if (details.name === 'generate') {
-                    const data = api.getData();
-                    const prompt = data.prompt;
-
-                    api.block("Generating");
-
-                    await freeTextPrompt(api, cache, prompt, selectedText);
-                }
-            },
-            onSubmit: function (api) {
-                const data = cache.getData();
-                if (data.value) {
-                    editor.insertContent(data.value);
-                }
-
-                api.close();
-            }
-        });
-
-        const cache = modAI.history.init(`tinymce.${editor.id}_text`, (data, noStore) => {
-            if (!data.value) return;
-
-            windowAPI.enable('submit')
-
-            windowAPI.setData({
-                prompt: data.value.prompt,
-            });
-
-            const iframeDocument = document.getElementById(`tinymcerte-${editor.id}-modai-iframe`).contentDocument;
-            iframeDocument.body.innerHTML = data.value.content;
-
-            if (noStore) {
-                iframeDocument.body.scrollTop = iframeDocument.body.scrollHeight;
-            }
-
-            if (data.prevStatus) {
-                windowAPI.enable('prev');
-            } else {
-                windowAPI.disable('prev');
-            }
-
-            if (data.nextStatus) {
-                windowAPI.enable('next');
-            } else {
-                windowAPI.disable('next');
-            }
-        });
-        cache.syncUI();
-        windowAPI.setData({
-            prompt: "",
-        });
-
-        return {windowAPI, cache};
-    }
-
-    const openImagePromptWindow = () => {
-        const windowAPI = editor.windowManager.open({
-            title: 'Generate Image',
-            size: 'medium',
-            body: {
-                type: 'panel',
-                items: [
-                    {
-                        type: 'textarea',
-                        name: 'prompt',
-                        label: 'Prompt',
-                        multiline: true,
-                    },
-                    {
-                        type: 'button',
-                        name: 'generate',
-                        text: 'Generate',
-                    },
-                    {
-                        type: 'htmlpanel',
-                        name: 'iframe',
-                        html: `<div id="modai_${editor.id}_iframe" />`
-                    }
-                ]
-            },
-            buttons: [
-                {
-                    text: '<<',
-                    type: 'custom',
-                    align: 'start',
-                    name: 'prev',
-                    disabled: true
-                },
-                {
-                    text: '>>',
-                    type: 'custom',
-                    align: 'start',
-                    name: 'next',
-                    disabled: true
-                },
-                {
-                    text: 'Insert',
-                    type: 'submit',
-                    name: 'submit',
-                    primary: true,
-                    disabled: true
-                },
-                {
-                    text: 'Cancel',
-                    type: 'cancel'
-                }
-            ],
-            onAction: async function (api, details) {
-                if (details.name === 'prev') {
-                    cache.prev();
-                    return;
-                }
-
-                if (details.name === 'next') {
-                    cache.next();
-                    return;
-                }
-
-                if (details.name === 'generate') {
-                    const data = api.getData();
-                    const prompt = data.prompt;
-
-                    api.block("Generating");
-
-                    try {
-                        const result = await modAI.executor.mgr.prompt.image({
-                            ...defaultParams,
-                            prompt,
-                        });
-                        cache.insert({ prompt, ...result });
-                        api.unblock();
-                    } catch (err) {
-                        api.unblock();
-                        tinymce.activeEditor.windowManager.alert(`Failed: ${err.message}`);
-                    }
-                }
-            },
-            onSubmit: async function (api) {
-                api.block("Downloading");
-
-                const params = {
-                    ...defaultParams,
-                };
-
-                const cacheData = cache.getData().value;
-                if (cacheData.url) {
-                    params.url = cacheData.url;
-                }
-
-                if (cacheData.base64) {
-                    params.image = cacheData.base64;
-                }
-
-                try {
-                    const res = await modAI.executor.mgr.download.image(params)
-                    editor.insertContent(`<img src="${res.fullUrl}" />`);
-                    api.close();
-                } catch (err) {
-                    api.unblock();
-                    tinymce.activeEditor.windowManager.alert(`Failed: ${err.message}`);
-                }
-            }
-        });
-
-        const cache = modAI.history.init(`tinymce.${editor.id}_image`, (data) => {
-            if (!data.value) return;
-
-            windowAPI.enable('submit')
-            const preview = document.getElementById(`modai_${editor.id}_iframe`);
-            preview.innerHTML =`<img style="max-height:450px;max-width: 100%" src="${data.value?.url || data.value.base64}" />`;
-
-            windowAPI.setData({
-                prompt: data.value.prompt,
-            });
-
-            if (data.prevStatus) {
-                windowAPI.enable('prev');
-            } else {
-                windowAPI.disable('prev');
-            }
-
-            if (data.nextStatus) {
-                windowAPI.enable('next');
-            } else {
-                windowAPI.disable('next');
-            }
-        });
-        cache.syncUI();
-        windowAPI.setData({
-            prompt: "",
-        });
-    }
-
-    const generate = async (prompt, selection) => {
-        const {windowAPI, cache} = openTextPromptWindow(selection);
-
-        windowAPI.block("Generating");
-        await freeTextPrompt(windowAPI, cache, prompt, selection);
+        modal.api.sendMessage(prompt, true);
     }
 
     editor.ui.registry.addButton('modai_generate', {
         text: '✦ Prompt',
-        onAction: function () {
-            const selectedText = editor.selection.getContent({format: 'text'});
-            openTextPromptWindow(selectedText);
-        }
-    });
-
-    editor.ui.registry.addButton('modai_generate_image', {
-        text: '✦ Image',
-        onAction: function () {
-            openImagePromptWindow();
+        onAction: () => {
+            modAIPromptHandler();
         }
     });
 
     editor.ui.registry.addMenuItem('modai_generate', {
         text: '✦ Prompt',
-        onAction: function () {
-            openTextPromptWindow(selectedText);
-        }
-    });
-
-    editor.ui.registry.addMenuItem('modai_generate_image', {
-        text: '✦ Image',
-        onAction: function () {
-            openImagePromptWindow();
+        onAction: () => {
+            modAIPromptHandler();
         }
     });
 
     editor.ui.registry.addContextMenu('modai_generate', {
         update: function (el) {
             return 'modai_generate';
-        }
-    });
-
-    editor.ui.registry.addContextMenu('modai_generate_image', {
-        update: function (el) {
-            const selectedText = editor.selection.getContent({ format: 'text' });
-            if (selectedText) {
-                return '';
-            }
-
-            return 'modai_generate_image';
         }
     });
 
@@ -387,7 +100,7 @@ tinymce.PluginManager.add('modai', function(editor, url) {
                 const selection = editor.selection.getContent({format: 'text'});
 
                 cb(prompts.map((prompt) => {
-                    return formatEnhancePrompts(prompt, selection, !selection);
+                    return formatEnhancePrompts(prompt, !selection);
                 }).filter(Boolean));
             }
         });

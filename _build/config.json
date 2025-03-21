@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 5",
   "author": "John Peca/Thomas Jakobi",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "package": {
     "elements": {
       "plugins": [
@@ -126,7 +126,7 @@
       },
       {
         "key": "toolbar1",
-        "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | modai_generate modai_generate_image modai_enhance",
+        "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | modai_generate modai_enhance",
         "area": "tinymcerte.toolbar"
       },
       {

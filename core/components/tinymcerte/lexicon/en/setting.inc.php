@@ -5,6 +5,7 @@
  * @package tinymcerte
  * @subpackage lexicon
  */
+$_lang['area_modai'] = 'modAI';
 $_lang['area_tinymcerte.default'] = 'TinyMCE';
 $_lang['area_tinymcerte.style_formats'] = 'Style Formats';
 $_lang['area_tinymcerte.toolbar'] = 'Toolbar';
@@ -36,6 +37,10 @@ $_lang['setting_tinymcerte.max_height'] = 'Max height';
 $_lang['setting_tinymcerte.max_height_desc'] = 'The max_height option has two kinds of behaviors depending on the state of the autoresize plugin. Without the autoresize plugin, this option allows you to set the maximum height that a user can stretch the entire TinyMCE interface (by grabbing the dragable area in the bottom right of the editor interface). With the autoresize plugin, this option sets the maximum height the editor can automatically expand to.';
 $_lang['setting_tinymcerte.menubar'] = 'Menubar';
 $_lang['setting_tinymcerte.menubar_desc'] = 'This option allows you to configure the menus you want to appear in the menu bar. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#menubar">https://www.tiny.cloud/docs/configure/editor-appearance/#menubar</a>';
+$_lang['setting_tinymcerte.modai.global.text.base_prompt'] = 'Base Prompt';
+$_lang['setting_tinymcerte.modai.global.text.base_prompt_desc'] = 'This is an overall instruction modifier that is added to each API request by default, similar to what you would enter for Customize ChatGPT on their website.';
+$_lang['setting_tinymcerte.modai.global.text.modify_prompts'] = 'Modify Prompts';
+$_lang['setting_tinymcerte.modai.global.text.modify_prompts_desc'] = 'This is a JSON configuration that defines prompts for each category and menu option. Feel free to add or change languages, styles, tones, or any other options.';
 $_lang['setting_tinymcerte.object_resizing'] = 'Object resizing';
 $_lang['setting_tinymcerte.object_resizing_desc'] = 'This options allows you to turn on/off the resizing handles on images, tables or media objects. <a href="https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing">https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing</a>';
 $_lang['setting_tinymcerte.paste_as_text'] = 'Paste as text';

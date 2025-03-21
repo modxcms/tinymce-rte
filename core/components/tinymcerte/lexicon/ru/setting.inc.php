@@ -5,6 +5,7 @@
  * @package tinymcerte
  * @subpackage lexicon
  */
+$_lang['area_modai'] = 'modAI';
 $_lang['area_tinymcerte.default'] = 'TinyMCE';
 $_lang['area_tinymcerte.style_formats'] = 'Форматы стилей';
 $_lang['area_tinymcerte.toolbar'] = 'Панель инструментов';
@@ -36,6 +37,10 @@ $_lang['setting_tinymcerte.max_height'] = 'Максимальная высота
 $_lang['setting_tinymcerte.max_height_desc'] = 'Опция max_height имеет два вида поведения в зависимости от состояния плагина autoresize. Без плагина autoresize этот параметр позволяет установить максимальную высоту, на которую пользователь может растянуть весь интерфейс TinyMCE (захватив перетаскиваемую область в правом нижнем углу интерфейса редактора). С плагином autoresize этот параметр устанавливает максимальную высоту, до которой редактор может автоматически расширяться.';
 $_lang['setting_tinymcerte.menubar'] = 'Строка меню';
 $_lang['setting_tinymcerte.menubar_desc'] = 'Это определяет, какие кнопки вы хотите показать на панели инструментов. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar">https://www.tiny.cloud/docs/configure/editor-appearance/#toolbar</a>';
+$_lang['setting_tinymcerte.modai.global.text.base_prompt'] = 'Base Prompt';
+$_lang['setting_tinymcerte.modai.global.text.base_prompt_desc'] = 'Это общий модификатор инструкции, который добавляется к каждому API-запросу по умолчанию, подобно тому, что вы вводите для Customize ChatGPT на их сайте.';
+$_lang['setting_tinymcerte.modai.global.text.modify_prompts'] = 'Изменить подсказки';
+$_lang['setting_tinymcerte.modai.global.text.modify_prompts_desc'] = 'Это конфигурация JSON, определяющая подсказки для каждой категории и пункта меню. Не стесняйтесь добавлять или изменять языки, стили, тона или любые другие параметры.';
 $_lang['setting_tinymcerte.object_resizing'] = 'Изменение размера объекта';
 $_lang['setting_tinymcerte.object_resizing_desc'] = 'Эта опция позволяет включить/выключить обработку изменения размеров изображений, таблиц или медиа объектов. <a href="https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing">https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing</a>';
 $_lang['setting_tinymcerte.paste_as_text'] = 'Вставить как текст';

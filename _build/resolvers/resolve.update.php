@@ -238,6 +238,10 @@ if ($object->xpdo) {
                 addToSetting($modx, 'tinymcerte.toolbar1', '| modai_generate modai_generate_image modai_enhance');
             }
 
+            if ($oldPackage && $oldPackage->compareVersion('2.1.1-pl', '>')) {
+                removeFromSetting($modx, 'tinymcerte.toolbar1', 'modai_generate_image');
+            }
+
             break;
     }
 }

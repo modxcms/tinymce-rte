@@ -5,6 +5,7 @@
  * @package tinymcerte
  * @subpackage lexicon
  */
+$_lang['area_modai'] = 'modAI';
 $_lang['area_tinymcerte.default'] = 'TinyMCE';
 $_lang['area_tinymcerte.style_formats'] = 'Formati di stile';
 $_lang['area_tinymcerte.toolbar'] = 'Barra degli strumenti';
@@ -36,6 +37,10 @@ $_lang['setting_tinymcerte.max_height'] = 'Altezza massima';
 $_lang['setting_tinymcerte.max_height_desc'] = 'L’opzione max_height ha due tipi di comportamento a seconda dello stato del plugin autoresize. Senza il plugin autoresize, questa opzione consente di impostare l’altezza massima che un utente può estendere all’intera interfaccia TinyMCE (afferrando l’area trascinabile in basso a destra dell’interfaccia dell’editor). Con il plugin autoresize, questa opzione imposta l’altezza massima a cui l’editor può espandersi automaticamente.';
 $_lang['setting_tinymcerte.menubar'] = 'Barra dei menù';
 $_lang['setting_tinymcerte.menubar_desc'] = 'Questa opzione ti permette di configurare i menu che vuoi apparire nella barra dei menu. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#menubar">https://www.tiny.cloud/docs/configure/editor-appearance/#menubar</a>';
+$_lang['setting_tinymcerte.modai.global.text.base_prompt'] = 'Prompt di base';
+$_lang['setting_tinymcerte.modai.global.text.base_prompt_desc'] = 'Questo è un modificatore di istruzioni generale che viene aggiunto a ogni richiesta API per impostazione predefinita, simile a quello che si inserirebbe per personalizzare ChatGPT sul loro sito web';
+$_lang['setting_tinymcerte.modai.global.text.modify_prompts'] = 'Modificare i prompt';
+$_lang['setting_tinymcerte.modai.global.text.modify_prompts_desc'] = 'Questa è una configurazione JSON che definisce i prompt per ogni categoria e opzione di menu. Sentitevi liberi di aggiungere o modificare lingue, stili, toni o qualsiasi altra opzione.';
 $_lang['setting_tinymcerte.object_resizing'] = 'Ridimensionamento oggetto';
 $_lang['setting_tinymcerte.object_resizing_desc'] = 'Questa opzione consente di disattivare o disattivare le maniglie di ridimensionamento su immagini, tabelle o oggetti multimediali. <a href="https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing">https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing</a>';
 $_lang['setting_tinymcerte.paste_as_text'] = 'Incolla come testo';

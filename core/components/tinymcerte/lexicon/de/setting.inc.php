@@ -5,6 +5,7 @@
  * @package tinymcerte
  * @subpackage lexicon
  */
+$_lang['area_modai'] = 'modAI';
 $_lang['area_tinymcerte.default'] = 'TinyMCE';
 $_lang['area_tinymcerte.style_formats'] = 'Stil-Formate';
 $_lang['area_tinymcerte.toolbar'] = 'Werkzeugleiste';
@@ -36,6 +37,10 @@ $_lang['setting_tinymcerte.max_height'] = 'Maximale Höhe';
 $_lang['setting_tinymcerte.max_height_desc'] = 'Die Option max_height hat zwei Verhaltensweisen, abhängig vom Status des Plugins autoresize. Ohne das autoresize-Plugin können Sie mit dieser Option die maximale Höhe festlegen, mit der ein Benutzer die gesamte TinyMCE-Oberfläche strecken kann (indem er den verschiebbaren Bereich unten rechts in der Editor-Oberfläche anfasst). Mit dem Autoresize-Plugin legt diese Option die maximale Höhe fest, auf die sich der Editor automatisch ausdehnen kann.';
 $_lang['setting_tinymcerte.menubar'] = 'Menüleiste';
 $_lang['setting_tinymcerte.menubar_desc'] = 'Mit dieser Einstellung können Sie die Hauptmenüpunkte konfigurieren, die in der Menüleiste erscheinen sollen. <a href="https://www.tiny.cloud/docs/configure/editor-appearance/#menubar">https://www.tiny.cloud/docs/configure/editor-appearance/#menubar</a>';
+$_lang['setting_tinymcerte.modai.global.text.base_prompt'] = 'Base Prompt';
+$_lang['setting_tinymcerte.modai.global.text.base_prompt_desc'] = 'Dies ist ein allgemeiner Anweisungsmodifikator, der standardmäßig zu jeder API-Anfrage hinzugefügt wird, ähnlich dem, den Sie für Customize ChatGPT auf deren Website eingeben würden.';
+$_lang['setting_tinymcerte.modai.global.text.modify_prompts'] = 'Modify Prompts';
+$_lang['setting_tinymcerte.modai.global.text.modify_prompts_desc'] = 'Dies ist eine JSON-Konfiguration, die Prompts für jede Kategorie und Menüoption definiert. Sie können Sprachen, Stile, Töne oder andere Optionen hinzufügen oder ändern.';
 $_lang['setting_tinymcerte.object_resizing'] = 'Größenänderung für Objekte';
 $_lang['setting_tinymcerte.object_resizing_desc'] = 'Mit dieser Einstellung können Sie die Griffe zur manuellen Grössenanpassung von Bildern, Tabellen oder Medienobjekten ein-/ausschalten. <a href="https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing">https://www.tiny.cloud/docs/configure/advanced-editing-behavior/#object_resizing</a>';
 $_lang['setting_tinymcerte.paste_as_text'] = 'Als Text einfügen';
