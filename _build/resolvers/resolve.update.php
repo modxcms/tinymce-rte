@@ -25,7 +25,7 @@ if ($object->xpdo) {
             if ($setting && strpos($setting->get('value'), $add) === false) {
                 $array = explode($separator, $setting->get('value'));
                 $array[] = $add;
-                sort($array);
+                //sort($array);
                 $setting->set('value', implode(' ', $array));
                 $setting->save();
             }
@@ -48,7 +48,7 @@ if ($object->xpdo) {
             if ($setting && strpos($setting->get('value'), $remove) !== false) {
                 $array = explode($separator, $setting->get('value'));
                 $array = array_diff($array, [$remove]);
-                sort($array);
+                //sort($array);
                 $setting->set('value', implode(' ', $array));
                 $setting->save();
             }
