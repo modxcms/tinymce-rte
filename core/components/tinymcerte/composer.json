@@ -15,12 +15,13 @@
   ],
   "config": {
     "platform": {
-      "php": "7.4"
+      "php": "5.6"
     }
   },
   "require": {
-    "php": ">=7.4",
-    "ext-json": "*"
+    "php": ">=5.6",
+    "ext-json": "*",
+    "ext-pdo": "*"
   },
   "license": "GPL-2.0-or-later",
   "autoload": {
