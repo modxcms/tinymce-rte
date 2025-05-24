@@ -36,7 +36,7 @@ class OnRichTextBrowserInit extends Plugin
      */
     public function process()
     {
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/browser.min.js?v=' . $this->tinymcerte->version);
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('assetsUrl') . 'mgr/browser.min.js?v=' . $this->tinymcerte->version);
         $this->modx->event->output('TinyMCERTE.browserCallback');
     }
 }

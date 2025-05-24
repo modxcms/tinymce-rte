@@ -50,9 +50,9 @@ class OnRichTextEditorInit extends Plugin
      */
     private function initTinyMCE()
     {
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
-        $this->modx->controller->addCss($this->tinymcerte->getOption('cssUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
+        $this->modx->controller->addJavascript('https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.5/tinymce.min.js');
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
+        $this->modx->controller->addCss($this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
 
         $configstring = json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         if (json_last_error()) {
@@ -109,7 +109,7 @@ class OnRichTextEditorInit extends Plugin
         }
 
         $config = array_merge([
-            'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modximage modxlink modai'),
+            'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image modxlink modai'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', [], 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | modai_generate modai_generate_image modai_enhance'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', [], ''),
             'toolbar3' => $this->tinymcerte->getOption('toolbar3', [], ''),
@@ -126,7 +126,7 @@ class OnRichTextEditorInit extends Plugin
             'browser_spellcheck' => $this->tinymcerte->getOption('browser_spellcheck', [], false) == 1,
             'content_css' => $this->tinymcerte->explodeAndClean($this->tinymcerte->getOption('content_css', [], '')),
             'image_class_list' => json_decode($this->tinymcerte->getOption('image_class_list', [], '[]'), true),
-            'skin' => $this->tinymcerte->getOption('skin', [], 'modx'),
+            'skin' => $this->tinymcerte->getOption('skin', [], 'oxide'),
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', [], true) == 1,
             'document_base_url' => $documentBaseUrl,
             'remove_script_host' => $this->tinymcerte->getOption('remove_script_host', [], true) == 1,
@@ -134,7 +134,8 @@ class OnRichTextEditorInit extends Plugin
             'enable_link_list' => $this->tinymcerte->getOption('enable_link_list', [], true) == 1,
             'max_height' => (int)$this->tinymcerte->getOption('max_height', [], 500),
             'branding' => $this->tinymcerte->getOption('branding', [], false) == 1,
-            'cache_suffix' => '?v=' . $this->tinymcerte->version
+            'cache_suffix' => '?v=' . $this->tinymcerte->version,
+            'promotion' => false
         ], $this->getSettings(), $this->getProperties());
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', [], '[]');
@@ -183,7 +184,6 @@ class OnRichTextEditorInit extends Plugin
                 }
             }
         }
-
         return $config;
     }
 

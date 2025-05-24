@@ -23,7 +23,7 @@
     "systemSettings": [
       {
         "key": "plugins",
-        "value": "autoresize advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modxlink modximage modai",
+        "value": "advlist autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image modxlink modai",
         "area": "tinymcerte.default"
       },
       {
@@ -82,7 +82,7 @@
       },
       {
         "key": "skin",
-        "value": "modx",
+        "value": "oxide",
         "area": "tinymcerte.default"
       },
       {
@@ -126,7 +126,7 @@
       },
       {
         "key": "toolbar1",
-        "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | modai_generate modai_enhance",
+        "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | modxlink image",
         "area": "tinymcerte.toolbar"
       },
       {

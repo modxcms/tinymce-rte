@@ -996,7 +996,7 @@
           },
           {
             type: 'submit',
-            name: 'save',
+            Linkname: 'save',
             text: 'Save',
             primary: true
           }
