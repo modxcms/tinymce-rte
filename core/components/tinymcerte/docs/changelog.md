@@ -33,7 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Fix `max_height` system setting not casted right
+- Fix `max_height` system setting not cast right
 
 ## [2.0.8] - 2022-08-01
 

@@ -101,7 +101,7 @@ class OnRichTextEditorInit extends Plugin
         }
 
         /** @var modResource $resource */
-        $resource = $this->modx->getOption('resource', $this->scriptProperties, null);
+        $resource = $this->modx->getOption('resource', $this->scriptProperties);
         if ($resource && $resource->get('context_key')) {
             $context = $this->modx->getContext($resource->get('context_key'));
             $documentBaseUrl = $context->getOption('site_url');
