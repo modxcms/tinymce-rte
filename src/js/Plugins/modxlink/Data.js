@@ -64,13 +64,13 @@ export default class Data {
         data.new_window = (this.element.getAttribute('target') === '_blank');
         data.link_text = this.element.innerHTML;
 
-        const linkType = this.element.dataset.fredLinkType;
+        const linkType = this.element.dataset.linkType;
         let url = this.element.getAttribute('href')  ?? '';
 
         if (linkType === 'page') {
-            data.page_page = this.element.getAttribute('data-fred-link-page') ?? '';
-            data.page_anchor = this.element.getAttribute('data-fred-link-anchor') ?? '';
-            data.page_parameters = this.element.getAttribute('data-fred-link-parameters') ?? '';
+            data.page_page = this.element.getAttribute('data-link-page') ?? '';
+            data.page_anchor = this.element.getAttribute('data-link-anchor') ?? '';
+            data.page_parameters = this.element.getAttribute('data-link-parameters') ?? '';
 
             if (data.page_page || data.page_anchor || data.page_parameters) {
                 data.page_url = url.replace(('#' + data.page_anchor), '');

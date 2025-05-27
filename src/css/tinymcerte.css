@@ -26,3 +26,18 @@
     resize: none;
     width: 100%;
 }
+
+.tox .choices__list small {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.tox .choices__button {
+    text-indent: -9999px;
+    appearance: none;
+    border: 0;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}

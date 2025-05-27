@@ -210,8 +210,11 @@ export default (editor, url) => {
             const input = document.querySelector('#page_url');
             if (input) {
                 templateInputChoices = new Choices(input, {
-                    removeItemButton: true
+                    removeItemButton: true,
+                    allowHTML: true,
                 });
+
+                initLookup(data.page_page);
 
                 input.addEventListener('search', event => {
                     clearTimeout(lookupTimeout);
@@ -220,13 +223,12 @@ export default (editor, url) => {
 
                 input.addEventListener('choice', event => {
                     templateInputChoices.setChoices(initData, 'value', 'pagetitle', true);
-
-                    choicesData.page_page = event.detail.choice.value;
-                    choicesData.page_url = event.detail.choice.customProperties.url;
+                    choicesData.page_page = event.detail.value;
+                    choicesData.page_url = '[[~' + event.detail.value + ']]';
 
                     if (!data.link_text) {
-                        data.link_text = event.detail.choice.label;
-                        linkText.value(event.detail.choice.label);
+                        data.link_text = event.detail.label;
+                        linkText.value(event.detail.label);
                     }
 
                     const pageAnchorEl = document.getElementById('page_anchor-l');
@@ -294,7 +296,7 @@ export default (editor, url) => {
 
         const populateOptions = options => {
             const toRemove = [];
-
+            console.log(templateInputChoices);
             /* templateInputChoices.currentState.items.forEach(item => {
                 if (item.active) {
                     toRemove.push(item.value);
@@ -315,8 +317,6 @@ export default (editor, url) => {
             if (query in lookupCache) {
                 populateOptions(lookupCache[query]);
             } else {
-                // @todo implement server lookup
-                console.info('TinyMCE RTE Choices server lookup');
                 const resourceSearchUrl = TinyMCERTE.editorConfig.connector_url + '?action=mgr/resource/search' + (MODx.ctx ? ('&wctx=' + MODx.ctx) : '') + '&HTTP_MODAUTH=' + MODx.siteId + '&query=' + query + '&limit=10&sort=pagetitle&dir=ASC';
                 fetch(resourceSearchUrl).then(function (response) {
                     return response.json();
@@ -326,6 +326,25 @@ export default (editor, url) => {
                 })
             }
         };
+
+        const initLookup = (value) => {
+            if (value) {
+                const resourceSearchUrl = TinyMCERTE.editorConfig.connector_url + '?action=mgr/resource/search' + (MODx.ctx ? ('&wctx=' + MODx.ctx) : '') + '&HTTP_MODAUTH=' + MODx.siteId + '&id=' + value + '&limit=1';
+                fetch(resourceSearchUrl).then(function (response) {
+                    return response.json();
+                }).then(function (data) {
+                    initData = data.results;
+                    templateInputChoices.setValue([{
+                        id: data.results[0].id,
+                        highlighted: true,
+                        active: true,
+                        selected: true,
+                        label: data.results[0].pagetitle,
+                        value: data.results[0].value,
+                    }]);
+                })
+            }
+        }
 
         initChoices();
     }

@@ -109,7 +109,9 @@ class OnRichTextEditorInit extends Plugin
         }
 
         $config = array_merge([
-            'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image modxlink modai'),
+            'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autoresize autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image quickbars link modxlink modai'),
+            'quickbars_insert_toolbar' => $this->tinymcerte->getOption('insert_toolbar', [], 'image media quicktable modxlink modai_generate'),
+            'quickbars_selection_toolbar' => $this->tinymcerte->getOption('selection_toolbar', [], 'bold italic underline | modxlink h2 h3 h4 blockquote | modai_generate modai_enhance'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', [], 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | modai_generate modai_generate_image modai_enhance'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', [], ''),
             'toolbar3' => $this->tinymcerte->getOption('toolbar3', [], ''),

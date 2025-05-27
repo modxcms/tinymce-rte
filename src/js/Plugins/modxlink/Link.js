@@ -32,7 +32,7 @@ export default class Link {
     
     static getGeneralAttributes(data, type) {
         const attributes = {
-            'data-fred-link-type': type
+            'data-link-type': type
         };
         
         if (data.link_title) {
@@ -55,16 +55,16 @@ export default class Link {
 
         const attributes = {
             ...(Link.getGeneralAttributes(data, 'page')),
-            'data-fred-link-page': data.page_page
+            'data-link-page': data.page_page
         };
         attributes.href = data.page_url;
 
         if (data.page_anchor) {
-            attributes['data-fred-link-anchor'] = data.page_anchor;
+            attributes['data-link-anchor'] = data.page_anchor;
             attributes.href = `${data.page_url}#${data.page_anchor}`;
         }
         if (data.page_parameters) {
-            attributes['data-fred-link-parameters'] = data.page_parameters;
+            attributes['data-link-parameters'] = data.page_parameters;
             attributes.href = `${attributes.href}?${data.page_parameters}`;
         }
         

@@ -14,30 +14,14 @@ class SearchProcessor extends modProcessor
 
     public $languageTopics = ['tinymcerte:default'];
 
-    /** @var TinyMCERTE $tinymcerte */
-    public $tinymcerte;
-
-    /**
-     * {@inheritDoc}
-     * @param modX $modx A reference to the modX instance
-     * @param array $properties An array of properties
-     */
-    public function __construct(modX &$modx, array $properties = [])
-    {
-        parent::__construct($modx, $properties);
-
-        $corePath = $this->modx->getOption('tinymcerte.core_path', null, $this->modx->getOption('core_path') . 'components/tinymcerte/');
-        $this->tinymcerte = $this->modx->getService('tinymcerte', 'TinyMCERTE', $corePath . 'model/tinymcerte/');
-    }
-
     /**
      * {@inheritDoc}
      * @return string
      */
     public function process()
     {
+        $id = $this->getProperty('id');
         $query = $this->getProperty('query');
-        $ctx = $this->getProperty('ctx');
         $limit = $this->getProperty('limit', 10);
         $c = $this->modx->newQuery('modResource');
         $c->where([
@@ -48,12 +32,12 @@ class SearchProcessor extends modProcessor
                 'pagetitle:LIKE' => '%' . $query . '%'
             ]);
         }
-        if (!empty($ctx)) {
+        if (!empty($id)) {
             $c->where([
-                'context_key' => $ctx
+                'id:=' => $id,
             ]);
         }
-        $c->select('id, pagetitle, context_key');
+        $c->select('id, concat(pagetitle, " <small>(", context_key, ")</small>") as pagetitle, id as value');
         $c->limit($limit);
         $results = [];
         if ($c->prepare() && $c->stmt->execute()) {

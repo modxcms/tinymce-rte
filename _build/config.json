@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 5",
   "author": "John Peca/Thomas Jakobi",
-  "version": "2.1.1",
+  "version": "3.0.0-beta1",
   "package": {
     "elements": {
       "plugins": [
@@ -23,7 +23,7 @@
     "systemSettings": [
       {
         "key": "plugins",
-        "value": "advlist autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image modxlink modai",
+        "value": "advlist autoresize autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image quickbars link modxlink modai",
         "area": "tinymcerte.default"
       },
       {
@@ -125,8 +125,18 @@
         "area": "tinymcerte.default"
       },
       {
+        "key": "insert_toolbar",
+        "value": "image media quicktable modxlink unlink modai_generate",
+        "area": "tinymcerte.toolbar"
+      },
+      {
+        "key": "selection_toolbar",
+        "value": "bold italic underline | modxlink unlink | h2 h3 h4 blockquote | modai_generate modai_enhance",
+        "area": "tinymcerte.toolbar"
+      },
+      {
         "key": "toolbar1",
-        "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | modxlink image",
+        "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | modxlink unlink | image",
         "area": "tinymcerte.toolbar"
       },
       {
