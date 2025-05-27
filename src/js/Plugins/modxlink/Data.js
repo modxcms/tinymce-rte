@@ -3,9 +3,14 @@ export default class Data {
         this.editor = editor;
         window.editor = editor;
         this.element = editor.dom.getParent(editor.selection.getStart(), 'a[href]');
-        const textarea = document.createElement('textarea');
-        textarea.innerHTML = this.editor.selection.getContent();
-        
+        let blocks = this.editor.selection.getSelectedBlocks();
+        if (blocks[0].firstElementChild && blocks[0].firstElementChild.nodeName === 'A') {
+            console.info('Descending into anchor');
+            this.element = blocks[0].firstElementChild;
+            this.editor.selection.select(this.element);
+        }
+
+
         this.initialData = {
             link_text: this.editor.selection.getContent(),
             link_title: '',

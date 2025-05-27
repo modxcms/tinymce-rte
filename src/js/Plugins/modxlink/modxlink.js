@@ -290,22 +290,16 @@ export default (editor, url) => {
         win.showTab(currentTab);
 
         document.querySelectorAll('.tox-dialog').forEach((item) => {
-            item.classList.add('mce-fred--modxlink');
+            item.classList.add('mce--modxlink');
         });
 
 
         const populateOptions = options => {
-            const toRemove = [];
-            console.log(templateInputChoices);
-            /* templateInputChoices.currentState.items.forEach(item => {
-                if (item.active) {
-                    toRemove.push(item.value);
-                }
-            });*/
+            const toRemove = templateInputChoices.getValue();
 
             const toKeep = [];
             options.forEach(option => {
-                if (toRemove.indexOf(option.id) === -1) {
+                if (toRemove.value !== option.value) {
                     toKeep.push(option);
                 }
             });
