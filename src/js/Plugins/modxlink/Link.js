@@ -52,11 +52,13 @@ export default class Link {
     
     savePage(data) {
         if (!data.page_page && !data.page_anchor && !data.page_parameters) return;
-
         const attributes = {
             ...(Link.getGeneralAttributes(data, 'page')),
             'data-link-page': data.page_page
         };
+        if (typeof data.page_url === 'undefined') {
+            data.page_url = `[[~${data.page_page}]]`
+        }
         attributes.href = data.page_url;
 
         if (data.page_anchor) {

@@ -151,7 +151,7 @@ class GetTreeProcessor extends modProcessor
                         'menu' => array_merge([
                             [
                                 'title' => '◁ ' . $resources[$node]['pagetitle'] . ' (' . $node . ')',
-                                'value' => '[[~' . $node . ']]',
+                                'value' => $node,
                                 'display' => $resources[$node]['pagetitle'],
                                 'classes' => $resources[$node]['classes']
                             ]
@@ -161,7 +161,7 @@ class GetTreeProcessor extends modProcessor
                 } else {
                     $result[] = [
                         'title' => $resources[$node]['pagetitle'] . ' (' . $node . ')',
-                        'value' => '[[~' . $node . ']]',
+                        'value' => $node,
                         'display' => $resources[$node]['pagetitle'],
                         'classes' => $resources[$node]['classes']
                     ];

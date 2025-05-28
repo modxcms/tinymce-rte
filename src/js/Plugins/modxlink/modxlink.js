@@ -10,6 +10,16 @@ export default (editor, url) => {
         processor: 'object[]',
         default: []
     });
+
+    editor.options.register('enable_link_list', {
+        processor: 'boolean',
+        default: true
+    });
+
+    editor.options.register('link_list', {
+        processor: 'object[]',
+        default: []
+    });
     const handleClick = () => {
         const dataHelper = new Data(editor);
         let currentTab = dataHelper.getActiveTab() ?? 'page';
@@ -37,7 +47,7 @@ export default (editor, url) => {
                     } else if (item.menu) {
                         menuItem.items = appendItems(item.menu);
                     } else {
-                        menuItem.value = item.value;
+                        menuItem.value = item.value.toString();
 
                         if (itemCallback) {
                             itemCallback(menuItem);
@@ -75,7 +85,6 @@ export default (editor, url) => {
                 items: buildListItems(
                     editor.options.get('link_class_list'),
                     function (item) {
-
                         if (item.value) {
                             item.textStyle = function () {
                                 return editor.formatter.getCssText({inline: 'a', classes: [item.value]});
@@ -104,6 +113,25 @@ export default (editor, url) => {
             type: 'panel',
             items: linkOptions
         };
+        let pageSelector = null;
+
+        if (editor.options.get('enable_link_list')) {
+            pageSelector = {
+                type: 'listbox',
+                name: 'page_page',
+                label: 'Page',
+                size: formsize,
+                items: buildListItems(
+                    editor.options.get('link_list')
+                )
+            }
+        } else {
+            pageSelector = {
+                id: 'pagecontainer',
+                    type: 'htmlpanel',
+                html: '<input type="hidden" name="page_page" /><label for="page_url" class="tox-label">Page Title</label><select id="page_url"></select>'
+            };
+        }
 
         const tabPanel = {
             type: 'tabpanel',
@@ -113,11 +141,7 @@ export default (editor, url) => {
                     name: 'page',
                     items: [
                         linkOptionsPanel,
-                        {
-                            id: 'pagecontainer',
-                            type: 'htmlpanel',
-                            html: '<input type="hidden" name="page_page" /><label for="page_url" class="tox-label">Page Title</label><select id="page_url"></select>'
-                        },
+                        pageSelector,
                         {
                             type: 'input',
                             label: 'Anchor Tag',
@@ -271,7 +295,14 @@ export default (editor, url) => {
             },
             onSubmit: (api) => {
                 const link = new Link(editor);
-                link.save(currentTab, {...api.getData(), ...choicesData});
+                let data = api.getData();
+                if (!editor.options.get('enable_link_list')) {
+                    data = {
+                        ...data,
+                        ...choicesData,
+                    };
+                }
+                link.save(currentTab, data);
                 api.close();
             },
             onAction: (api, details) => {
@@ -299,7 +330,7 @@ export default (editor, url) => {
 
             const toKeep = [];
             options.forEach(option => {
-                if (toRemove.value !== option.value) {
+                if (typeof toRemove === 'undefined' || toRemove.value !== option.value) {
                     toKeep.push(option);
                 }
             });
@@ -356,6 +387,18 @@ export default (editor, url) => {
         onAction: handleClick,
         stateSelector: 'a[href]'
     });
+
+    const buildLinkList = () => {
+        const linklistUrl = TinyMCERTE.editorConfig.connector_url + '?action=mgr/resource/gettree' + (MODx.ctx ? ('&wctx=' + MODx.ctx) : '') + '&HTTP_MODAUTH=' + MODx.siteId;
+        if (editor.options.get('enable_link_list')) {
+            fetch(linklistUrl).then(function (response) {
+                return response.json();
+            }).then(function (data) {
+                editor.options.set('link_list', data.results || []);
+            });
+        }
+    }
+    buildLinkList();
 
     return {
         getMetadata: function () {

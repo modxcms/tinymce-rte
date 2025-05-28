@@ -62,14 +62,6 @@ Ext.extend(TinyMCERTE.Tiny, Ext.Component, {
             }
         });
     },
-    linkList: function (success) {
-        var linklistUrl = TinyMCERTE.editorConfig.connector_url + '?action=mgr/resource/gettree' + (MODx.ctx ? ('&wctx=' + MODx.ctx) : '') + '&HTTP_MODAUTH=' + MODx.siteId;
-        fetch(linklistUrl).then(function (response) {
-            return response.json();
-        }).then(function (data) {
-            return success(data.results || []);
-        });
-    },
     registerDrop: function () {
         var editor = this.editor;
         var fakeDiv = null;
