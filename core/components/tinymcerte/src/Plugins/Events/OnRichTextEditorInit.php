@@ -50,9 +50,9 @@ class OnRichTextEditorInit extends Plugin
      */
     private function initTinyMCE()
     {
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'vendor/tinymce/tinymce.min.js?v=' . $this->tinymcerte->version);
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('jsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
-        $this->modx->controller->addCss($this->tinymcerte->getOption('cssUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('tiny_url'));
+        $this->modx->controller->addJavascript($this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
+        $this->modx->controller->addCss($this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
 
         $configstring = json_encode($this->getTinyConfig(), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         if (json_last_error()) {
@@ -109,8 +109,10 @@ class OnRichTextEditorInit extends Plugin
         }
 
         $config = array_merge([
-            'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modximage modxlink modai'),
-            'toolbar1' => $this->tinymcerte->getOption('toolbar1', [], 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | modai_generate modai_generate_image modai_enhance'),
+            'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autoresize autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image quickbars modxlink modai'),
+            'quickbars_insert_toolbar' => $this->tinymcerte->getOption('insert_toolbar', [], 'image media quicktable modxlink modai_generate'),
+            'quickbars_selection_toolbar' => $this->tinymcerte->getOption('selection_toolbar', [], 'bold italic underline | modxlink | modai_enhance'),
+            'toolbar1' => $this->tinymcerte->getOption('toolbar1', [], 'undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | modxlink | image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', [], ''),
             'toolbar3' => $this->tinymcerte->getOption('toolbar3', [], ''),
             'connector_url' => $this->tinymcerte->getOption('connectorUrl'),
@@ -126,15 +128,17 @@ class OnRichTextEditorInit extends Plugin
             'browser_spellcheck' => $this->tinymcerte->getOption('browser_spellcheck', [], false) == 1,
             'content_css' => $this->tinymcerte->explodeAndClean($this->tinymcerte->getOption('content_css', [], '')),
             'image_class_list' => json_decode($this->tinymcerte->getOption('image_class_list', [], '[]'), true),
-            'skin' => $this->tinymcerte->getOption('skin', [], 'modx'),
+            'skin' => $this->tinymcerte->getOption('skin', [], 'oxide'),
             'relative_urls' => $this->tinymcerte->getOption('relative_urls', [], true) == 1,
             'document_base_url' => $documentBaseUrl,
             'remove_script_host' => $this->tinymcerte->getOption('remove_script_host', [], true) == 1,
             'entity_encoding' => $this->tinymcerte->getOption('entity_encoding', [], 'named'),
             'enable_link_list' => $this->tinymcerte->getOption('enable_link_list', [], true) == 1,
             'max_height' => (int)$this->tinymcerte->getOption('max_height', [], 500),
+            'min_height' => (int)$this->tinymcerte->getOption('min_height', [], 100),
             'branding' => $this->tinymcerte->getOption('branding', [], false) == 1,
-            'cache_suffix' => '?v=' . $this->tinymcerte->version
+            'cache_suffix' => '?v=' . $this->tinymcerte->version,
+            'promotion' => false
         ], $this->getSettings(), $this->getProperties());
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', [], '[]');
@@ -183,7 +187,6 @@ class OnRichTextEditorInit extends Plugin
                 }
             }
         }
-
         return $config;
     }
 

@@ -1,9 +1,9 @@
 {
   "name": "TinyMCE Rich Text Editor",
   "lowCaseName": "tinymcerte",
-  "description": "TinyMCE 5",
+  "description": "TinyMCE 6",
   "author": "John Peca/Thomas Jakobi",
-  "version": "2.1.1",
+  "version": "3.0.0",
   "package": {
     "elements": {
       "plugins": [
@@ -23,7 +23,7 @@
     "systemSettings": [
       {
         "key": "plugins",
-        "value": "autoresize advlist autolink lists charmap print preview anchor visualblocks searchreplace code fullscreen insertdatetime media table paste modxlink modximage modai",
+        "value": "advlist autoresize autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image quickbars modxlink modai",
         "area": "tinymcerte.default"
       },
       {
@@ -82,7 +82,7 @@
       },
       {
         "key": "skin",
-        "value": "modx",
+        "value": "oxide",
         "area": "tinymcerte.default"
       },
       {
@@ -125,8 +125,23 @@
         "area": "tinymcerte.default"
       },
       {
+        "key": "min_height",
+        "value": "100",
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "insert_toolbar",
+        "value": "image media quicktable modxlink modai_generate",
+        "area": "tinymcerte.toolbar"
+      },
+      {
+        "key": "selection_toolbar",
+        "value": "bold italic underline | modxlink | modai_enhance",
+        "area": "tinymcerte.toolbar"
+      },
+      {
         "key": "toolbar1",
-        "value": "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | modai_generate modai_enhance",
+        "value": "undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | modxlink | image",
         "area": "tinymcerte.toolbar"
       },
       {
@@ -186,6 +201,11 @@
         "area": "modai",
         "type": "textarea",
         "value": "- This is not a conversation, do not include justifcation, suggestions, or explanation\n- The output should be usable as is, without requiring editing or modification\n- Format it with HTML markup so it will work in the TinyMCE rich text editor"
+      },
+      {
+        "key": "tiny_url",
+        "area": "tinymcerte.default",
+        "value": "https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.5/tinymce.min.js"
       }
     ]
   },

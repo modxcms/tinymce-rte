@@ -1,9 +1,10 @@
 # TinyMCE Rich Text Editor
 
-TinyMCE 5 for MODX Revolution.
+TinyMCE 6 for MODX Revolution.
 
 - Author: John Peca <john@modx.com>
 - Upgrade to TinyMCE 5: Thomas Jakobi <office@treehillstudio.com>
+- Upgrade to TinyMCE 6: Mat Dave Jones <mat@modx.com>
 - License: GNU GPLv2
 
 ## Features
