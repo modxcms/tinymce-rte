@@ -238,9 +238,17 @@ if ($object->xpdo) {
                 addToSetting($modx, 'tinymcerte.toolbar1', '| modai_generate modai_generate_image modai_enhance');
             }
 
-            if ($oldPackage && $oldPackage->compareVersion('2.1.1-pl', '>')) {
-                removeFromSetting($modx, 'tinymcerte.toolbar1', 'modai_generate_image');
-            }
+        if ($oldPackage && $oldPackage->compareVersion('2.1.1-pl', '>')) {
+            removeFromSetting($modx, 'tinymcerte.toolbar1', 'modai_generate_image');
+        }
+
+        if ($oldPackage && $oldPackage->compareVersion('2.1.1-pl', '>')) {
+            addToSetting($modx, 'tinymcerte.plugins', 'quickbars');
+            changeSetting($modx, 'skin', 'modx', 'oxide');
+            changeSetting($modx, 'tinymcerte.toolbar1', 'link', 'modxlink');
+            changeSetting($modx, 'tinymcerte.toolbar2', 'link', 'modxlink');
+            changeSetting($modx, 'tinymcerte.toolbar3', 'link', 'modxlink');
+        }
 
             break;
     }
