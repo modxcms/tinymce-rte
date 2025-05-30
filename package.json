@@ -3,8 +3,10 @@
   "description": "TinyMCE Rich Text Editor",
   "main": "./src/js/index.js",
   "scripts": {
-    "build": "webpack --progress --mode production",
-    "dev": "webpack --watch --progress --mode development"
+    "build": "webpack --progress --mode production && npm run gettinymce && npm run getlangs",
+    "dev": "webpack --watch --progress --mode development",
+    "gettinymce": "cp -r node_modules/tinymce ./assets/components/tinymcerte/mgr/tinymce",
+    "getlangs": "cp -r node_modules/tinymce-i18n/langs6 ./assets/components/tinymcerte/mgr/tinymce/langs"
   },
   "library": {
     "name": "TinyMCERTE",
@@ -30,6 +32,8 @@
     "choices.js": "^11.1.0",
     "css-loader": "^6.9.1",
     "cssnano": "^6.0.3",
-    "postcss-loader": "^8.0.0"
+    "postcss-loader": "^8.0.0",
+    "tinymce": "^6.8.6",
+    "tinymce-i18n": "^25.5.12"
   }
 }

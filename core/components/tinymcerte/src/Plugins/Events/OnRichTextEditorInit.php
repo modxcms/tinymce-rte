@@ -50,7 +50,8 @@ class OnRichTextEditorInit extends Plugin
      */
     private function initTinyMCE()
     {
-        $this->modx->controller->addJavascript($this->tinymcerte->getOption('tiny_url'));
+        $tinyURL = $this->getTinyMCEURL();
+        $this->modx->controller->addJavascript($tinyURL);
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addCss($this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
 
@@ -218,5 +219,25 @@ class OnRichTextEditorInit extends Plugin
     {
         $settings = json_decode($this->tinymcerte->getOption('settings'), true);
         return ($settings) ?: [];
+    }
+
+    private function getTinyMCEURL()
+    {
+        $tinyURL = $this->tinymcerte->getOption('tiny_url');
+        if (empty($tinyURL)) {
+            $tinyURL = $this->modx->getOption('tinymcerte.tiny_url', null, $this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymce/tinymce.min.js');
+        }
+        if (strpos($tinyURL, '{') !== false) {
+            $tinyURL = str_replace([
+                '{base_url}',
+                '{assets_url}',
+                '{tinymcerte.assets_url}',
+            ], [
+                $this->modx->getOption('base_url'),
+                $this->modx->getOption('assets_url'),
+                $this->tinymcerte->getOption('assetsUrl'),
+            ], $tinyURL);
+        }
+        return $tinyURL;
     }
 }
