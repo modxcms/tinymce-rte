@@ -14,7 +14,7 @@ module.exports = (env, options) => {
                 './src/css/tinymcerte.css',
                 './src/js/index.js',
             ],
-            browser: './src/js/browser.js'
+            browser: './src/js/browser.js',
         },
 
         output: {
