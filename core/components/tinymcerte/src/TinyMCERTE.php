@@ -37,7 +37,7 @@ class TinyMCERTE
      * The version
      * @var string $version
      */
-    public $version = '2.1.1';
+    public $version = '0';
 
     /**
      * The class options
@@ -60,6 +60,7 @@ class TinyMCERTE
         $assetsPath = $this->getOption('assets_path', $options, $this->modx->getOption('assets_path', null, MODX_ASSETS_PATH) . 'components/' . $this->namespace . '/');
         $assetsUrl = $this->getOption('assets_url', $options, $this->modx->getOption('assets_url', null, MODX_ASSETS_URL) . 'components/' . $this->namespace . '/');
         $modxversion = $this->modx->getVersionData();
+        $this->version = $this->getVersionData();
 
         // Load some default paths for easier management
         $this->options = array_merge([
@@ -160,5 +161,13 @@ class TinyMCERTE
         $array = array_map('trim', $array);  // Trim array's values
         $array = array_keys(array_flip($array)); // Remove duplicate fields
         return array_filter($array); // Remove empty values from array
+    }
+
+    private function getVersionData() {
+        $version = $this->getOption('lit');
+        if (empty($version)) {
+            $version = $this->modx->version['full_version'];
+        }
+        return $version;
     }
 }

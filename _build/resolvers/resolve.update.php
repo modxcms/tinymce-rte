@@ -248,8 +248,10 @@ if ($object->xpdo) {
             changeSetting($modx, 'tinymcerte.toolbar3', 'link', 'modxlink');
         }
 
-        if ($oldPackage && $oldPackage->compareVersion('3.0.0-pl', '>')) {
+        if ($oldPackage && $oldPackage->compareVersion('3.0.2-pl', '>')) {
             changeSetting($modx, 'tinymcerte.tiny_url', 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.5/tinymce.min.js', '{tinymcerte.assets_url}mgr/tinymce/tinymce.min.js');
+            removeFromSetting($modx, 'tinymcerte.plugins', 'paste');
+            removeFromSetting($modx, 'tinymcerte.plugins', 'print');
         }
 
             break;
