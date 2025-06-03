@@ -230,6 +230,7 @@
     "changelog": "docs/changelog.md",
     "resolver": {
       "after": [
+        "resolve.lit.php",
         "resolve.update.php",
         "resolve.whicheditor.php"
       ]
