@@ -77,3 +77,5 @@ $_lang['setting_tinymcerte.insert_toolbar'] = 'Insert Toolbar';
 $_lang['setting_tinymcerte.insert_toolbar_desc'] = 'This option defines what is shown in the toolbar when the cursor is at the start of an empty line. <a href="https://www.tiny.cloud/docs/tinymce/latest/quickbars/#quickbars_insert_toolbar">https://www.tiny.cloud/docs/tinymce/latest/quickbars/#quickbars_insert_toolbar</a>.';
 $_lang['setting_tinymcerte.tiny_url'] = 'TinyMCE URL';
 $_lang['setting_tinymcerte.tiny_url_desc'] = 'The URL or path to the TinyMCE JavaScript file.';
+$_lang['setting_tinymcerte.lit'] = 'Last Install Time';
+$_lang['setting_tinymcerte.lit_desc'] = 'Last package install in unix time for cache busting.';

@@ -51,7 +51,7 @@ class OnRichTextEditorInit extends Plugin
     private function initTinyMCE()
     {
         $tinyURL = $this->getTinyMCEURL();
-        $this->modx->controller->addJavascript($tinyURL);
+        $this->modx->controller->addJavascript($tinyURL . '?v=' . $this->tinymcerte->version);
         $this->modx->controller->addJavascript($this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymcerte.min.js?v=' . $this->tinymcerte->version);
         $this->modx->controller->addCss($this->tinymcerte->getOption('assetsUrl') . 'mgr/tinymcerte.css?v=' . $this->tinymcerte->version);
 

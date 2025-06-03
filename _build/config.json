@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 6",
   "author": "John Peca/Thomas Jakobi",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "package": {
     "elements": {
       "plugins": [
@@ -206,6 +206,11 @@
         "key": "tiny_url",
         "area": "tinymcerte.default",
         "value": "{tinymcerte.assets_url}mgr/tinymce/tinymce.min.js"
+      },
+      {
+        "key": "lit",
+        "area": "tinymcerte.default",
+        "value": "0"
       }
     ]
   },
