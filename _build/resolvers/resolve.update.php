@@ -240,18 +240,19 @@ if ($object->xpdo) {
             removeFromSetting($modx, 'tinymcerte.toolbar1', 'modai_generate_image');
         }
 
-        if ($oldPackage && $oldPackage->compareVersion('2.1.1-pl', '>')) {
+        if ($oldPackage && $oldPackage->compareVersion('3.0.2-pl', '>')) {
+            changeSetting($modx, 'tinymcerte.tiny_url', 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.5/tinymce.min.js', '{tinymcerte.assets_url}mgr/tinymce/tinymce.min.js');
+            removeFromSetting($modx, 'tinymcerte.plugins', 'paste');
+            removeFromSetting($modx, 'tinymcerte.plugins', 'print');
+        }
+
+        if ($oldPackage && $oldPackage->compareVersion('3.0.3-pl', '>')) {
+            removeFromSetting($modx, 'tinymcerte.plugins', 'modximage');
             addToSetting($modx, 'tinymcerte.plugins', 'quickbars');
             changeSetting($modx, 'skin', 'modx', 'oxide');
             changeSetting($modx, 'tinymcerte.toolbar1', 'link', 'modxlink');
             changeSetting($modx, 'tinymcerte.toolbar2', 'link', 'modxlink');
             changeSetting($modx, 'tinymcerte.toolbar3', 'link', 'modxlink');
-        }
-
-        if ($oldPackage && $oldPackage->compareVersion('3.0.2-pl', '>')) {
-            changeSetting($modx, 'tinymcerte.tiny_url', 'https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.5/tinymce.min.js', '{tinymcerte.assets_url}mgr/tinymce/tinymce.min.js');
-            removeFromSetting($modx, 'tinymcerte.plugins', 'paste');
-            removeFromSetting($modx, 'tinymcerte.plugins', 'print');
         }
 
             break;
