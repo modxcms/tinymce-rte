@@ -249,10 +249,13 @@ if ($object->xpdo) {
         if ($oldPackage && $oldPackage->compareVersion('3.0.3-pl', '>')) {
             removeFromSetting($modx, 'tinymcerte.plugins', 'modximage');
             addToSetting($modx, 'tinymcerte.plugins', 'quickbars');
-            changeSetting($modx, 'tinymcerte.skin', 'modx', 'oxide');
             changeSetting($modx, 'tinymcerte.toolbar1', 'link', 'modxlink');
             changeSetting($modx, 'tinymcerte.toolbar2', 'link', 'modxlink');
             changeSetting($modx, 'tinymcerte.toolbar3', 'link', 'modxlink');
+        }
+
+        if ($oldPackage && $oldPackage->compareVersion('3.0.4-pl', '>')) {
+            changeSetting($modx, 'tinymcerte.skin', 'modx', 'oxide');
         }
 
             break;
