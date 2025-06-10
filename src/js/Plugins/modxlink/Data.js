@@ -3,11 +3,16 @@ export default class Data {
         this.editor = editor;
         window.editor = editor;
         this.element = editor.dom.getParent(editor.selection.getStart(), 'a[href]');
-        let blocks = this.editor.selection.getSelectedBlocks();
-        if (blocks[0].firstElementChild && blocks[0].firstElementChild.nodeName === 'A') {
-            console.info('Descending into anchor');
-            this.element = blocks[0].firstElementChild;
-            this.editor.selection.select(this.element);
+        if (this.element === null) {
+            let testElement = document.createElement('div');
+            testElement.innerHTML = this.editor.selection.getContent();
+            for (let i = 0; i < testElement.children.length; i++) {
+                if (testElement.children[i].tagName === 'A') {
+                    this.element = testElement.children[i];
+                    this.editor.selection.select(this.element);
+                    break;
+                }
+            }
         }
 
 
