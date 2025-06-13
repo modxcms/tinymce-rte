@@ -258,6 +258,10 @@ if ($object->xpdo) {
             changeSetting($modx, 'tinymcerte.skin', 'modx', 'oxide');
         }
 
+        if ($oldPackage && $oldPackage->compareVersion('3.1.0-pl', '>')) {
+            addToSetting($modx, 'tinymcerte.plugins', 'image');
+        }
+
             break;
     }
 }
