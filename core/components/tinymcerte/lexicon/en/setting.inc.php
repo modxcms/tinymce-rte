@@ -19,6 +19,8 @@ $_lang['setting_tinymcerte.content_css'] = 'Content CSS';
 $_lang['setting_tinymcerte.content_css_desc'] = 'Load additional CSS files with TinyMCE. Use "," (comma) delimiter for multiple files. <a href="https://www.tiny.cloud/docs/configure/content-appearance/#content_css">https://www.tiny.cloud/docs/configure/content-appearance/#content_css</a>';
 $_lang['setting_tinymcerte.enable_link_list'] = 'Enable link list';
 $_lang['setting_tinymcerte.enable_link_list_desc'] = 'This option enables the nested link list in the link plugin. It can be switched off, when the link list creates a timeout on very large sites.';
+$_lang['setting_tinymcerte.enable_link_aria'] = 'Enable link Aria';
+$_lang['setting_tinymcerte.enable_link_aria_desc'] = 'This option enables the aria-label and aria-labelledby attributes for the link plugin. It can be switched off, however if aria attributes are detected on a link it will show the fields anyway.';
 $_lang['setting_tinymcerte.external_config'] = 'External config';
 $_lang['setting_tinymcerte.external_config_desc'] = 'Path to an external JSON config file. It will be merged with with the system setting defaults.';
 $_lang['setting_tinymcerte.headers_format'] = 'Headers format';
