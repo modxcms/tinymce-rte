@@ -20,6 +20,12 @@ export default (editor, url) => {
         processor: 'object[]',
         default: []
     });
+
+    editor.options.register('enable_link_aria', {
+        processor: 'boolean',
+        default: true
+    });
+
     const handleClick = () => {
         const dataHelper = new Data(editor);
         let currentTab = dataHelper.getActiveTab() ?? 'page';
@@ -29,7 +35,8 @@ export default (editor, url) => {
         let lookupTimeout = null;
         let initData = [];
         const formsize = 40;
-        const choicesData = {
+        const enableAria = editor.options.get('enable_link_aria');
+        let choicesData = {
             'page_page': data.page_page,
             'page_url': data.page_url,
         };
@@ -76,6 +83,15 @@ export default (editor, url) => {
             size: formsize,
 
         });
+        if (enableAria || data.id) {
+            linkOptions.push({
+                type: 'input',
+                name: 'id',
+                label: 'ID',
+                size: formsize,
+
+            });
+        }
         if (editor.options.get('link_class_list').length) {
             linkOptions.push({
                 type: 'listbox',
@@ -101,18 +117,62 @@ export default (editor, url) => {
                 label: 'Classes',
             });
         }
-
+        if (enableAria || data.aria_label) {
+            linkOptions.push({
+                type: 'input',
+                name: 'aria_label',
+                label: 'Aria Label',
+                size: formsize,
+            });
+        }
+        if (enableAria || data.aria_labelledby) {
+            linkOptions.push({
+                type: 'input',
+                name: 'aria_labelledby',
+                label: 'Aria Labelled By',
+                size: formsize,
+            });
+        }
+        if (enableAria || data.aria_describedby) {
+            linkOptions.push({
+                type: 'input',
+                name: 'aria_describedby',
+                label: 'Aria Described By',
+                size: formsize,
+            });
+        }
         linkOptions.push({
+            type: 'input',
+            name: 'rel',
+            label: 'Relationship',
+            size: formsize,
+        });
+
+        const linkOptionsPanel = {
+            type: 'grid',
+            columns: 2,
+            items: linkOptions
+        };
+        const checboxOptions = [];
+        if (enableAria || data.aria_hidden) {
+            checboxOptions.push({
+                type: 'checkbox',
+                name: 'aria_hidden',
+                label: 'Aria Hidden',
+                size: formsize,
+            });
+        }
+        checboxOptions.push({
             type: 'checkbox',
             name: 'new_window',
             size: formsize,
             label: 'New Window',
         });
-
-        const linkOptionsPanel = {
-            type: 'panel',
-            items: linkOptions
-        };
+        const checkboxOptionsPanel = {
+            type: 'grid',
+            columns: 2,
+            items: checboxOptions
+        }
         let pageSelector = null;
 
         if (editor.options.get('enable_link_list')) {
@@ -141,6 +201,7 @@ export default (editor, url) => {
                     name: 'page',
                     items: [
                         linkOptionsPanel,
+                        checkboxOptionsPanel,
                         pageSelector,
                         {
                             type: 'input',
@@ -163,10 +224,12 @@ export default (editor, url) => {
                     name: 'url',
                     items: [
                         linkOptionsPanel,
+                        checkboxOptionsPanel,
                         {
                             type: 'input',
                             label: 'URL',
                             name: 'url_url',
+                            inputMode: 'url',
                             size: formsize,
                         }
                     ]
@@ -176,10 +239,12 @@ export default (editor, url) => {
                     name: 'email',
                     items: [
                         linkOptionsPanel,
+                        checkboxOptionsPanel,
                         {
                             type: 'input',
                             label: 'To',
                             name: 'email_to',
+                            inputMode: 'email',
                             size: formsize,
                         },
                         {
@@ -202,9 +267,11 @@ export default (editor, url) => {
                     name: 'phone',
                     items: [
                         linkOptionsPanel,
+                        checkboxOptionsPanel,
                         {
                             type: 'input',
                             label: 'Phone',
+                            inputMode: 'tel',
                             name: 'phone_phone',
                             size: formsize,
                         }
@@ -215,6 +282,7 @@ export default (editor, url) => {
                     name: 'file',
                     items: [
                         linkOptionsPanel,
+                        checkboxOptionsPanel,
                         {
                             type: 'urlinput',
                             label: 'File',
@@ -231,7 +299,7 @@ export default (editor, url) => {
 
         let templateInputChoices;
         const initChoices = () => {
-            const input = document.querySelector('#page_url');
+            const input = document.getElementById('page_url');
             if (input) {
                 templateInputChoices = new Choices(input, {
                     removeItemButton: true,
@@ -290,18 +358,21 @@ export default (editor, url) => {
             ],
             onTabChange: (dialogApi, details) => {
                 currentTab = details.newTabName;
-
-                initChoices();
+                if (currentTab === 'page' && !templateInputChoices && !editor.options.get('enable_link_list')) {
+                    initChoices();
+                }
             },
             onSubmit: (api) => {
                 const link = new Link(editor);
                 let data = api.getData();
                 if (!editor.options.get('enable_link_list')) {
-                    data = {
-                        ...data,
-                        ...choicesData,
-                    };
+                    // remove page_url and page_page from choicesData
+                    choicesData = {}
                 }
+                data = {
+                    ...data,
+                    ...choicesData,
+                };
                 link.save(currentTab, data);
                 api.close();
             },

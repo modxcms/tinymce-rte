@@ -19,6 +19,12 @@ export default class Data {
         this.initialData = {
             link_text: this.editor.selection.getContent(),
             link_title: '',
+            aria_label: '',
+            aria_labelledby: '',
+            aria_describedby: '',
+            aria_hidden: false,
+            id: '',
+            rel: '',
             classes: '',
             new_window: false,
             'page_page': '',
@@ -71,6 +77,12 @@ export default class Data {
 
         data.link_title = this.element.getAttribute('title') ?? '';
         data.classes = this.element.getAttribute('class') ?? '';
+        data.id = this.element.getAttribute('id') ?? '';
+        data.rel = this.element.getAttribute('rel') ?? '';
+        data.aria_label = this.element.getAttribute('aria-label') ?? '';
+        data.aria_labelledby = this.element.getAttribute('aria-labelledby') ?? '';
+        data.aria_describedby = this.element.getAttribute('aria-describedby') ?? '';
+        data.aria_hidden = this.element.getAttribute('aria-hidden') ?? false;
         data.new_window = (this.element.getAttribute('target') === '_blank');
         data.link_text = this.element.innerHTML;
 

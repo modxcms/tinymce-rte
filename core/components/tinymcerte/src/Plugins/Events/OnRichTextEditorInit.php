@@ -135,6 +135,7 @@ class OnRichTextEditorInit extends Plugin
             'remove_script_host' => $this->tinymcerte->getOption('remove_script_host', [], true) == 1,
             'entity_encoding' => $this->tinymcerte->getOption('entity_encoding', [], 'named'),
             'enable_link_list' => $this->tinymcerte->getOption('enable_link_list', [], true) == 1,
+            'enable_link_aria' => $this->tinymcerte->getOption('enable_link_aria', [], false) == 1,
             'max_height' => (int)$this->tinymcerte->getOption('max_height', [], 500),
             'min_height' => (int)$this->tinymcerte->getOption('min_height', [], 100),
             'branding' => $this->tinymcerte->getOption('branding', [], false) == 1,

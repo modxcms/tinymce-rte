@@ -114,6 +114,12 @@
         "area": "tinymcerte.default"
       },
       {
+        "key": "enable_link_aria",
+        "value": false,
+        "type": "combo-boolean",
+        "area": "tinymcerte.default"
+      },
+      {
         "key": "links_across_contexts",
         "value": false,
         "type": "combo-boolean",
