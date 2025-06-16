@@ -46,6 +46,30 @@ export default class Link {
         if (data.classes) {
             attributes.class = data.classes;
         }
+
+        if (data.id) {
+            attributes.id = data.id;
+        }
+
+        if (data.rel) {
+            attributes.rel = data.rel;
+        }
+
+        if (data.aria_label) {
+            attributes['aria-label'] = data.aria_label;
+        }
+
+        if (data.aria_labelledby) {
+            attributes['aria-labelledby'] = data.aria_labelledby;
+        }
+
+        if (data.aria_describedby) {
+            attributes['aria-describedby'] = data.aria_describedby;
+        }
+
+        if (data.aria_hidden) {
+            attributes['aria-hidden'] = data.aria_hidden;
+        }
         
         return attributes;
     }
