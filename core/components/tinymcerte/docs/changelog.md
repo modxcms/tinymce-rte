@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Add missing label when adding modxlink to the menu
 - Fix issue with being unable to add a link when enable_link_list is set
+- Respect manager language
 
 
 ## [3.1.0] - 2025-06-13
