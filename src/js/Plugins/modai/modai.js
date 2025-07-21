@@ -1,5 +1,3 @@
-import './translations'
-
 export default (editor, url) => {
     if (typeof modAI === 'undefined') {
         return;

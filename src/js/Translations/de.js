@@ -1,4 +1,8 @@
-tinymce.addI18n('it', {
+import 'tinymce-i18n/langs6/de';
+
+tinymce.util.I18n.add('de', {
+    '✦ Prompt': '✦ Prompt',
+    '✦ Modify': '✦ Modify',
     'Insert/edit link': 'Insert/edit link',
     'Link Text': 'Link Text',
     'Link Title': 'Link Title',
@@ -10,7 +14,7 @@ tinymce.addI18n('it', {
     'Aria Hidden': 'Aria Hidden',
     'New Window': 'New Window',
     'Page': 'Page',
-    'Select resource': 'Seleziona risorsa',
+    'Select resource': 'Ressource wählen',
     'Block on': 'Block on',
     'Anchor Tag': 'Anchor Tag',
     'Extra Params': 'Extra Params',

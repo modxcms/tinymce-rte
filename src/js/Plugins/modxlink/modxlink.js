@@ -4,8 +4,6 @@ import Data from './Data';
 import Link from './Link';
 import { unlinkSelection } from './Unlink';
 
-import './translations'
-
 export default (editor, url) => {
 
     editor.options.register('link_class_list', {
@@ -323,7 +321,7 @@ export default (editor, url) => {
 
                     if (!data.link_text) {
                         data.link_text = event.detail.label;
-                        linkText.value(event.detail.label);
+                        //linkText.value(event.detail.label);
                     }
 
                     const pageAnchorEl = document.getElementById('page_anchor-l');

@@ -1,4 +1,8 @@
-tinymce.addI18n('ru', {
+import 'tinymce-i18n/langs6/it';
+
+tinymce.util.I18n.add('it', {
+    '✦ Prompt': '✦ Prompt',
+    '✦ Modify': '✦ Modify',
     'Insert/edit link': 'Insert/edit link',
     'Link Text': 'Link Text',
     'Link Title': 'Link Title',
@@ -10,7 +14,7 @@ tinymce.addI18n('ru', {
     'Aria Hidden': 'Aria Hidden',
     'New Window': 'New Window',
     'Page': 'Page',
-    'Select resource': 'Выберите ресурс',
+    'Select resource': 'Seleziona risorsa',
     'Block on': 'Block on',
     'Anchor Tag': 'Anchor Tag',
     'Extra Params': 'Extra Params',
