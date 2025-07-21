@@ -365,7 +365,7 @@ export default (editor, url) => {
             onSubmit: (api) => {
                 const link = new Link(editor);
                 let data = api.getData();
-                if (!editor.options.get('enable_link_list')) {
+                if (editor.options.get('enable_link_list')) {
                     // remove page_url and page_page from choicesData
                     choicesData = {}
                 }
@@ -454,7 +454,7 @@ export default (editor, url) => {
 
     editor.ui.registry.addMenuItem('modxlink', {
         icon: 'link',
-        tooltip: 'Insert/edit link',
+        text: 'Insert/edit link',
         onAction: handleClick,
         stateSelector: 'a[href]'
     });
