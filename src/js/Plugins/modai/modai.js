@@ -74,6 +74,7 @@ export default (editor, url) => {
 
     editor.ui.registry.addButton('modai_generate', {
         text: '✦ Prompt',
+        tooltip: '✦ Prompt',
         onAction: () => {
             modAIPromptHandler();
         }
@@ -96,6 +97,7 @@ export default (editor, url) => {
     if (prompts.length > 0) {
         editor.ui.registry.addMenuButton('modai_enhance', {
             text: '✦ Modify',
+            tooltip: '✦ Modify',
             fetch: function (cb) {
                 const selection = editor.selection.getContent({format: 'text'});
 

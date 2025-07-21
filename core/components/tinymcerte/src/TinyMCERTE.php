@@ -140,7 +140,7 @@ class TinyMCERTE
             $language = $codes[$language];
         }
 
-        $langFile = $this->getOption('assetsPath') . 'js/vendor/tinymce/langs/' . $language . '.js';
+        $langFile = $this->getOption('assetsPath') . 'mgr/tinymce/langs/' . $language . '.js';
         if (!file_exists(($langFile))) {
             return 'en';
         }

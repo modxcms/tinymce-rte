@@ -179,17 +179,18 @@ export default (editor, url) => {
             pageSelector = {
                 type: 'listbox',
                 name: 'page_page',
-                label: 'Page',
+                label: 'Select resource',
                 size: formsize,
                 items: buildListItems(
                     editor.options.get('link_list')
                 )
             }
         } else {
+            const selectResource = tinymce.i18n.translate('Select resource');
             pageSelector = {
                 id: 'pagecontainer',
-                    type: 'htmlpanel',
-                html: '<input type="hidden" name="page_page" /><label for="page_url" class="tox-label">Page Title</label><select id="page_url"></select>'
+                type: 'htmlpanel',
+                html: '<input type="hidden" name="page_page" /><label for="page_url" class="tox-label">' + selectResource + '</label><select id="page_url"></select>'
             };
         }
 
@@ -320,12 +321,13 @@ export default (editor, url) => {
 
                     if (!data.link_text) {
                         data.link_text = event.detail.label;
-                        linkText.value(event.detail.label);
+                        //linkText.value(event.detail.label);
                     }
 
                     const pageAnchorEl = document.getElementById('page_anchor-l');
                     if (pageAnchorEl) {
-                        pageAnchorEl.innerText =  'Block on' + event.detail.choice.label;
+                        const blockOn = tinymce.i18n.translate('Block on');
+                        pageAnchorEl.innerText =  blockOn + ' ' + event.detail.choice.label;
                     }
                 });
 
@@ -336,7 +338,8 @@ export default (editor, url) => {
                     choicesData.page_url = '';
                     const pageAnchorEl = document.getElementById('page_anchor-l');
                     if (pageAnchorEl) {
-                        pageAnchorEl.innerText = 'Block on' + ( MODx?.activePage?.record?.pagetitle || 'Page');
+                        const blockOn = tinymce.i18n.translate('Block on');
+                        pageAnchorEl.innerText = blockOn + ' ' + ( MODx?.activePage?.record?.pagetitle || 'Page');
                     }
                 });
             }
@@ -365,7 +368,7 @@ export default (editor, url) => {
             onSubmit: (api) => {
                 const link = new Link(editor);
                 let data = api.getData();
-                if (!editor.options.get('enable_link_list')) {
+                if (editor.options.get('enable_link_list')) {
                     // remove page_url and page_page from choicesData
                     choicesData = {}
                 }
@@ -454,7 +457,7 @@ export default (editor, url) => {
 
     editor.ui.registry.addMenuItem('modxlink', {
         icon: 'link',
-        tooltip: 'Insert/edit link',
+        text: 'Insert/edit link',
         onAction: handleClick,
         stateSelector: 'a[href]'
     });

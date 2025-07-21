@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.1] - 2025-7-21
+
+### Changed
+
+- Add missing label when adding modxlink to the menu
+- Fix issue with being unable to add a link when enable_link_list is set
+- Respect manager language
+
+
 ## [3.1.0] - 2025-06-13
 
 ### Changed
