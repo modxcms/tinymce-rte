@@ -23,7 +23,7 @@ export default (editor, url) => {
 
     editor.options.register('enable_link_aria', {
         processor: 'boolean',
-        default: true
+        default: false
     });
 
     const handleClick = () => {
@@ -361,7 +361,7 @@ export default (editor, url) => {
             ],
             onTabChange: (dialogApi, details) => {
                 currentTab = details.newTabName;
-                if (currentTab === 'page' && !templateInputChoices && !editor.options.get('enable_link_list')) {
+                if (currentTab === 'page' && !editor.options.get('enable_link_list')) {
                     initChoices();
                 }
             },
