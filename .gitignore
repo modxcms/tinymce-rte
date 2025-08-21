@@ -5,14 +5,13 @@ config.core.php
 
 # Packages #
 ############
-_packages/*.*
-!_packages/.gitignore
-!_packages/*.zip
+_packages/*
 
 # TinyMCE Source & Language #
 ##################
 /src/tinymce/
 /src/*.zip
+/assets/components/tinymcerte/mgr/*
 
 # IDE files #
 #############
@@ -32,6 +31,6 @@ ehthumbs.db
 Thumbs.db
 node_modules
 
-# Packages #
+# .gitkeep #
 ############
-_packages
+!.gitkeep
