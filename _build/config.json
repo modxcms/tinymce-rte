@@ -141,6 +141,11 @@
         "area": "tinymcerte.toolbar"
       },
       {
+        "key": "image_toolbar",
+        "value": "alignleft aligncenter alignright | modxlink | image",
+        "area": "tinymcerte.toolbar"
+      },
+      {
         "key": "selection_toolbar",
         "value": "bold italic underline | modxlink | modai_enhance",
         "area": "tinymcerte.toolbar"

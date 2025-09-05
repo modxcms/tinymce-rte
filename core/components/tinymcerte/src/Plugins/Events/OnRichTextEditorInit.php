@@ -112,6 +112,7 @@ class OnRichTextEditorInit extends Plugin
         $config = array_merge([
             'plugins' => $this->tinymcerte->getOption('plugins', [], 'advlist autoresize autolink lists charmap preview anchor visualblocks searchreplace code fullscreen insertdatetime media table image quickbars modxlink modai'),
             'quickbars_insert_toolbar' => $this->tinymcerte->getOption('insert_toolbar', [], 'image media quicktable modxlink modai_generate'),
+            'quickbars_image_toolbar' => $this->tinymcerte->getOption('image_toolbar', [], 'alignleft aligncenter alignright | modxlink | image'),
             'quickbars_selection_toolbar' => $this->tinymcerte->getOption('selection_toolbar', [], 'bold italic underline | modxlink | modai_enhance'),
             'toolbar1' => $this->tinymcerte->getOption('toolbar1', [], 'undo redo | styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | modxlink | image'),
             'toolbar2' => $this->tinymcerte->getOption('toolbar2', [], ''),

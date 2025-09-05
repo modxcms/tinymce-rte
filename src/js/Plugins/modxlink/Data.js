@@ -1,8 +1,11 @@
+import {collectNodesInRange, isImageFigure} from "./Functions";
+import Optional from "./Optional";
+
 export default class Data {
     constructor(editor) {
         this.editor = editor;
         window.editor = editor;
-        this.element = editor.dom.getParent(editor.selection.getStart(), 'a[href]');
+        this.element = this.getAnchorElement(editor, this.editor.selection.getNode()).getOr(null);
         if (this.element === null) {
             let testElement = document.createElement('div');
             testElement.innerHTML = this.editor.selection.getContent();
@@ -14,7 +17,6 @@ export default class Data {
                 }
             }
         }
-
 
         this.initialData = {
             link_text: this.editor.selection.getContent(),
@@ -42,6 +44,16 @@ export default class Data {
         this.activeTab = 'url';
         this.data = this.parseData();
     }
+
+    getLinksInSelection = rng => collectNodesInRange(rng, isLink);
+    getAnchorElement = (editor, selectedElm) => {
+        selectedElm = selectedElm || this.getLinksInSelection(editor.selection.getRng())[0] || editor.selection.getNode();
+        if (isImageFigure(selectedElm)) {
+            return Optional.from(editor.dom.select('a[href]', selectedElm)[0]);
+        } else {
+            return Optional.from(editor.dom.getParent(selectedElm, 'a[href]'));
+        }
+    };
     
     getData() {
         return this.data;
