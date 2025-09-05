@@ -2,8 +2,8 @@
   "name": "TinyMCE Rich Text Editor",
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 6",
-  "author": "John Peca/Thomas Jakobi",
-  "version": "3.1.2",
+  "author": "John Peca/Thomas Jakobi/matdave",
+  "version": "3.1.3",
   "package": {
     "elements": {
       "plugins": [
@@ -138,6 +138,11 @@
       {
         "key": "insert_toolbar",
         "value": "image media quicktable modxlink modai_generate",
+        "area": "tinymcerte.toolbar"
+      },
+      {
+        "key": "image_toolbar",
+        "value": "alignleft aligncenter alignright | modxlink | image",
         "area": "tinymcerte.toolbar"
       },
       {
