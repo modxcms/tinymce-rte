@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 6",
   "author": "John Peca/Thomas Jakobi/matdave",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "package": {
     "elements": {
       "plugins": [
