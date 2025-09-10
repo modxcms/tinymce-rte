@@ -137,12 +137,30 @@ class OnRichTextEditorInit extends Plugin
             'entity_encoding' => $this->tinymcerte->getOption('entity_encoding', [], 'named'),
             'enable_link_list' => $this->tinymcerte->getOption('enable_link_list', [], true) == 1,
             'enable_link_aria' => $this->tinymcerte->getOption('enable_link_aria', [], false) == 1,
+            'width' => $this->tinymcerte->getOption('width', [], '100%'),
+            'min_width' => (int)$this->tinymcerte->getOption('min_width', [], 0),
+            'max_width' => (int)$this->tinymcerte->getOption('min_width', [], 0),
             'max_height' => (int)$this->tinymcerte->getOption('max_height', [], 500),
             'min_height' => (int)$this->tinymcerte->getOption('min_height', [], 100),
             'branding' => $this->tinymcerte->getOption('branding', [], false) == 1,
             'cache_suffix' => '?v=' . $this->tinymcerte->version,
             'promotion' => false
         ], $this->getSettings(), $this->getProperties());
+        if (!$config['width']) {
+            unset($config['width']);
+        }
+        if (!$config['min_width']) {
+            unset($config['min_width']);
+        }
+        if (!$config['max_width']) {
+            unset($config['max_width']);
+        }
+        if (!$config['min_height']) {
+            unset($config['max_height']);
+        }
+        if (!$config['max_height']) {
+            unset($config['max_height']);
+        }
 
         $styleFormats = $this->tinymcerte->getOption('style_formats', [], '[]');
         $styleFormats = json_decode($styleFormats, true) ?? [];

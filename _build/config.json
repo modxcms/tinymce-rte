@@ -136,6 +136,21 @@
         "area": "tinymcerte.default"
       },
       {
+        "key": "max_width",
+        "value": "0",
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "min_width",
+        "value": "0",
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "width",
+        "value": "100%",
+        "area": "tinymcerte.default"
+      },
+      {
         "key": "insert_toolbar",
         "value": "image media quicktable modxlink modai_generate",
         "area": "tinymcerte.toolbar"
