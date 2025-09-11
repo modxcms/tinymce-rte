@@ -307,7 +307,7 @@ export default (editor, url) => {
                     allowHTML: true,
                 });
 
-                initLookup(data.page_page);
+                initLookup(choicesData.page_page);
 
                 input.addEventListener('search', event => {
                     clearTimeout(lookupTimeout);
