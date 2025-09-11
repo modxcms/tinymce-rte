@@ -3,7 +3,7 @@
   "lowCaseName": "tinymcerte",
   "description": "TinyMCE 6",
   "author": "John Peca/Thomas Jakobi/matdave",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "package": {
     "elements": {
       "plugins": [
@@ -133,6 +133,21 @@
       {
         "key": "min_height",
         "value": "100",
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "max_width",
+        "value": "0",
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "min_width",
+        "value": "0",
+        "area": "tinymcerte.default"
+      },
+      {
+        "key": "width",
+        "value": "100%",
         "area": "tinymcerte.default"
       },
       {

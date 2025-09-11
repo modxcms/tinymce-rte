@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.1.4] - 2025-9-58
+## [3.1.5] - 2025-9-11
+
+### Changed
+
+- Allow setting editor width
+- Fix issue with link window not opening
+- Fix issue with link choice disappearing on tab change
+
+## [3.1.4] - 2025-9-8
 
 ### Changed
 

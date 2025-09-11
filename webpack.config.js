@@ -20,7 +20,7 @@ module.exports = (env, options) => {
         output: {
             path: path.resolve(__dirname, './assets/components/tinymcerte/mgr'),
             filename: '[name].min.js',
-            clean: {keep: '.gitignore'}
+            clean: {keep: '.gitkeep'}
         },
 
         module: {
