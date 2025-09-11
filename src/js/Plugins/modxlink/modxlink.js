@@ -468,7 +468,15 @@ export default (editor, url) => {
             fetch(linklistUrl).then(function (response) {
                 return response.json();
             }).then(function (data) {
-                editor.options.set('link_list', data.results || []);
+                const selectResource = tinymce.i18n.translate('Select resource');
+                let list = [{
+                    title: selectResource,
+                    value: '',
+                    display: selectResource,
+                    classes: '',
+                }];
+                list = list.concat(data.results || [])
+                editor.options.set('link_list', list);
             });
         }
     }
