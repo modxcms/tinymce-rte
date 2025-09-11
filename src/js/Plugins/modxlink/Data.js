@@ -5,7 +5,7 @@ export default class Data {
     constructor(editor) {
         this.editor = editor;
         window.editor = editor;
-        this.element = this.getAnchorElement(editor, this.editor.selection.getNode()).value ?? null;
+        this.element = this.getAnchorElement(editor, this.editor.selection.getNode())?.value ?? null;
         if (this.element === null) {
             let testElement = document.createElement('div');
             testElement.innerHTML = this.editor.selection.getContent();
