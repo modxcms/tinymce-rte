@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.7] - 2026-04-24
+
+### Changed
+
+- Fixing more z-index issues
+
+## [3.1.6] - 2025-12-05
+
+- Adjusts z-index when going full screen
+- Sets a max height of 90vh to prevent toolbar from going off-screen
+
 ## [3.1.5] - 2025-9-11
 
 ### Changed
